@@ -30,7 +30,7 @@
     "recommendation": "Rainfall incoming. Umbrella for goodness sake!"
   },
   "300": {
-    "recommendation": "Well, a bit of rain never killed anyone. Am I even legally allowed to say er... * frantically deletes*"
+    "recommendation": "Well, a bit of rain never killed anyone. Am I even legally allowed to say er... *frantically deletes*"
   },
   "301": {
     "recommendation": "Rain, but not terminal. Be sensible and wear a coat for heavens sake"
@@ -89,6 +89,12 @@
   "611": {
     "recommendation": "Umbrella and coat as standard"
   },
+  "612": {
+    "recommendation": "Umbrella and coat as standard"
+  },
+  "613": {
+    "recommendation": "Umbrella and coat as standard"
+  },
   "615": {
     "recommendation": "Umbrella and coat as standard. Don't say I didn't warn you"
   },
@@ -110,11 +116,32 @@
   "702": {
     "recommendation": "Do you smell burning? I smell burning..."
   },
+  "711": {
+    "recommendation": "Smoke warning - potential forest fire hazard. Be extremely vigilant and on the lookout for the most up to date weather advisories"
+  },
   "721": {
     "recommendation": "The sun's out but it's hazy. I've got work, but I'm lazy. Like a mini Eminem, right?"
   },
   "731": {
     "recommendation": "Like walking out in the Sahara is what it looks like out there. Tech wear the absolute bare minimum"
+  },
+  "741": {
+    "recommendation": "Foggy weather. Visibility severely impacted. Take extreme care when driving if you must."
+  },
+  "751": {
+    "recommendation": "Potential sandstorms expected. Avoid the outdoors if you can"
+  },
+  "761": {
+    "recommendation": "Potential dust storms expected. Take cover and remain safe"
+  },
+  "762": {
+    "recommendation": "Volcanic ash advisory - stay indoors whenever possible"
+  },
+  "771": {
+    "recommendation": "Snow squall warning - avoid the outdoors if you can"
+  },
+  "781": {
+    "recommendation": "Tornado warning - take immediate cover at the first sign. Avoid windows."
   },
   "800": {
     "recommendation": "It's a beautiful day. Lather up on some sunscreen and maybe carry a hat too for good measure."
@@ -123,7 +150,7 @@
     "recommendation": "Great day for a bit of laundry and maybe a nice picnic date later :)"
   },
   "802": {
-    "recommendation": "Love is in the air. Call that special someone out for a coffee"
+    "recommendation": "Love is in the air. Call that special someone up for a coffee"
   },
   "803": {
     "recommendation": "'Netflix and chill' weather. It's pleasant outside"
