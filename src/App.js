@@ -1,6 +1,7 @@
 import React from "react";
 import Weather from "./Weather";
 import { Container } from "@material-ui/core";
+import LoadingSpinner from './loading-spinner';
 
 class App extends React.Component {
   constructor(props) {
@@ -8,27 +9,58 @@ class App extends React.Component {
     this.state = {
       city: "Eldoret",
       currentWeather: {},
-      forecast: []
+      forecast: [],
+      error: ""
     };
   }
 
-  componentDidMount() {
-    const weatherUrl = `${process.env.REACT_APP_API_URL}/weather/?q=${this.state.city}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`;
+  setCity(city) {
+    this.setState({
+      city: city
+    });
+  }
 
-    fetch(weatherUrl)
-      .then(weather => weather.json())
+  componentDidMount() {
+    this.setState({ error: "" });
+    this.getWeather(this.state.city);
+    this.getForecast(this.state.city);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.city !== prevState.city) {
+      this.setState({ error: "" });
+      this.getWeather(this.state.city);
+      this.getForecast(this.state.city);
+    }
+  } 
+
+  handleResponse(response) {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Error: Location ' + response.statusText);
+    }
+  }
+
+  getWeather(city) {
+    fetch(`${process.env.REACT_APP_API_URL}/weather/?q=${city}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
+      .then(res => this.handleResponse(res))
       .then(weather => {
         const mappedData = this.mapDataToWeatherInterface(weather);
 
         this.setState({
           currentWeather: mappedData
         });
+      })
+      .catch(error => {
+        console.error(`Error fetching current weather for ${this.state.city}: `, error);
+        this.setState({ error: error.message });
       });
+  }
 
-    const forecastUrl = `${process.env.REACT_APP_API_URL}/forecast/?q=${this.state.city}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`;
-
-    fetch(forecastUrl)
-      .then(forecast => forecast.json())
+  getForecast(city) {
+    fetch(`${process.env.REACT_APP_API_URL}/forecast/?q=${city}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
+      .then(res => this.handleResponse(res))
       .then(result => {
         const forecast = [];
         for (let i = 0; i < result.list.length; i += 8) {
@@ -37,8 +69,12 @@ class App extends React.Component {
 
         this.setState({
           forecast: forecast
-        })
-      });
+        });
+      })
+      .catch(error => {
+        console.error(`Error fetching forecast for ${this.state.city}: `, error);
+        return [];
+      });;
   }
 
   mapDataToWeatherInterface = data => {
@@ -78,16 +114,22 @@ class App extends React.Component {
   };
 
   render() {
-    const { currentWeather, forecast } = this.state;
+    const { city, currentWeather, forecast, error } = this.state;
 
     if (Object.keys(currentWeather).length && Object.keys(forecast).length) {
       return (
         <Container maxWidth="sm">
-          <Weather currentWeather={currentWeather} forecast={forecast} />
+          <Weather
+            city={city}
+            currentWeather={currentWeather}
+            forecast={forecast}
+            setCity={this.setCity.bind(this)}
+            error={error}
+          />
         </Container>
       );
     } else {
-      return <span>Loading...</span>;
+      return <LoadingSpinner />
     }
   }
 }

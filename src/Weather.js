@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   AppBar,
@@ -7,14 +7,19 @@ import {
   CardContent,
   CardHeader,
   CardMedia,
+  CircularProgress,
   Divider,
   Drawer,
+  FormControl,
   Grid,
   IconButton,
+  Input,
+  InputAdornment,
   List,
   ListItem,
   ListItemText,
   Toolbar,
+  Tooltip,
   Typography
 } from "@material-ui/core";
 import about from "./about.png";
@@ -22,11 +27,17 @@ import logo from "./logo.svg";
 import dayjs from "dayjs";
 import * as weatherIcons from "./icons";
 import * as recommendations from "./recommendations";
+import Search from "@material-ui/icons/Search";
+import useDebounce from "./use-debounce";
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexiGrow: 1,
     color: "black"
+  },
+  appBar: {
+    background: "transparent",
+    boxShadow: "none"
   },
   appLogo: {
     width: "160px"
@@ -37,7 +48,7 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.text.secondary
   },
   layout: {
-    marginTop: "100px"
+    marginTop: "20px"
   },
   card: {
     minWidth: 600,
@@ -72,15 +83,78 @@ const useStyles = makeStyles(theme => ({
   aboutText: {
     fontFamily: "Montserrat",
     padding: "30px"
+  },
+  container: {
+    display: "flex",
+    flexWrap: "wrap"
+  },
+  search: {
+    marginTop: "100px"
+  },
+  error: {
+    color: "red",
+    padding: "10px"
   }
 }));
+
+const WeatherSearch = props => {
+  const classes = useStyles();
+  const [searchTerm, setSearchTerm] = useState("");
+  let [isSearching, setSearching] = useState(false);
+  const debouncedSearchTerm = useDebounce(searchTerm, 1000);
+  const hasError = props.error ? true : false;
+
+  useEffect(() => {
+    if (debouncedSearchTerm) {
+      props.setCity(debouncedSearchTerm);
+      setSearching((isSearching = false));
+    }
+  }, [debouncedSearchTerm]);
+
+  return (
+    <div className={classes.search}>
+      <Grid container alignItems="flex-end">
+        <Grid item xs={12} style={{ textAlign: "center" }}>
+          <FormControl>
+            <Input
+              id="search-city"
+              error={hasError}
+              placeholder="Enter city name"
+              onChange={e => {
+                setSearching((isSearching = true));
+                setSearchTerm(e.target.value);
+              }}
+              startAdornment={
+                <InputAdornment position="start">
+                  <Tooltip title="Optional: Enter a two-letter country code after the city name to make the search more precise. For example, London, GB.">
+                    <Search />
+                  </Tooltip>
+                </InputAdornment>
+              }
+              endAdornment={
+                isSearching && (
+                  <InputAdornment position="end">
+                    <CircularProgress size={20} />
+                  </InputAdornment>
+                )
+              }
+            />
+            {props.error && (
+              <Typography className={classes.error}>{props.error}</Typography>
+            )}
+          </FormControl>
+        </Grid>
+      </Grid>
+    </div>
+  );
+};
 
 const NavBar = () => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <AppBar style={{ background: "transparent", boxShadow: "none" }}>
+      <AppBar className={classes.appBar}>
         <Toolbar>
           <img src={logo} className={classes.appLogo} alt="logo" />
           <Grid justify="space-between" container></Grid>
@@ -125,11 +199,11 @@ const TemporaryDrawer = () => {
       onKeyDown={toggleDrawer(side, false)}
     >
       <img src={about} className={classes.aboutImg} alt="about" />
-      <Typography className={classes.aboutText} variant="body1" gutterBottom>
+      <Typography className={classes.aboutText} component="div" gutterBottom>
         <b>ReactWeather</b> is a labor of{" "}
         <span role="img" aria-label="love emoji" style={{ color: "red" }}>
           ♥️
-        </span>
+        </span>{" "}
         project lovingly crafted by{" "}
         <a
           href="https://github.com/denniskigen"
@@ -150,13 +224,12 @@ const TemporaryDrawer = () => {
           , a similar projected written in Angular.
         </p>
         <p>
-          Functionality is pretty barebones at this point but I'll be adding the
-          ability to search for different locations pretty soon. Tests too -
-          can't wait to get stuck in to Jest.
+          Search functionality now works. What's next? Look away, TDD enthusiasts. Yep. I made the cardinal sin no dev worth their salt
+          ever makes. I didn't write tests. Fear not, all that Jest goodness is coming very soon indeed.
         </p>
       </Typography>
       <Divider variant="middle" />
-      <Typography className={classes.aboutText} variant="body1" gutterBottom>
+      <Typography className={classes.aboutText} component="div" gutterBottom>
         <h3>Credits</h3>
         <ul>
           <li>
@@ -214,11 +287,6 @@ const TemporaryDrawer = () => {
     </div>
   );
 
-  // - [Angular Material](https://material.angular.io)
-  // - [Angular Flex Layout](https://github.com/angular/flex-layout)
-  // - [Erik Flowers' weather icons](https://github.com/erikflowers/weather-icons)
-  // - [OpenWeatherMap API](https://openweathermap.org/api)
-
   return (
     <div>
       <Button onClick={toggleDrawer("right", true)}>About</Button>
@@ -262,7 +330,7 @@ const WeatherCardSubheader = props => {
 
   return (
     <>
-      {dayjs(date).format("dddd")}, {dayjs(date).format("h:m")}{" "}
+      {dayjs(date).format("dddd")}, {dayjs(date).format("h:mm")}{" "}
       {dayjs(date).format("A")},{" "}
       {description.replace(/\w\S*/g, txt => {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
@@ -354,7 +422,7 @@ const WeatherCard = props => {
           color="textPrimary"
           gutterBottom
         >
-          {props.recommendation}.
+          {props.recommendation}
         </Typography>
         <Divider variant="middle" />
         <Forecast forecast={props.forecast} />
@@ -365,7 +433,7 @@ const WeatherCard = props => {
 
 class Weather extends React.Component {
   render() {
-    const { currentWeather, forecast } = this.props;
+    const { city, currentWeather, forecast, setCity, error } = this.props;
     const prefix = "wi wi-";
     const icon =
       prefix + weatherIcons.default[this.props.currentWeather.icon_id].icon;
@@ -375,6 +443,7 @@ class Weather extends React.Component {
     return (
       <div>
         <NavBar />
+        <WeatherSearch city={city} setCity={setCity} error={error} />
         <AppLayout
           currentWeather={currentWeather}
           forecast={forecast}
