@@ -107,6 +107,7 @@ const WeatherSearch = props => {
   useEffect(() => {
     if (debouncedSearchTerm) {
       props.setCity(debouncedSearchTerm);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       setSearching((isSearching = false));
     }
   }, [debouncedSearchTerm]);
