@@ -1,0 +1,17 @@
+language: node_js
+
+node_js:
+  - node
+
+before_install:
+  - npm install -g netlify-cli
+
+script:
+  -  npm run build
+
+deploy:
+  provider: script
+  script: netlify deploy -s $NETLIFY_SITE_ID -a $NETLIFY_AUTH_TOKEN -p -d ./build
+  skip-cleanup: true
+  on:
+    branch: master
