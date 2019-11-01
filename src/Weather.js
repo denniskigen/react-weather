@@ -399,7 +399,7 @@ const WeatherCard = props => {
       <CardContent>
         <CardMedia
           className={`${props.icon} ${classes.wi}`}
-          image={props.icon}
+          src={props.icon}
           style={{ fontSize: "128px", float: "right" }}
         />
         <Typography
