@@ -22,12 +22,14 @@ import {
   Tooltip,
   Typography
 } from "@material-ui/core";
+import Search from "@material-ui/icons/Search";
+
 import about from "./about.png";
 import logo from "./logo.svg";
+
 import dayjs from "dayjs";
 import * as weatherIcons from "./icons";
 import * as recommendations from "./recommendations";
-import Search from "@material-ui/icons/Search";
 import useDebounce from "./use-debounce";
 
 const useStyles = makeStyles(theme => ({
@@ -160,7 +162,7 @@ const NavBar = () => {
           <img src={logo} className={classes.appLogo} alt="logo" />
           <Grid justify="space-between" container></Grid>
           <TemporaryDrawer />
-          <Button>
+          <Button className="github-btn">
             <a
               href="https://github.com/denniskigen/react-weather"
               target="_blank"
@@ -225,8 +227,10 @@ const TemporaryDrawer = () => {
           , a similar projected written in Angular.
         </p>
         <p>
-          Search functionality now works. What's next? Look away, TDD enthusiasts. Yep. I made the cardinal sin no dev worth their salt
-          ever makes. I didn't write tests. Fear not, all that Jest goodness is coming very soon indeed.
+          Search functionality now works. What's next? Look away, TDD
+          enthusiasts. Yep. I made the cardinal sin no dev worth their salt ever
+          makes. I didn't write tests. Fear not, all that Jest goodness is
+          coming very soon indeed.
         </p>
       </Typography>
       <Divider variant="middle" />
@@ -290,7 +294,9 @@ const TemporaryDrawer = () => {
 
   return (
     <div>
-      <Button onClick={toggleDrawer("right", true)}>About</Button>
+      <Button className="about-btn" onClick={toggleDrawer("right", true)}>
+        About
+      </Button>
       <Drawer
         anchor="right"
         open={state.right}
@@ -346,8 +352,9 @@ const Forecast = props => {
   const result = props.forecast.map((item, index) => {
     const icon = prefix + weatherIcons.default[item.icon_id].icon;
     return (
-      <ListItem key={index} button>
+      <ListItem key={index} className="forecastItem">
         <ListItemText
+          className="week-day"
           primary={dayjs(item.dt_txt).format("dddd")}
           style={{ flex: "1 1 0%", textAlign: "left" }}
         ></ListItemText>
@@ -357,7 +364,7 @@ const Forecast = props => {
             style={{ fontSize: "24px" }}
           ></span>
         </IconButton>
-        <span style={{ flex: "1 1 0%", textAlign: "right" }}>
+        <span className="temp" style={{ flex: "1 1 0%", textAlign: "right" }}>
           <Typography variant="body2" component="span" color="textPrimary">
             {Math.round(item.min)}&deg; /{" "}
           </Typography>
@@ -397,6 +404,7 @@ const WeatherCard = props => {
         />
         <Typography
           variant="h2"
+          className="big-temp"
           color="textPrimary"
           component="h2"
           style={{ fontFamily: "Montserrat", paddingTop: "30px" }}
@@ -405,6 +413,7 @@ const WeatherCard = props => {
         </Typography>
         <Typography
           variant="subtitle2"
+          className="atmospheric-conditions"
           color="textSecondary"
           gutterBottom
           style={{ paddingTop: "40px" }}
@@ -419,7 +428,7 @@ const WeatherCard = props => {
           {props.currentWeather.humidity}% Humidity
         </Typography>
         <Typography
-          className={classes.recommendation}
+          className={`${classes.recommendation} recommendation`}
           color="textPrimary"
           gutterBottom
         >
