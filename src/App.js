@@ -92,7 +92,6 @@ class App extends React.Component {
       date: data.dt * 1000,
       humidity: data.main.humidity,
       icon_id: data.weather[0].id,
-      image: `${process.env.REACT_APP_ICON_URL}/${data.weather[0].icon}.png`,
       temperature: data.main.temp,
       description: data.weather[0].description,
       wind_speed: Math.round(data.wind.speed * 3.6), // convert from m/s to km/h
