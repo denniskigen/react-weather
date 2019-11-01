@@ -6,7 +6,7 @@ import dayjs from "dayjs";
 
 import App from "./App";
 import * as recommendations from "./recommendations";
-import { mockWeatherData, mockForecastData } from "./__mocks__/Weather";
+import { mockWeatherData, mockForecastData } from "./__mocks__/Weather.mock.js";
 
 let container = null;
 beforeEach(() => {
