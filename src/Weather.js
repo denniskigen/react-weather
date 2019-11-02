@@ -358,7 +358,7 @@ const Forecast = props => {
           primary={dayjs(item.dt_txt).format("dddd")}
           style={{ flex: "1 1 0%", textAlign: "left" }}
         ></ListItemText>
-        <IconButton edge="start" aria-label="forecast icon">
+        <IconButton disabled={true} aria-label="forecast icon">
           <span
             className={`${classes.wi} ${icon}`}
             style={{ fontSize: "24px" }}
