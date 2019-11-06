@@ -8,6 +8,18 @@ import App from "./App";
 import * as recommendations from "./recommendations";
 import { mockWeatherData, mockForecastData } from "./__mocks__/Weather.mock.js";
 
+jest.mock("./loading-spinner", () => {
+  return function DummyLoadingSpinner() {
+    return (
+      <div>
+        <svg className="MuiCircularProgress-svg">
+          <circle className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"></circle>
+        </svg>
+      </div>
+    );
+  };
+});
+
 let container = null;
 beforeEach(() => {
   // setup a DOM element as a render target
@@ -26,6 +38,40 @@ it("renders without crashing", () => {
   act(() => {
     render(<App />, container);
   });
+});
+
+it("renders a loading spinner while fetching weather data", async () => {
+  jest.spyOn(window, "fetch").mockImplementationOnce(() =>
+    Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve({})
+    })
+  );
+
+  jest.spyOn(window, "fetch").mockImplementationOnce(() =>
+    Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve({})
+    })
+  );
+
+  await act(async () => {
+    render(<App />, container);
+  });
+
+  // Fake loading spinner rendered
+  expect(container.querySelector("svg").getAttribute("class")).toBe(
+    "MuiCircularProgress-svg"
+  );
+  expect(container.querySelector("svg").childElementCount).toBe(
+    1,
+    "One child element"
+  );
+  expect(container.querySelector("circle").getAttribute("class")).toEqual(
+    "MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+  );
+
+  window.fetch.mockRestore();
 });
 
 it("fetches and renders weather data", async () => {
