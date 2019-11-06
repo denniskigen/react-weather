@@ -47,9 +47,11 @@ class App extends React.Component {
     )
       .then(res => this.handleResponse(res))
       .then(weather => {
-        const mappedData = this.mapDataToWeatherInterface(weather);
+        if (Object.entries(weather).length) {
+          const mappedData = this.mapDataToWeatherInterface(weather);
 
-        return mappedData;
+          return mappedData;
+        }
       })
       .then(mappedData => this.getForecast(this.state.city, mappedData))
       .catch(error => {
@@ -67,14 +69,16 @@ class App extends React.Component {
     )
       .then(res => this.handleResponse(res))
       .then(result => {
-        const forecast = [];
-        for (let i = 0; i < result.list.length; i += 8) {
-          forecast.push(this.mapDataToWeatherInterface(result.list[i + 4]));
+        if (Object.entries(result).length) {
+          const forecast = [];
+          for (let i = 0; i < result.list.length; i += 8) {
+            forecast.push(this.mapDataToWeatherInterface(result.list[i + 4]));
+          }
+          this.setState({
+            currentWeather: mappedData,
+            forecast: forecast
+          });
         }
-        this.setState({
-          currentWeather: mappedData,
-          forecast: forecast
-        });
       })
       .catch(error => {
         console.error(
