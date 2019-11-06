@@ -32,19 +32,19 @@ it("fetches and renders weather data", async () => {
   const fakeWeatherData = mockWeatherData;
   const fakeForecastData = mockForecastData;
 
-  jest.spyOn(window, "fetch").mockImplementationOnce(() => {
-    return Promise.resolve({
+  jest.spyOn(window, "fetch").mockImplementationOnce(() =>
+    Promise.resolve({
       ok: true,
       json: () => Promise.resolve(fakeWeatherData)
-    });
-  });
+    })
+  );
 
-  jest.spyOn(window, "fetch").mockImplementationOnce(() => {
-    return Promise.resolve({
+  jest.spyOn(window, "fetch").mockImplementationOnce(() =>
+    Promise.resolve({
       ok: true,
       json: () => Promise.resolve(fakeForecastData)
-    });
-  });
+    })
+  );
 
   await act(async () => {
     render(<App />, container);
