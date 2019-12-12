@@ -1,0 +1,28 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10-browsers
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run: npm test
+      - run: npm install -g netlify-cli
+      - run: npm run build
+
+  deploy:
+    steps:
+      - netlify deploy -s $NETLIFY_SITE_ID -a $NETLIFY_AUTH_TOKEN -p -d ./build
+    branches:
+      only:
+        - master
