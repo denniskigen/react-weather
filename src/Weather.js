@@ -441,14 +441,14 @@ const WeatherCard = props => {
   );
 };
 
-class Weather extends React.Component {
-  render() {
-    const { city, currentWeather, forecast, setCity, error } = this.props;
+function Weather(props) {
+  if (props.currentWeather && props.forecast) {
+    const { city, currentWeather, forecast, setCity, error } = props;
     const prefix = "wi wi-";
     const icon =
-      prefix + weatherIcons.default[this.props.currentWeather.icon_id].icon;
+      prefix + weatherIcons.default[props.currentWeather.icon_id].icon;
     const recommendation =
-      recommendations.default[this.props.currentWeather.icon_id].recommendation;
+      recommendations.default[props.currentWeather.icon_id].recommendation;
 
     return (
       <div>
