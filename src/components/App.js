@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "@material-ui/core";
-import LoadingSpinner from "./loading-spinner";
+import LoadingSpinner from "./LoadingSpinner";
 
 import Weather from "./Weather";
 

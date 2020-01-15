@@ -11,7 +11,7 @@ import {
   mockForecastData
 } from "../__mocks__/Weather.mock.js";
 
-jest.mock("./loading-spinner", () => {
+jest.mock("./LoadingSpinner", () => {
   return function DummyLoadingSpinner() {
     return (
       <div>
@@ -101,7 +101,7 @@ it("fetches and renders weather data", async () => {
 
   // NavBar buttons
   expect(container.querySelector(".about-btn").textContent).toBe("About");
-  expect(container.querySelector(".github-btn").textContent).toBe("Github");
+  expect(container.querySelector(".github-btn").textContent).toBe("GitHub");
   expect(container.querySelector(".MuiCardHeader-title").textContent).toContain(
     fakeWeatherData.name,
     fakeWeatherData.sys.country

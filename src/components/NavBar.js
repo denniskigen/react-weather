@@ -61,6 +61,7 @@ const TemporaryDrawer = () => {
       role="presentation"
       onClick={toggleDrawer(side, false)}
       onKeyDown={toggleDrawer(side, false)}
+      data-testid="side-drawer"
     >
       <img src={about} className={classes.aboutImg} alt="about" />
       <Typography className={classes.aboutText} component="div" gutterBottom>
@@ -86,12 +87,6 @@ const TemporaryDrawer = () => {
             ng-weather
           </a>
           , a similar projected written in Angular.
-        </p>
-        <p>
-          Search functionality now works. What's next? Look away, TDD
-          enthusiasts. Yep. I made the cardinal sin no dev worth their salt ever
-          makes. I didn't write tests. Fear not, all that Jest goodness is
-          coming very soon indeed.
         </p>
       </Typography>
       <Divider variant="middle" />
@@ -155,13 +150,18 @@ const TemporaryDrawer = () => {
 
   return (
     <div>
-      <Button className="about-btn" onClick={toggleDrawer("right", true)}>
+      <Button
+        className="about-btn"
+        onClick={toggleDrawer("right", true)}
+        data-testid="toggle"
+      >
         About
       </Button>
       <Drawer
         anchor="right"
         open={state.right}
         onClose={toggleDrawer("right", false)}
+        data-testid="drawer"
       >
         {sideList("right")}
       </Drawer>
@@ -176,7 +176,12 @@ export default function NavBar() {
     <div className={classes.root}>
       <AppBar className={classes.appBar}>
         <Toolbar>
-          <img src={logo} className={classes.appLogo} alt="logo" />
+          <img
+            src={logo}
+            className={classes.appLogo}
+            alt="logo"
+            data-testid="app-logo"
+          />
           <Grid justify="space-between" container></Grid>
           <TemporaryDrawer />
           <Button className="github-btn">
@@ -185,7 +190,7 @@ export default function NavBar() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Github
+              GitHub
             </a>
           </Button>
         </Toolbar>

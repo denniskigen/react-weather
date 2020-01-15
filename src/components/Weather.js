@@ -1,8 +1,8 @@
 import React from "react";
 
+import AppLayout from "./AppLayout";
 import NavBar from "./NavBar";
 import WeatherSearch from "./WeatherSearch";
-import AppLayout from "./AppLayout";
 
 import * as weatherIcons from "../icons";
 import * as recommendations from "../recommendations";
