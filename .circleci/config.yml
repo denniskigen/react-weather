@@ -50,7 +50,7 @@ jobs:
       - persist_to_workspace:
           root: ./
           paths:
-            - public
+            - build
 
   deploy:
     executor: node
@@ -63,9 +63,6 @@ jobs:
       - run:
           name: Install netlify-cli
           command: sudo npm install -g --silent netlify-cli
-      - run:
-          name: Build
-          command: npm run build
       - run:
           name: Deploy to Netlify
           command: netlify deploy -s $NETLIFY_SITE_ID -a $NETLIFY_AUTH_TOKEN -p --dir=./build
