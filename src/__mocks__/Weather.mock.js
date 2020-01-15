@@ -1,3 +1,96 @@
+export const mockCurrentWeather = {
+  city: "Eldoret",
+  country: "KE",
+  date: 1579073776000,
+  humidity: 68,
+  icon_id: 801,
+  temperature: 19,
+  description: "few clouds",
+  wind_speed: 24,
+  condition: 200,
+  icon: "02d",
+  max: 19,
+  min: 19
+};
+
+export const mockForecast = [
+  {
+    city: undefined,
+    country: undefined,
+    date: 1579122000000,
+    humidity: 85,
+    icon_id: 801,
+    temperature: 13.76,
+    description: "few clouds",
+    wind_speed: 7,
+    condition: undefined,
+    dt_txt: "2020-01-15 21:00:00",
+    icon: "02n",
+    max: 13.76,
+    min: 13.76
+  },
+  {
+    city: undefined,
+    country: undefined,
+    date: 1579208400000,
+    humidity: 77,
+    icon_id: 802,
+    temperature: 14.47,
+    description: "scattered clouds",
+    wind_speed: 6,
+    condition: undefined,
+    dt_txt: "2020-01-16 21:00:00",
+    icon: "03n",
+    max: 14.47,
+    min: 14.47
+  },
+  {
+    city: undefined,
+    country: undefined,
+    date: 1579294800000,
+    humidity: 53,
+    icon_id: 803,
+    temperature: 15.34,
+    description: "broken clouds",
+    wind_speed: 5,
+    condition: undefined,
+    dt_txt: "2020-01-17 21:00:00",
+    icon: "04n",
+    max: 15.34,
+    min: 15.34
+  },
+  {
+    city: undefined,
+    country: undefined,
+    date: 1579381200000,
+    humidity: 46,
+    icon_id: 803,
+    temperature: 15.43,
+    description: "broken clouds",
+    wind_speed: 4,
+    condition: undefined,
+    dt_txt: "2020-01-18 21:00:00",
+    icon: "04n",
+    max: 15.43,
+    min: 15.43
+  },
+  {
+    city: undefined,
+    country: undefined,
+    date: 1579467600000,
+    humidity: 52,
+    icon_id: 804,
+    temperature: 15.02,
+    description: "overcast clouds",
+    wind_speed: 6,
+    condition: undefined,
+    dt_txt: "2020-01-19 21:00:00",
+    icon: "04n",
+    max: 15.02,
+    min: 15.02
+  }
+];
+
 export const mockWeatherData = {
   base: "stations",
   clouds: {
