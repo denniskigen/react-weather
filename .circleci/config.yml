@@ -15,7 +15,7 @@ aliases:
   install_node_modules: &install_node_modules
     run:
       name: Install dependencies
-      command: yarn
+      command: npm install
 
   save_cache: &save_cache
     save_cache:
