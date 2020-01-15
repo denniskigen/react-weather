@@ -2,7 +2,7 @@ import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 import Forecast from "./Forecast";
-import { mockForecast } from "./__mocks__/Weather.mock";
+import { mockForecast } from "../__mocks__/Weather.mock";
 
 let container = null;
 beforeEach(() => {

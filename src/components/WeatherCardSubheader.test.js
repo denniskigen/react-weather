@@ -2,7 +2,7 @@ import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 import WeatherCardSubHeader from "./WeatherCardSubheader";
-import { mockCurrentWeather } from "./__mocks__/Weather.mock";
+import { mockCurrentWeather } from "../__mocks__/Weather.mock";
 
 let container = null;
 beforeEach(() => {

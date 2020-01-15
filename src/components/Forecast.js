@@ -9,7 +9,7 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 
 import dayjs from "dayjs";
-import * as weatherIcons from "./icons";
+import * as weatherIcons from "../icons";
 
 const useStyles = makeStyles(theme => ({
   wi: {

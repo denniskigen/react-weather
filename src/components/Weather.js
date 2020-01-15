@@ -4,8 +4,8 @@ import NavBar from "./NavBar";
 import WeatherSearch from "./WeatherSearch";
 import AppLayout from "./AppLayout";
 
-import * as weatherIcons from "./icons";
-import * as recommendations from "./recommendations";
+import * as weatherIcons from "../icons";
+import * as recommendations from "../recommendations";
 
 export default function Weather(props) {
   if (props.currentWeather && props.forecast) {

@@ -11,7 +11,7 @@ import {
 import Search from "@material-ui/icons/Search";
 import { makeStyles } from "@material-ui/core/styles";
 
-import useDebounce from "./use-debounce";
+import useDebounce from "../use-debounce";
 
 const useStyles = makeStyles(theme => ({
   error: {

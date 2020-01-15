@@ -10,8 +10,8 @@ import {
   Typography
 } from "@material-ui/core";
 
-import about from "./about.png";
-import logo from "./logo.svg";
+import about from "../about.png";
+import logo from "../logo.svg";
 
 const useStyles = makeStyles(theme => ({
   root: {

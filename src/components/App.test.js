@@ -5,8 +5,11 @@ import { act } from "react-dom/test-utils";
 import dayjs from "dayjs";
 
 import App from "./App";
-import * as recommendations from "./recommendations";
-import { mockWeatherData, mockForecastData } from "./__mocks__/Weather.mock.js";
+import * as recommendations from "../recommendations";
+import {
+  mockWeatherData,
+  mockForecastData
+} from "../__mocks__/Weather.mock.js";
 
 jest.mock("./loading-spinner", () => {
   return function DummyLoadingSpinner() {
