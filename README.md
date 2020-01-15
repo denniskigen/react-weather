@@ -1,4 +1,4 @@
-# react-weather [![Build Status](https://travis-ci.org/denniskigen/react-weather.svg?branch=master)](https://travis-ci.org/denniskigen/react-weather)  [![Netlify Status](https://api.netlify.com/api/v1/badges/142b6577-41bb-4d21-846a-096cd87214af/deploy-status)](https://app.netlify.com/sites/yet-another-react-weather-app/deploys)
+# react-weather [![CircleCI](https://circleci.com/gh/denniskigen/react-weather.svg?style=svg)](https://circleci.com/gh/denniskigen/react-weather) [![Netlify Status](https://api.netlify.com/api/v1/badges/142b6577-41bb-4d21-846a-096cd87214af/deploy-status)](https://app.netlify.com/sites/yet-another-react-weather-app/deploys)
 
 A simple React weather app that displays weather information from the OpenWeatherMap API.
 
