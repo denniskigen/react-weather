@@ -1,0 +1,87 @@
+executors:
+  node:
+    docker:
+      - image: circleci/node:10.16.3
+    environment:
+      TZ: "Africa/Nairobi"
+
+aliases:
+  restore_cache: &restore_cache
+    restore_cache:
+      name: Restore NPM Package Cache
+      keys:
+        - dependency-cache-{{ checksum "package-lock.json" }}
+
+  install_node_modules: &install_node_modules
+    run:
+      name: Install dependencies
+      command: yarn
+
+  save_cache: &save_cache
+    save_cache:
+      name: Save NPM package cache
+      key: dependency-cache-{{ checksum "package-lock.json" }}
+      paths:
+        - ./node_modules
+
+version: 2.1
+
+jobs:
+  test:
+    executor: node
+    steps:
+      - checkout
+      - <<: *restore_cache
+      - <<: *install_node_modules
+      - <<: *save_cache
+      - run:
+          name: Test
+          command: npm test
+
+  build:
+    executor: node
+    steps:
+      - checkout
+      - <<: *restore_cache
+      - <<: *install_node_modules
+      - run:
+          name: Build
+          command: npm run build
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - public
+
+  deploy:
+    executor: node
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ./
+      - <<: *restore_cache
+      - <<: *install_node_modules
+      - run:
+          name: Install netlify-cli
+          command: sudo npm install -g --silent netlify-cli
+      - run:
+          name: Deploy to Netlify
+          command: netlify deploy -s $NETLIFY_SITE_ID -a $NETLIFY_AUTH_TOKEN -p -d ./build
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - test:
+          filters:
+            branches:
+              ignore:
+                - gh-pages
+      - build:
+          requires:
+            - test
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
