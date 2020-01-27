@@ -25,18 +25,18 @@ const useStyles = makeStyles(theme => ({
 
 export default function WeatherSearch(props) {
   const classes = useStyles();
+  const { setCity } = props;
   const [searchTerm, setSearchTerm] = useState("");
-  let [isSearching, setSearching] = useState(false);
+  const [isSearching, setSearching] = useState(false);
   const debouncedSearchTerm = useDebounce(searchTerm, 1000);
   const hasError = props.error ? true : false;
 
   useEffect(() => {
     if (debouncedSearchTerm) {
-      props.setCity(debouncedSearchTerm);
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      setSearching((isSearching = false));
+      setCity(debouncedSearchTerm);
+      setSearching(false);
     }
-  }, [debouncedSearchTerm]);
+  }, [setCity, debouncedSearchTerm, isSearching]);
 
   return (
     <div className={classes.search}>
@@ -48,7 +48,7 @@ export default function WeatherSearch(props) {
               error={hasError}
               placeholder="Enter city name"
               onChange={e => {
-                setSearching((isSearching = true));
+                setSearching(true);
                 setSearchTerm(e.target.value);
               }}
               startAdornment={
