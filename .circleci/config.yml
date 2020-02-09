@@ -66,6 +66,9 @@ jobs:
       - run:
           name: Deploy to Netlify
           command: netlify deploy -s $NETLIFY_SITE_ID -a $NETLIFY_AUTH_TOKEN -p --dir=./build
+      - run:
+          name: Upload coverage report to Codecov
+          command: bash <(curl -s https://codecov.io/bash)
 
 workflows:
   version: 2

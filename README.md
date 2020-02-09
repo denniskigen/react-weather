@@ -1,4 +1,4 @@
-# react-weather [![CircleCI](https://circleci.com/gh/denniskigen/react-weather.svg?style=svg)](https://circleci.com/gh/denniskigen/react-weather) [![Netlify Status](https://api.netlify.com/api/v1/badges/142b6577-41bb-4d21-846a-096cd87214af/deploy-status)](https://app.netlify.com/sites/yet-another-react-weather-app/deploys)
+# react-weather [![CircleCI](https://circleci.com/gh/denniskigen/react-weather.svg?style=svg)](https://circleci.com/gh/denniskigen/react-weather) [![codecov](https://codecov.io/gh/denniskigen/react-weather/branch/master/graph/badge.svg)](https://codecov.io/gh/denniskigen/react-weather) [![Netlify Status](https://api.netlify.com/api/v1/badges/142b6577-41bb-4d21-846a-096cd87214af/deploy-status)](https://app.netlify.com/sites/yet-another-react-weather-app/deploys)
 
 A simple React weather app that displays weather information from the OpenWeatherMap API.
 
