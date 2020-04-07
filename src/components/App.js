@@ -34,6 +34,10 @@ export default function App() {
       });
   }, [city, error]);
 
+  const handleCityChange = city => {
+    setCity(city);
+  };
+
   if (
     (currentWeather && Object.keys(currentWeather).length) ||
     (forecast && Object.keys(forecast).length)
@@ -44,7 +48,7 @@ export default function App() {
           city={city}
           currentWeather={currentWeather}
           forecast={forecast}
-          setCity={setCity}
+          onCityChange={handleCityChange}
           error={error}
         />
       </Container>

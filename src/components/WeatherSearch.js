@@ -25,18 +25,23 @@ const useStyles = makeStyles(theme => ({
 
 export default function WeatherSearch(props) {
   const classes = useStyles();
-  const { setCity } = props;
+  const { onCityChange } = props;
   const [searchTerm, setSearchTerm] = useState("");
   const [isSearching, setSearching] = useState(false);
   const debouncedSearchTerm = useDebounce(searchTerm, 1000);
   const hasError = props.error ? true : false;
 
+  const handleSearch = event => {
+    setSearching(true);
+    setSearchTerm(event.target.value);
+  };
+
   useEffect(() => {
     if (debouncedSearchTerm) {
-      setCity(debouncedSearchTerm);
+      onCityChange(debouncedSearchTerm);
       setSearching(false);
     }
-  }, [setCity, debouncedSearchTerm, isSearching]);
+  }, [onCityChange, debouncedSearchTerm, isSearching]);
 
   return (
     <div className={classes.search}>
@@ -47,10 +52,7 @@ export default function WeatherSearch(props) {
               id="search-city"
               error={hasError}
               placeholder="Enter city name"
-              onChange={e => {
-                setSearching(true);
-                setSearchTerm(e.target.value);
-              }}
+              onChange={handleSearch}
               startAdornment={
                 <InputAdornment position="start">
                   <Tooltip title="Optional: Enter a two-letter country code after the city name to make the search more precise. For example, London, GB.">
