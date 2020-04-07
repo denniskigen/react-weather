@@ -1,7 +1,7 @@
 executors:
   node:
     docker:
-      - image: circleci/node:10.16.3
+      - image: circleci/node:lts-stretch
     environment:
       TZ: "Africa/Nairobi"
 
@@ -62,7 +62,7 @@ jobs:
       - <<: *install_node_modules
       - run:
           name: Install netlify-cli
-          command: sudo npm install -g --silent netlify-cli
+          command: sudo npm install -g netlify-cli
       - run:
           name: Deploy to Netlify
           command: netlify deploy -s $NETLIFY_SITE_ID -a $NETLIFY_AUTH_TOKEN -p --dir=./build
