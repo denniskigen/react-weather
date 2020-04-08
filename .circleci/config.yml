@@ -62,7 +62,7 @@ jobs:
       - <<: *install_node_modules
       - run:
           name: Install netlify-cli
-          command: sudo npm install -g netlify-cli
+          command: sudo npm install -g netlify-cli --unsafe-perm=true
       - run:
           name: Deploy to Netlify
           command: netlify deploy -s $NETLIFY_SITE_ID -a $NETLIFY_AUTH_TOKEN -p --dir=./build
