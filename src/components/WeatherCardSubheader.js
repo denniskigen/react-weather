@@ -2,11 +2,10 @@ import React from "react";
 import dayjs from "dayjs";
 
 export default function WeatherCardSubHeader(props) {
-  const date = dayjs().isValid(props.currentWeather.date)
-    ? props.currentWeather.date
-    : "";
-  const description = props.currentWeather.description
-    ? props.currentWeather.description
+  const { currentWeather } = props;
+  const date = dayjs().isValid(currentWeather.date) ? currentWeather.date : "";
+  const description = currentWeather.description
+    ? currentWeather.description
     : "";
 
   return (

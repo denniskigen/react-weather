@@ -8,13 +8,12 @@ import * as weatherIcons from "../icons";
 import * as recommendations from "../recommendations";
 
 export default function Weather(props) {
-  if (props.currentWeather && props.forecast) {
-    const { city, currentWeather, forecast, onCityChange, error } = props;
+  const { city, currentWeather, forecast, onCityChange, error } = props;
+  if (currentWeather && forecast) {
     const prefix = "wi wi-";
-    const icon =
-      prefix + weatherIcons.default[props.currentWeather.icon_id].icon;
+    const icon = prefix + weatherIcons.default[currentWeather.icon_id].icon;
     const recommendation =
-      recommendations.default[props.currentWeather.icon_id].recommendation;
+      recommendations.default[currentWeather.icon_id].recommendation;
 
     return (
       <div>

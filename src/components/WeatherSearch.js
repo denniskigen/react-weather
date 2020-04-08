@@ -25,11 +25,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function WeatherSearch(props) {
   const classes = useStyles();
-  const { onCityChange } = props;
+  const { onCityChange, error } = props;
   const [searchTerm, setSearchTerm] = useState("");
   const [isSearching, setSearching] = useState(false);
   const debouncedSearchTerm = useDebounce(searchTerm, 1000);
-  const hasError = props.error ? true : false;
+  const hasError = error ? true : false;
 
   const handleSearch = event => {
     setSearching(true);
@@ -68,8 +68,8 @@ export default function WeatherSearch(props) {
                 )
               }
             />
-            {props.error && (
-              <Typography className={classes.error}>{props.error}</Typography>
+            {error && (
+              <Typography className={classes.error}>{error}</Typography>
             )}
           </FormControl>
         </Grid>

@@ -65,16 +65,17 @@ const useStyles = makeStyles(theme => ({
 
 export default function AppLayout(props) {
   const classes = useStyles();
+  const { currentWeather, forecast, icon, recommendation } = props;
 
   return (
     <div className={classes.layout}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <WeatherCard
-            currentWeather={props.currentWeather}
-            forecast={props.forecast}
-            icon={props.icon}
-            recommendation={props.recommendation}
+            currentWeather={currentWeather}
+            forecast={forecast}
+            icon={icon}
+            recommendation={recommendation}
           />
         </Grid>
       </Grid>
@@ -86,19 +87,18 @@ const WeatherCard = props => {
   const classes = useStyles();
   const humidity = "wi wi-humidity";
   const strongWind = "wi wi-strong-wind";
+  const { currentWeather, forecast, icon, recommendation } = props;
 
   return (
     <Card className={classes.card}>
       <CardHeader
-        title={props.currentWeather.city + ", " + props.currentWeather.country}
-        subheader={
-          <WeatherCardSubheader currentWeather={props.currentWeather} />
-        }
+        title={currentWeather.city + ", " + currentWeather.country}
+        subheader={<WeatherCardSubheader currentWeather={currentWeather} />}
       />
       <CardContent>
         <CardMedia
-          className={`${props.icon} ${classes.wi}`}
-          src={props.icon}
+          className={`${icon} ${classes.wi}`}
+          src={icon}
           style={{ fontSize: "128px", float: "right" }}
         />
         <Typography
@@ -108,7 +108,7 @@ const WeatherCard = props => {
           component="h2"
           style={{ fontFamily: "Montserrat", paddingTop: "30px" }}
         >
-          {Math.round(props.currentWeather.temperature)}&deg;C
+          {Math.round(currentWeather.temperature)}&deg;C
         </Typography>
         <Typography
           variant="subtitle2"
@@ -120,21 +120,21 @@ const WeatherCard = props => {
           <span
             className={`${strongWind} ${classes.wi} ${classes.atmospheric}`}
           ></span>
-          {props.currentWeather.wind_speed} km/h Winds{" "}
+          {currentWeather.wind_speed} km/h Winds{" "}
           <span
             className={`${humidity} ${classes.wi} ${classes.atmospheric}`}
           ></span>
-          {props.currentWeather.humidity}% Humidity
+          {currentWeather.humidity}% Humidity
         </Typography>
         <Typography
           className={`${classes.recommendation} recommendation`}
           color="textPrimary"
           gutterBottom
         >
-          {props.recommendation}
+          {recommendation}
         </Typography>
         <Divider variant="middle" />
-        <Forecast forecast={props.forecast} />
+        <Forecast forecast={forecast} />
       </CardContent>
     </Card>
   );

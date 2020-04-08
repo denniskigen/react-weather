@@ -20,7 +20,8 @@ const useStyles = makeStyles(theme => ({
 export default function Forecast(props) {
   const classes = useStyles();
   const prefix = "wi wi-";
-  const result = props.forecast.map((item, index) => {
+  const { forecast } = props;
+  const result = forecast.map((item, index) => {
     const icon = prefix + weatherIcons.default[item.icon_id].icon;
     return (
       <ListItem key={index} className="forecastItem">
