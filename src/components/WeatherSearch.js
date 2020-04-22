@@ -5,6 +5,7 @@ import {
   Grid,
   Input,
   InputAdornment,
+  InputLabel,
   Tooltip,
   Typography
 } from "@material-ui/core";
@@ -48,10 +49,10 @@ export default function WeatherSearch(props) {
       <Grid container alignItems="flex-end">
         <Grid item xs={12} style={{ textAlign: "center" }}>
           <FormControl>
+            <InputLabel htmlFor="search-city">Enter city name</InputLabel>
             <Input
               id="search-city"
               error={hasError}
-              placeholder="Enter city name"
               onChange={handleSearch}
               startAdornment={
                 <InputAdornment position="start">
