@@ -48,9 +48,5 @@ export default function Forecast(props) {
     );
   });
 
-  return (
-    <List component="nav" aria-label="forecast data">
-      {result}
-    </List>
-  );
+  return <List aria-label="forecast data">{result}</List>;
 }
