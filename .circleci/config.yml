@@ -15,7 +15,7 @@ aliases:
   install_node_modules: &install_node_modules
     run:
       name: Install dependencies
-      command: npm install
+      command: npm ci
 
   save_cache: &save_cache
     save_cache:
@@ -28,6 +28,7 @@ version: 2.1
 
 jobs:
   test:
+    parallelism: 4
     executor: node
     steps:
       - checkout
@@ -40,6 +41,7 @@ jobs:
 
   build:
     executor: node
+    parallelism: 4
     steps:
       - checkout
       - <<: *restore_cache
@@ -54,6 +56,7 @@ jobs:
 
   deploy:
     executor: node
+    parallelism: 4
     steps:
       - checkout
       - attach_workspace:
