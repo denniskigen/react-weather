@@ -20,7 +20,7 @@ afterEach(() => {
 
 const fakeProps = {
   city: "Eldoret",
-  setCity: () => {},
+  onCityChange: () => {},
   error: null
 };
 
@@ -29,10 +29,37 @@ it("renders without crashing", () => {
     render(
       <WeatherSearch
         city={fakeProps.city}
-        setCity={fakeProps.setCity}
+        onCityChange={fakeProps.onCityChange}
         error={fakeProps.error}
       />,
       container
     );
   });
+});
+
+it("renders a search input where one can type in a location", () => {
+  act(() => {
+    render(
+      <WeatherSearch
+        city={fakeProps.city}
+        onCityChange={fakeProps.onCityChange}
+        error={fakeProps.error}
+      />,
+      container
+    );
+  });
+
+  expect(container.textContent).toContain("Enter city name");
+
+  const inputEl = document.querySelector("#search-city");
+  expect(inputEl.innerHTML).toBe("");
+
+  act(() => {
+    inputEl.value = "Berlin";
+    inputEl.dispatchEvent(
+      new Event("input", { bubbles: true, cancelable: true })
+    );
+  });
+
+  expect(inputEl.value).toBe("Berlin");
 });

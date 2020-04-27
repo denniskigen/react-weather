@@ -10,7 +10,7 @@ export default function WeatherCardSubHeader(props) {
 
   return (
     <>
-      <span data-testid="subheaderContent">
+      <span>
         {dayjs(date).format("dddd")}, {dayjs(date).format("h:mm")}{" "}
         {dayjs(date).format("A")},{" "}
         {description.replace(/\w\S*/g, txt => {

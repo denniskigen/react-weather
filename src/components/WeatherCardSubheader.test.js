@@ -20,6 +20,17 @@ afterEach(() => {
 
 const fakeProps = { mockCurrentWeather };
 
+it("renders without crashing", () => {
+  act(() => {
+    render(
+      <WeatherCardSubHeader currentWeather={fakeProps.mockCurrentWeather} />,
+      container
+    );
+  });
+
+  expect(container).toBeDefined();
+});
+
 it("renders the date, time, and a short description of the day's weather", () => {
   act(() => {
     render(
@@ -28,7 +39,5 @@ it("renders the date, time, and a short description of the day's weather", () =>
     );
   });
 
-  expect(
-    container.querySelector("[data-testId='subheaderContent']").textContent
-  ).toContain("Wednesday, 10:36 AM, Few Clouds");
+  expect(container.textContent).toContain("Wednesday, 10:36 AM, Few Clouds");
 });

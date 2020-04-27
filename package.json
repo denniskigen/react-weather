@@ -17,6 +17,11 @@
     "test:non-watch": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/components/*.test.js"
+    ]
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
