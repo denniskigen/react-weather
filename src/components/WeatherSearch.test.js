@@ -38,11 +38,12 @@ it("renders without crashing", () => {
 });
 
 it("renders a search input where one can type in a location", () => {
+  const onCityChange = jest.fn();
   act(() => {
     render(
       <WeatherSearch
         city={fakeProps.city}
-        onCityChange={fakeProps.onCityChange}
+        onCityChange={onCityChange}
         error={fakeProps.error}
       />,
       container
