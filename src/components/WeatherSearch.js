@@ -52,6 +52,7 @@ export default function WeatherSearch(props) {
             <InputLabel htmlFor="search-city">Enter city name</InputLabel>
             <Input
               id="search-city"
+              role="search"
               error={hasError}
               onChange={handleSearch}
               startAdornment={

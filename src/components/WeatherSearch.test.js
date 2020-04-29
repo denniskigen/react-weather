@@ -1,66 +1,37 @@
 import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
-import { mockCurrentWeather, mockForecast } from "../__mocks__/Weather.mock";
+import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import WeatherSearch from "./WeatherSearch";
+import "@testing-library/jest-dom/extend-expect";
 
-let container = null;
-beforeEach(() => {
-  // setup a DOM element as a render target
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
+describe("<WeatherSearch />", () => {
+  let testProps;
+  beforeEach(() => {
+    testProps = {
+      city: "Eldoret",
+      onCityChange: () => {},
+      error: null
+    };
+  });
 
-afterEach(() => {
-  // cleanup on exiting
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
+  afterEach(cleanup);
 
-const fakeProps = {
-  city: "Eldoret",
-  onCityChange: () => {},
-  error: null
-};
+  const setup = () => {
+    const utils = render(<WeatherSearch />);
+    const input = screen.getByLabelText("search");
+    return {
+      input,
+      ...utils
+    };
+  };
 
-it("renders without crashing", () => {
-  act(() => {
-    render(
+  test("renders without crashing", () => {
+    const { container } = render(
       <WeatherSearch
-        city={fakeProps.city}
-        onCityChange={fakeProps.onCityChange}
-        error={fakeProps.error}
-      />,
-      container
+        city={testProps.city}
+        onCityChange={testProps.onCityChange}
+        error={testProps.error}
+      />
     );
+    expect(container).toBeDefined();
   });
-});
-
-it("renders a search input where one can type in a location", () => {
-  const onCityChange = jest.fn();
-  act(() => {
-    render(
-      <WeatherSearch
-        city={fakeProps.city}
-        onCityChange={onCityChange}
-        error={fakeProps.error}
-      />,
-      container
-    );
-  });
-
-  expect(container.textContent).toContain("Enter city name");
-
-  const inputEl = document.querySelector("#search-city");
-  expect(inputEl.innerHTML).toBe("");
-
-  act(() => {
-    inputEl.value = "Berlin";
-    inputEl.dispatchEvent(
-      new Event("input", { bubbles: true, cancelable: true })
-    );
-  });
-
-  expect(inputEl.value).toBe("Berlin");
 });

@@ -1,39 +1,41 @@
 import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
+import { cleanup, render } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 import Forecast from "./Forecast";
 import { mockForecast } from "../__mocks__/Weather.mock";
 
-let container = null;
-beforeEach(() => {
-  // setup a DOM element as a render target
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
+describe("<Forecast />", () => {
+  let testProps;
+  afterEach(cleanup);
 
-afterEach(() => {
-  // cleanup on exiting
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
-
-const fakeProps = { mockForecast };
-
-it("renders the weekly forecast for the specified location", () => {
-  act(() => {
-    render(<Forecast forecast={fakeProps.mockForecast} />, container);
+  beforeEach(() => {
+    testProps = {
+      forecast: mockForecast
+    };
   });
 
-  const forecastDataItems = container.querySelectorAll(".forecastItem");
-  expect(forecastDataItems[0].textContent).toContain("Wednesday");
-  expect(forecastDataItems[0].textContent).toContain("14° / 14");
-  expect(forecastDataItems[1].textContent).toContain("Thursday");
-  expect(forecastDataItems[1].textContent).toContain("14° / 14");
-  expect(forecastDataItems[2].textContent).toContain("Friday");
-  expect(forecastDataItems[2].textContent).toContain("15° / 15");
-  expect(forecastDataItems[3].textContent).toContain("Saturday");
-  expect(forecastDataItems[3].textContent).toContain("15° / 15");
-  expect(forecastDataItems[4].textContent).toContain("Sunday");
-  expect(forecastDataItems[4].textContent).toContain("15° / 15");
+  test("renders without crashing", () => {
+    const { container } = render(<Forecast forecast={testProps.forecast} />);
+
+    expect(container).toBeDefined();
+  });
+
+  test("renders the weekly forecast for the specified location", () => {
+    const { getByText, getAllByText, getAllByRole } = render(
+      <Forecast forecast={testProps.forecast} />
+    );
+
+    expect(getByText("Wednesday")).toBeInTheDocument();
+    expect(getByText("Thursday")).toBeInTheDocument();
+    expect(getByText("Friday")).toBeInTheDocument();
+    expect(getByText("Saturday")).toBeInTheDocument();
+    expect(getByText("Sunday")).toBeInTheDocument();
+    expect(getAllByText("14° /").length).toBe(2);
+    expect(getAllByText("14°").length).toBe(2);
+    expect(getAllByText("15° /").length).toBe(3);
+    expect(getAllByText("15°").length).toBe(3);
+    expect(getAllByRole("button", { label: "forecast item" }).length).toEqual(
+      5
+    );
+  });
 });

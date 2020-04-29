@@ -1,41 +1,58 @@
 import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
+import { cleanup, render } from "@testing-library/react";
 import AppLayout from "./AppLayout";
 import { mockCurrentWeather, mockForecast } from "../__mocks__/Weather.mock";
+import "@testing-library/jest-dom/extend-expect";
 
-let container = null;
-beforeEach(() => {
-  // setup a DOM element as a render target
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
+describe("<AppLayout />", () => {
+  let testProps;
+  beforeEach(() => {
+    testProps = {
+      currentWeather: mockCurrentWeather,
+      forecast: mockForecast,
+      icon: "wi wi-day-cloudy-gusts",
+      recommendation:
+        "Great day for a bit of laundry and maybe a nice picnic date later :)"
+    };
+  });
 
-afterEach(() => {
-  // cleanup on exiting
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
+  afterEach(cleanup);
 
-const fakeProps = {
-  currentWeather: mockCurrentWeather,
-  forecast: mockForecast,
-  icon: "wi wi-day-cloudy-gusts",
-  recommendation:
-    "Great day for a bit of laundry and maybe a nice picnic date later :)"
-};
-
-it("renders without crashing", () => {
-  act(() => {
-    render(
+  test("renders without crashing", () => {
+    const { container } = render(
       <AppLayout
-        currentWeather={fakeProps.currentWeather}
-        forecast={fakeProps.forecast}
-        icon={fakeProps.icon}
-        recommendation={fakeProps.recommendation}
-      />,
-      container
+        currentWeather={testProps.currentWeather}
+        forecast={testProps.forecast}
+        icon={testProps.icon}
+        recommendation={testProps.recommendation}
+      />
     );
+    expect(container).toBeDefined();
+  });
+
+  test("renders the elements that make up the app layout", () => {
+    const { getByText } = render(
+      <AppLayout
+        currentWeather={testProps.currentWeather}
+        forecast={testProps.forecast}
+        icon={testProps.icon}
+        recommendation={testProps.recommendation}
+      />
+    );
+    expect(getByText("Eldoret, KE")).toBeInTheDocument();
+    expect(getByText("Wednesday, 10:36 AM, Few Clouds")).toBeInTheDocument();
+    expect(getByText("19°C")).toBeInTheDocument();
+    expect(getByText(/24 km\/h Winds\s+/)).toBeInTheDocument();
+    expect(getByText(/68% Humidity/)).toBeInTheDocument();
+    expect(
+      getByText(
+        "Great day for a bit of laundry and maybe a nice picnic date later :)"
+      )
+    ).toBeInTheDocument();
+    expect(getByText("Wednesday")).toBeInTheDocument();
+    expect(getByText("Thursday")).toBeInTheDocument();
+    expect(getByText("Friday")).toBeInTheDocument();
+    expect(getByText("Saturday")).toBeInTheDocument();
+    expect(getByText("Sunday")).toBeInTheDocument();
   });
 });

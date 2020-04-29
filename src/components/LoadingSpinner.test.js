@@ -1,24 +1,14 @@
 import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
+import { cleanup, render } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 import LoadingSpinner from "./LoadingSpinner";
 
-let container = null;
-beforeEach(() => {
-  // setup a DOM element as a render target
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
+describe("<LoadingSpinner />", () => {
+  afterEach(cleanup);
 
-afterEach(() => {
-  // cleanup on exiting
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
+  test("renders without crashing", () => {
+    const { container } = render(<LoadingSpinner />);
 
-it("renders without crashing", () => {
-  act(() => {
-    render(<LoadingSpinner />, container);
+    expect(container).toBeDefined();
   });
 });

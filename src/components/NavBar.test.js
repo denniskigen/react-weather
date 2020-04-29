@@ -1,43 +1,42 @@
 import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
+import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 import NavBar from "./NavBar";
 
-let container = null;
-beforeEach(() => {
-  // setup a DOM element as a render target
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
+describe("<NavBar />", () => {
+  afterEach(cleanup);
 
-afterEach(() => {
-  // cleanup on exiting
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
+  test("renders without crashing", () => {
+    const { container } = render(<NavBar />);
 
-it("renders the navbar with app logo, app links and side drawer", () => {
-  act(() => {
-    render(<NavBar />, container);
+    expect(container).toBeDefined();
   });
 
-  expect(container.querySelector("[data-testId='app-logo']").alt).toBe(
-    "logo",
-    "App logo alt text"
-  );
-  expect(container.querySelector("[data-testId='app-logo']").src).toBe(
-    "http://localhost/logo.svg",
-    "App logo src url"
-  );
-  expect(container.querySelector(".about-btn").textContent).toEqual("About");
-  expect(container.querySelector(".github-btn").textContent).toEqual("GitHub");
+  test("renders the navbar with the app logo, app links and side drawer", () => {
+    const { getByText, getByAltText } = render(<NavBar />);
 
-  // get ahold of the button element, and trigger some clicks on it
-  const button = document.querySelector("[data-testid=toggle]");
-  expect(button.textContent).toBe("About");
+    expect(getByText("About")).toBeInTheDocument();
+    expect(getByText("GitHub")).toBeInTheDocument();
+    expect(getByAltText("logo")).toBeInTheDocument();
 
-  act(() => {
-    button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    fireEvent.click(screen.getByTestId("toggle"));
+
+    expect(screen.getByText("ReactWeather")).toBeInTheDocument();
+    expect(screen.getByText(/is a labor of/)).toBeInTheDocument();
+    expect(screen.getByText("♥️")).toBeInTheDocument();
+    expect(screen.getByText(/project lovingly crafted by/)).toBeInTheDocument();
+    expect(screen.getByText("@denniskigen")).toBeInTheDocument();
+    expect(screen.getByText(/It draws inspiration from/)).toBeInTheDocument();
+    expect(screen.getByText("ng-weather")).toBeInTheDocument();
+    expect(
+      screen.getByText(/, a similar projected written in Angular./)
+    ).toBeInTheDocument();
+    expect(screen.getByText("Credits")).toBeInTheDocument();
+    expect(screen.getByText("Material UI")).toBeInTheDocument();
+    expect(screen.getByText("OpenWeatherMap API")).toBeInTheDocument();
+    expect(screen.getByText(/Erik Flowers' weather icons/)).toBeInTheDocument();
+    expect(screen.getByText(/icon made by/)).toBeInTheDocument();
+    expect(screen.getByText("Good ware")).toBeInTheDocument();
+    expect(screen.getByText("flaticon")).toBeInTheDocument();
   });
 });

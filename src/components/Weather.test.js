@@ -1,43 +1,65 @@
 import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
-
+import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 import Weather from "./Weather";
 import { mockCurrentWeather, mockForecast } from "../__mocks__/Weather.mock";
 
-let container = null;
-beforeEach(() => {
-  // setup a DOM element as a render target
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
+describe("<Weather />", () => {
+  let testProps;
+  afterEach(cleanup);
 
-afterEach(() => {
-  // cleanup on exiting
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
+  beforeEach(() => {
+    testProps = {
+      city: "Eldoret",
+      currentWeather: mockCurrentWeather,
+      forecast: mockForecast,
+      error: null,
+      onCityChange: () => {}
+    };
+  });
 
-const fakeProps = {
-  city: "Eldoret",
-  currentWeather: mockCurrentWeather,
-  forecast: mockForecast,
-  error: null,
-  setCity: () => {}
-};
-
-it("renders without crashing", () => {
-  act(() => {
-    render(
+  test("renders without crashing", () => {
+    const { container } = render(
       <Weather
-        city={fakeProps.city}
-        currentWeather={fakeProps.currentWeather}
-        forecast={fakeProps.forecast}
-        error={fakeProps.error}
-        setCity={fakeProps.setCity}
-      />,
-      container
+        city={testProps.city}
+        currentWeather={testProps.currentWeather}
+        forecast={testProps.forecast}
+        error={testProps.error}
+        onCityChange={testProps.onCityChange}
+      />
     );
+
+    expect(container).toBeDefined();
+  });
+
+  test("renders the navbar, weather search and app layout", () => {
+    const { getByText, getByAltText } = render(
+      <Weather
+        city={testProps.city}
+        currentWeather={testProps.currentWeather}
+        forecast={testProps.forecast}
+        error={testProps.error}
+        onCityChange={testProps.onCityChange}
+      />
+    );
+
+    expect(getByText("About")).toBeInTheDocument();
+    expect(getByText("GitHub")).toBeInTheDocument();
+    expect(getByAltText("logo")).toBeInTheDocument();
+    expect(getByText("Eldoret, KE")).toBeInTheDocument();
+    expect(getByText("Wednesday, 10:36 AM, Few Clouds")).toBeInTheDocument();
+    expect(getByText("19°C")).toBeInTheDocument();
+    expect(getByText(/24 km\/h Winds\s+/)).toBeInTheDocument();
+    expect(getByText(/68% Humidity/)).toBeInTheDocument();
+    expect(
+      getByText(
+        "Great day for a bit of laundry and maybe a nice picnic date later :)"
+      )
+    ).toBeInTheDocument();
+    expect(getByText("Wednesday")).toBeInTheDocument();
+    expect(getByText("Thursday")).toBeInTheDocument();
+    expect(getByText("Friday")).toBeInTheDocument();
+    expect(getByText("Saturday")).toBeInTheDocument();
+    expect(getByText("Sunday")).toBeInTheDocument();
   });
 });
