@@ -37,7 +37,7 @@ jobs:
       - <<: *save_cache
       - run:
           name: Test
-          command: npm test -- --coverage
+          command: npm run coverage
       - run:
           name: Upload coverage report to Codecov
           command: bash <(curl -s https://codecov.io/bash)
