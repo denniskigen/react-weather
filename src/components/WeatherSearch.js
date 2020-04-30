@@ -53,6 +53,7 @@ export default function WeatherSearch(props) {
             <Input
               id="search-city"
               role="search"
+              type="text"
               error={hasError}
               onChange={handleSearch}
               startAdornment={

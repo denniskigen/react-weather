@@ -3,6 +3,12 @@ import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import WeatherSearch from "./WeatherSearch";
 import "@testing-library/jest-dom/extend-expect";
 
+jest.mock("../use-debounce", () => {
+  return jest.fn().mockImplementation(searchCity => {
+    return searchCity;
+  });
+});
+
 describe("<WeatherSearch />", () => {
   let testProps;
   beforeEach(() => {
@@ -15,15 +21,6 @@ describe("<WeatherSearch />", () => {
 
   afterEach(cleanup);
 
-  const setup = () => {
-    const utils = render(<WeatherSearch />);
-    const input = screen.getByLabelText("search");
-    return {
-      input,
-      ...utils
-    };
-  };
-
   test("renders without crashing", () => {
     const { container } = render(
       <WeatherSearch
@@ -33,5 +30,27 @@ describe("<WeatherSearch />", () => {
       />
     );
     expect(container).toBeDefined();
+  });
+
+  test("renders a search input where one can type in a location", () => {
+    const mockOnCityChange = jest.fn();
+    const { getByRole } = render(
+      <WeatherSearch
+        city={testProps.city}
+        onCityChange={mockOnCityChange}
+        error={testProps.error}
+      />
+    );
+
+    expect(getByRole("search")).toBeInTheDocument();
+
+    const searchInput = screen.getByLabelText("Enter city name");
+
+    expect(searchInput).toBeInTheDocument();
+
+    fireEvent.change(searchInput, { target: { value: "Berlin" } });
+
+    expect(mockOnCityChange).toHaveBeenCalledTimes(2);
+    expect(mockOnCityChange).toHaveBeenCalledWith("Berlin");
   });
 });
