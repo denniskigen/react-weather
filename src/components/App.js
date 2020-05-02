@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "@material-ui/core";
-import LoadingSpinner from "./LoadingSpinner";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 import Weather from "./Weather";
 
@@ -17,10 +17,6 @@ export default function App() {
         setError(null);
       })
       .catch(err => {
-        console.error(
-          `Error fetching current weather for ${city}: `,
-          err.message
-        );
         setError(err.message);
       });
   }, [city, error]);
@@ -32,7 +28,6 @@ export default function App() {
         setError(null);
       })
       .catch(err => {
-        console.error(`Error fetching forecast for ${city}:`, err.message);
         setError(err.message);
       });
   }, [city, error]);
@@ -57,7 +52,12 @@ export default function App() {
       </Container>
     );
   } else {
-    return <LoadingSpinner />;
+    return (
+      <div>
+        <CircularProgress color={error ? "secondary" : "primary"} />
+        {error ? <p>{error}</p> : ""}
+      </div>
+    );
   }
 }
 

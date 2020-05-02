@@ -8,20 +8,6 @@ jest.mock("../use-debounce", () => {
   return jest.fn(searchCity => searchCity);
 });
 
-jest.mock(
-  "./LoadingSpinner",
-  () =>
-    function DummyLoadingSpinner() {
-      return (
-        <div role="progressbar">
-          <svg className="MuiCircularProgress-svg">
-            <circle className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"></circle>
-          </svg>
-        </div>
-      );
-    }
-);
-
 describe("<App />", () => {
   afterEach(cleanup);
 
@@ -62,5 +48,25 @@ describe("<App />", () => {
     expect(getByText("Monday")).toBeInTheDocument();
     expect(getByText("Tuesday")).toBeInTheDocument();
     expect(window.fetch).toHaveBeenCalledTimes(2);
+  });
+
+  test("renders loading spinner & an error if there's a problem getting weather data", async () => {
+    const mockErrorResponse = {
+      ok: false,
+      status: 500,
+      statusText: "Internal Server Error",
+      message: "An internal server error occurred"
+    };
+
+    jest
+      .spyOn(window, "fetch")
+      .mockImplementation(() => Promise.reject(mockErrorResponse));
+
+    const { getByRole, getByText } = render(<App />);
+
+    // loading spinner
+    await waitFor(() => getByRole("progressbar"));
+    expect(getByRole("progressbar")).toBeInTheDocument();
+    expect(getByText(mockErrorResponse.message)).toBeInTheDocument();
   });
 });
