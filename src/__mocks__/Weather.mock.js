@@ -1497,3 +1497,1433 @@ export const mockForecastData = {
     }
   ]
 };
+
+export const mockSearchWeatherData = {
+  base: "stations",
+  clouds: {
+    all: 20
+  },
+  cod: 200,
+  coord: {
+    lon: 13.41,
+    lat: 52.52
+  },
+  dt: 1588244935,
+  id: 2950159,
+  main: {
+    temp: 17.08,
+    feels_like: 14.51,
+    temp_min: 16,
+    temp_max: 18.33,
+    pressure: 1003,
+    humidity: 67
+  },
+  name: "Berlin",
+  sys: {
+    type: 1,
+    id: 1275,
+    country: "DE",
+    sunrise: 1588217769,
+    sunset: 1588271443
+  },
+  timezone: 7200,
+  visibility: 10000,
+  weather: [
+    {
+      id: 500,
+      main: "Rain",
+      description: "light rain",
+      icon: "10d"
+    }
+  ],
+  wind: {
+    speed: 4.1,
+    deg: 200
+  }
+};
+
+export const mockSearchForecastData = {
+  city: {
+    id: 2950159,
+    name: "Berlin",
+    coord: {
+      lat: 52.5244,
+      lon: 13.4105
+    },
+    country: "DE",
+    population: 1000000,
+    timezone: 7200,
+    sunrise: 1588217768,
+    sunset: 1588271444
+  },
+  cod: "200",
+  message: 0,
+  cnt: 40,
+  list: [
+    {
+      dt: 1588248000,
+      main: {
+        temp: 16.16,
+        feels_like: 13.17,
+        temp_min: 15.19,
+        temp_max: 16.16,
+        pressure: 1003,
+        sea_level: 1004,
+        grnd_level: 999,
+        humidity: 67,
+        temp_kf: 0.97
+      },
+      weather: [
+        {
+          id: 500,
+          main: "Rain",
+          description: "light rain",
+          icon: "10d"
+        }
+      ],
+      clouds: {
+        all: 59
+      },
+      wind: {
+        speed: 4.34,
+        deg: 200
+      },
+      rain: {
+        "3h": 0.65
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-04-30 12:00:00"
+    },
+    {
+      dt: 1588258800,
+      main: {
+        temp: 17.06,
+        feels_like: 12.98,
+        temp_min: 17.05,
+        temp_max: 17.06,
+        pressure: 1003,
+        sea_level: 1003,
+        grnd_level: 998,
+        humidity: 60,
+        temp_kf: 0.01
+      },
+      weather: [
+        {
+          id: 500,
+          main: "Rain",
+          description: "light rain",
+          icon: "10d"
+        }
+      ],
+      clouds: {
+        all: 83
+      },
+      wind: {
+        speed: 5.6,
+        deg: 222
+      },
+      rain: {
+        "3h": 0.62
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-04-30 15:00:00"
+    },
+    {
+      dt: 1588269600,
+      main: {
+        temp: 14.94,
+        feels_like: 12.63,
+        temp_min: 14.79,
+        temp_max: 14.94,
+        pressure: 1004,
+        sea_level: 1004,
+        grnd_level: 999,
+        humidity: 68,
+        temp_kf: 0.15
+      },
+      weather: [
+        {
+          id: 500,
+          main: "Rain",
+          description: "light rain",
+          icon: "10d"
+        }
+      ],
+      clouds: {
+        all: 95
+      },
+      wind: {
+        speed: 3.02,
+        deg: 231
+      },
+      rain: {
+        "3h": 0.13
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-04-30 18:00:00"
+    },
+    {
+      dt: 1588280400,
+      main: {
+        temp: 12.48,
+        feels_like: 10.67,
+        temp_min: 12.44,
+        temp_max: 12.48,
+        pressure: 1003,
+        sea_level: 1003,
+        grnd_level: 998,
+        humidity: 79,
+        temp_kf: 0.04
+      },
+      weather: [
+        {
+          id: 500,
+          main: "Rain",
+          description: "light rain",
+          icon: "10n"
+        }
+      ],
+      clouds: {
+        all: 99
+      },
+      wind: {
+        speed: 2.25,
+        deg: 175
+      },
+      rain: {
+        "3h": 0.34
+      },
+      sys: {
+        pod: "n"
+      },
+      dt_txt: "2020-04-30 21:00:00"
+    },
+    {
+      dt: 1588291200,
+      main: {
+        temp: 12.73,
+        feels_like: 8.99,
+        temp_min: 12.73,
+        temp_max: 12.73,
+        pressure: 1004,
+        sea_level: 1004,
+        grnd_level: 999,
+        humidity: 72,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 500,
+          main: "Rain",
+          description: "light rain",
+          icon: "10n"
+        }
+      ],
+      clouds: {
+        all: 100
+      },
+      wind: {
+        speed: 4.62,
+        deg: 208
+      },
+      rain: {
+        "3h": 0.26
+      },
+      sys: {
+        pod: "n"
+      },
+      dt_txt: "2020-05-01 00:00:00"
+    },
+    {
+      dt: 1588302000,
+      main: {
+        temp: 10.58,
+        feels_like: 6.51,
+        temp_min: 10.58,
+        temp_max: 10.58,
+        pressure: 1003,
+        sea_level: 1003,
+        grnd_level: 998,
+        humidity: 74,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 804,
+          main: "Clouds",
+          description: "overcast clouds",
+          icon: "04n"
+        }
+      ],
+      clouds: {
+        all: 100
+      },
+      wind: {
+        speed: 4.55,
+        deg: 216
+      },
+      sys: {
+        pod: "n"
+      },
+      dt_txt: "2020-05-01 03:00:00"
+    },
+    {
+      dt: 1588312800,
+      main: {
+        temp: 10.98,
+        feels_like: 6.35,
+        temp_min: 10.98,
+        temp_max: 10.98,
+        pressure: 1004,
+        sea_level: 1004,
+        grnd_level: 999,
+        humidity: 72,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 804,
+          main: "Clouds",
+          description: "overcast clouds",
+          icon: "04d"
+        }
+      ],
+      clouds: {
+        all: 100
+      },
+      wind: {
+        speed: 5.34,
+        deg: 225
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-05-01 06:00:00"
+    },
+    {
+      dt: 1588323600,
+      main: {
+        temp: 14.55,
+        feels_like: 9.98,
+        temp_min: 14.55,
+        temp_max: 14.55,
+        pressure: 1004,
+        sea_level: 1004,
+        grnd_level: 998,
+        humidity: 49,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 803,
+          main: "Clouds",
+          description: "broken clouds",
+          icon: "04d"
+        }
+      ],
+      clouds: {
+        all: 69
+      },
+      wind: {
+        speed: 4.64,
+        deg: 236
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-05-01 09:00:00"
+    },
+    {
+      dt: 1588334400,
+      main: {
+        temp: 16.66,
+        feels_like: 11.57,
+        temp_min: 16.66,
+        temp_max: 16.66,
+        pressure: 1003,
+        sea_level: 1003,
+        grnd_level: 998,
+        humidity: 42,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 500,
+          main: "Rain",
+          description: "light rain",
+          icon: "10d"
+        }
+      ],
+      clouds: {
+        all: 51
+      },
+      wind: {
+        speed: 5.3,
+        deg: 232
+      },
+      rain: {
+        "3h": 0.6
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-05-01 12:00:00"
+    },
+    {
+      dt: 1588345200,
+      main: {
+        temp: 17.15,
+        feels_like: 11.92,
+        temp_min: 17.15,
+        temp_max: 17.15,
+        pressure: 1001,
+        sea_level: 1001,
+        grnd_level: 996,
+        humidity: 40,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 500,
+          main: "Rain",
+          description: "light rain",
+          icon: "10d"
+        }
+      ],
+      clouds: {
+        all: 48
+      },
+      wind: {
+        speed: 5.44,
+        deg: 226
+      },
+      rain: {
+        "3h": 0.19
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-05-01 15:00:00"
+    },
+    {
+      dt: 1588356000,
+      main: {
+        temp: 14.02,
+        feels_like: 9.78,
+        temp_min: 14.02,
+        temp_max: 14.02,
+        pressure: 1002,
+        sea_level: 1002,
+        grnd_level: 997,
+        humidity: 55,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 500,
+          main: "Rain",
+          description: "light rain",
+          icon: "10d"
+        }
+      ],
+      clouds: {
+        all: 73
+      },
+      wind: {
+        speed: 4.49,
+        deg: 226
+      },
+      rain: {
+        "3h": 0.37
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-05-01 18:00:00"
+    },
+    {
+      dt: 1588366800,
+      main: {
+        temp: 11.6,
+        feels_like: 7.94,
+        temp_min: 11.6,
+        temp_max: 11.6,
+        pressure: 1002,
+        sea_level: 1002,
+        grnd_level: 997,
+        humidity: 65,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 500,
+          main: "Rain",
+          description: "light rain",
+          icon: "10n"
+        }
+      ],
+      clouds: {
+        all: 62
+      },
+      wind: {
+        speed: 3.69,
+        deg: 220
+      },
+      rain: {
+        "3h": 0.15
+      },
+      sys: {
+        pod: "n"
+      },
+      dt_txt: "2020-05-01 21:00:00"
+    },
+    {
+      dt: 1588377600,
+      main: {
+        temp: 9.86,
+        feels_like: 6.02,
+        temp_min: 9.86,
+        temp_max: 9.86,
+        pressure: 1003,
+        sea_level: 1003,
+        grnd_level: 998,
+        humidity: 75,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 802,
+          main: "Clouds",
+          description: "scattered clouds",
+          icon: "03n"
+        }
+      ],
+      clouds: {
+        all: 34
+      },
+      wind: {
+        speed: 4.06,
+        deg: 233
+      },
+      sys: {
+        pod: "n"
+      },
+      dt_txt: "2020-05-02 00:00:00"
+    },
+    {
+      dt: 1588388400,
+      main: {
+        temp: 8.95,
+        feels_like: 5.1,
+        temp_min: 8.95,
+        temp_max: 8.95,
+        pressure: 1004,
+        sea_level: 1004,
+        grnd_level: 999,
+        humidity: 78,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 802,
+          main: "Clouds",
+          description: "scattered clouds",
+          icon: "03n"
+        }
+      ],
+      clouds: {
+        all: 46
+      },
+      wind: {
+        speed: 3.98,
+        deg: 232
+      },
+      sys: {
+        pod: "n"
+      },
+      dt_txt: "2020-05-02 03:00:00"
+    },
+    {
+      dt: 1588399200,
+      main: {
+        temp: 10.48,
+        feels_like: 6.79,
+        temp_min: 10.48,
+        temp_max: 10.48,
+        pressure: 1005,
+        sea_level: 1005,
+        grnd_level: 1000,
+        humidity: 73,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 802,
+          main: "Clouds",
+          description: "scattered clouds",
+          icon: "03d"
+        }
+      ],
+      clouds: {
+        all: 43
+      },
+      wind: {
+        speed: 3.91,
+        deg: 237
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-05-02 06:00:00"
+    },
+    {
+      dt: 1588410000,
+      main: {
+        temp: 14.08,
+        feels_like: 9.57,
+        temp_min: 14.08,
+        temp_max: 14.08,
+        pressure: 1005,
+        sea_level: 1005,
+        grnd_level: 1000,
+        humidity: 58,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 500,
+          main: "Rain",
+          description: "light rain",
+          icon: "10d"
+        }
+      ],
+      clouds: {
+        all: 9
+      },
+      wind: {
+        speed: 5.12,
+        deg: 245
+      },
+      rain: {
+        "3h": 1.05
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-05-02 09:00:00"
+    },
+    {
+      dt: 1588420800,
+      main: {
+        temp: 14.98,
+        feels_like: 10.24,
+        temp_min: 14.98,
+        temp_max: 14.98,
+        pressure: 1005,
+        sea_level: 1005,
+        grnd_level: 1000,
+        humidity: 57,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 500,
+          main: "Rain",
+          description: "light rain",
+          icon: "10d"
+        }
+      ],
+      clouds: {
+        all: 45
+      },
+      wind: {
+        speed: 5.62,
+        deg: 267
+      },
+      rain: {
+        "3h": 2.31
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-05-02 12:00:00"
+    },
+    {
+      dt: 1588431600,
+      main: {
+        temp: 14.75,
+        feels_like: 10.12,
+        temp_min: 14.75,
+        temp_max: 14.75,
+        pressure: 1004,
+        sea_level: 1004,
+        grnd_level: 999,
+        humidity: 53,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 500,
+          main: "Rain",
+          description: "light rain",
+          icon: "10d"
+        }
+      ],
+      clouds: {
+        all: 96
+      },
+      wind: {
+        speed: 5.09,
+        deg: 260
+      },
+      rain: {
+        "3h": 1.26
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-05-02 15:00:00"
+    },
+    {
+      dt: 1588442400,
+      main: {
+        temp: 12.37,
+        feels_like: 8.24,
+        temp_min: 12.37,
+        temp_max: 12.37,
+        pressure: 1005,
+        sea_level: 1005,
+        grnd_level: 1000,
+        humidity: 62,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 500,
+          main: "Rain",
+          description: "light rain",
+          icon: "10d"
+        }
+      ],
+      clouds: {
+        all: 97
+      },
+      wind: {
+        speed: 4.38,
+        deg: 260
+      },
+      rain: {
+        "3h": 0.82
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-05-02 18:00:00"
+    },
+    {
+      dt: 1588453200,
+      main: {
+        temp: 9.98,
+        feels_like: 6.26,
+        temp_min: 9.98,
+        temp_max: 9.98,
+        pressure: 1007,
+        sea_level: 1007,
+        grnd_level: 1002,
+        humidity: 77,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 500,
+          main: "Rain",
+          description: "light rain",
+          icon: "10n"
+        }
+      ],
+      clouds: {
+        all: 100
+      },
+      wind: {
+        speed: 4.05,
+        deg: 274
+      },
+      rain: {
+        "3h": 0.17
+      },
+      sys: {
+        pod: "n"
+      },
+      dt_txt: "2020-05-02 21:00:00"
+    },
+    {
+      dt: 1588464000,
+      main: {
+        temp: 8.86,
+        feels_like: 4.71,
+        temp_min: 8.86,
+        temp_max: 8.86,
+        pressure: 1009,
+        sea_level: 1009,
+        grnd_level: 1004,
+        humidity: 82,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 804,
+          main: "Clouds",
+          description: "overcast clouds",
+          icon: "04n"
+        }
+      ],
+      clouds: {
+        all: 100
+      },
+      wind: {
+        speed: 4.6,
+        deg: 286
+      },
+      sys: {
+        pod: "n"
+      },
+      dt_txt: "2020-05-03 00:00:00"
+    },
+    {
+      dt: 1588474800,
+      main: {
+        temp: 7.3,
+        feels_like: 2.81,
+        temp_min: 7.3,
+        temp_max: 7.3,
+        pressure: 1011,
+        sea_level: 1011,
+        grnd_level: 1006,
+        humidity: 87,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 803,
+          main: "Clouds",
+          description: "broken clouds",
+          icon: "04n"
+        }
+      ],
+      clouds: {
+        all: 63
+      },
+      wind: {
+        speed: 4.89,
+        deg: 283
+      },
+      sys: {
+        pod: "n"
+      },
+      dt_txt: "2020-05-03 03:00:00"
+    },
+    {
+      dt: 1588485600,
+      main: {
+        temp: 8.04,
+        feels_like: 3.02,
+        temp_min: 8.04,
+        temp_max: 8.04,
+        pressure: 1014,
+        sea_level: 1014,
+        grnd_level: 1008,
+        humidity: 83,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 803,
+          main: "Clouds",
+          description: "broken clouds",
+          icon: "04d"
+        }
+      ],
+      clouds: {
+        all: 82
+      },
+      wind: {
+        speed: 5.66,
+        deg: 289
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-05-03 06:00:00"
+    },
+    {
+      dt: 1588496400,
+      main: {
+        temp: 9.59,
+        feels_like: 4.9,
+        temp_min: 9.59,
+        temp_max: 9.59,
+        pressure: 1016,
+        sea_level: 1016,
+        grnd_level: 1010,
+        humidity: 74,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 804,
+          main: "Clouds",
+          description: "overcast clouds",
+          icon: "04d"
+        }
+      ],
+      clouds: {
+        all: 100
+      },
+      wind: {
+        speed: 5.14,
+        deg: 277
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-05-03 09:00:00"
+    },
+    {
+      dt: 1588507200,
+      main: {
+        temp: 13.31,
+        feels_like: 8.93,
+        temp_min: 13.31,
+        temp_max: 13.31,
+        pressure: 1016,
+        sea_level: 1016,
+        grnd_level: 1011,
+        humidity: 54,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 804,
+          main: "Clouds",
+          description: "overcast clouds",
+          icon: "04d"
+        }
+      ],
+      clouds: {
+        all: 97
+      },
+      wind: {
+        speed: 4.43,
+        deg: 277
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-05-03 12:00:00"
+    },
+    {
+      dt: 1588518000,
+      main: {
+        temp: 14.56,
+        feels_like: 9.96,
+        temp_min: 14.56,
+        temp_max: 14.56,
+        pressure: 1016,
+        sea_level: 1016,
+        grnd_level: 1011,
+        humidity: 50,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 500,
+          main: "Rain",
+          description: "light rain",
+          icon: "10d"
+        }
+      ],
+      clouds: {
+        all: 66
+      },
+      wind: {
+        speed: 4.75,
+        deg: 270
+      },
+      rain: {
+        "3h": 0.14
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-05-03 15:00:00"
+    },
+    {
+      dt: 1588528800,
+      main: {
+        temp: 12.31,
+        feels_like: 8.89,
+        temp_min: 12.31,
+        temp_max: 12.31,
+        pressure: 1017,
+        sea_level: 1017,
+        grnd_level: 1012,
+        humidity: 67,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 802,
+          main: "Clouds",
+          description: "scattered clouds",
+          icon: "03d"
+        }
+      ],
+      clouds: {
+        all: 37
+      },
+      wind: {
+        speed: 3.68,
+        deg: 268
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-05-03 18:00:00"
+    },
+    {
+      dt: 1588539600,
+      main: {
+        temp: 9.55,
+        feels_like: 6.67,
+        temp_min: 9.55,
+        temp_max: 9.55,
+        pressure: 1019,
+        sea_level: 1019,
+        grnd_level: 1014,
+        humidity: 84,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 800,
+          main: "Clear",
+          description: "clear sky",
+          icon: "01n"
+        }
+      ],
+      clouds: {
+        all: 1
+      },
+      wind: {
+        speed: 3.11,
+        deg: 303
+      },
+      sys: {
+        pod: "n"
+      },
+      dt_txt: "2020-05-03 21:00:00"
+    },
+    {
+      dt: 1588550400,
+      main: {
+        temp: 8.23,
+        feels_like: 5.43,
+        temp_min: 8.23,
+        temp_max: 8.23,
+        pressure: 1020,
+        sea_level: 1020,
+        grnd_level: 1015,
+        humidity: 77,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 800,
+          main: "Clear",
+          description: "clear sky",
+          icon: "01n"
+        }
+      ],
+      clouds: {
+        all: 9
+      },
+      wind: {
+        speed: 2.23,
+        deg: 314
+      },
+      sys: {
+        pod: "n"
+      },
+      dt_txt: "2020-05-04 00:00:00"
+    },
+    {
+      dt: 1588561200,
+      main: {
+        temp: 6.71,
+        feels_like: 4.11,
+        temp_min: 6.71,
+        temp_max: 6.71,
+        pressure: 1020,
+        sea_level: 1020,
+        grnd_level: 1015,
+        humidity: 84,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 800,
+          main: "Clear",
+          description: "clear sky",
+          icon: "01n"
+        }
+      ],
+      clouds: {
+        all: 7
+      },
+      wind: {
+        speed: 1.89,
+        deg: 294
+      },
+      sys: {
+        pod: "n"
+      },
+      dt_txt: "2020-05-04 03:00:00"
+    },
+    {
+      dt: 1588572000,
+      main: {
+        temp: 8.46,
+        feels_like: 5.47,
+        temp_min: 8.46,
+        temp_max: 8.46,
+        pressure: 1021,
+        sea_level: 1021,
+        grnd_level: 1016,
+        humidity: 69,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 801,
+          main: "Clouds",
+          description: "few clouds",
+          icon: "02d"
+        }
+      ],
+      clouds: {
+        all: 18
+      },
+      wind: {
+        speed: 2.15,
+        deg: 295
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-05-04 06:00:00"
+    },
+    {
+      dt: 1588582800,
+      main: {
+        temp: 13.15,
+        feels_like: 9.54,
+        temp_min: 13.15,
+        temp_max: 13.15,
+        pressure: 1021,
+        sea_level: 1021,
+        grnd_level: 1016,
+        humidity: 39,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 803,
+          main: "Clouds",
+          description: "broken clouds",
+          icon: "04d"
+        }
+      ],
+      clouds: {
+        all: 81
+      },
+      wind: {
+        speed: 2.22,
+        deg: 293
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-05-04 09:00:00"
+    },
+    {
+      dt: 1588593600,
+      main: {
+        temp: 16.2,
+        feels_like: 12.74,
+        temp_min: 16.2,
+        temp_max: 16.2,
+        pressure: 1020,
+        sea_level: 1020,
+        grnd_level: 1015,
+        humidity: 31,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 804,
+          main: "Clouds",
+          description: "overcast clouds",
+          icon: "04d"
+        }
+      ],
+      clouds: {
+        all: 85
+      },
+      wind: {
+        speed: 1.92,
+        deg: 288
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-05-04 12:00:00"
+    },
+    {
+      dt: 1588604400,
+      main: {
+        temp: 16.41,
+        feels_like: 12.63,
+        temp_min: 16.41,
+        temp_max: 16.41,
+        pressure: 1019,
+        sea_level: 1019,
+        grnd_level: 1014,
+        humidity: 31,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 804,
+          main: "Clouds",
+          description: "overcast clouds",
+          icon: "04d"
+        }
+      ],
+      clouds: {
+        all: 100
+      },
+      wind: {
+        speed: 2.41,
+        deg: 306
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-05-04 15:00:00"
+    },
+    {
+      dt: 1588615200,
+      main: {
+        temp: 13.74,
+        feels_like: 10.05,
+        temp_min: 13.74,
+        temp_max: 13.74,
+        pressure: 1020,
+        sea_level: 1020,
+        grnd_level: 1014,
+        humidity: 42,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 804,
+          main: "Clouds",
+          description: "overcast clouds",
+          icon: "04d"
+        }
+      ],
+      clouds: {
+        all: 99
+      },
+      wind: {
+        speed: 2.66,
+        deg: 336
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-05-04 18:00:00"
+    },
+    {
+      dt: 1588626000,
+      main: {
+        temp: 10.68,
+        feels_like: 6.86,
+        temp_min: 10.68,
+        temp_max: 10.68,
+        pressure: 1021,
+        sea_level: 1021,
+        grnd_level: 1015,
+        humidity: 58,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 804,
+          main: "Clouds",
+          description: "overcast clouds",
+          icon: "04n"
+        }
+      ],
+      clouds: {
+        all: 86
+      },
+      wind: {
+        speed: 3.25,
+        deg: 33
+      },
+      sys: {
+        pod: "n"
+      },
+      dt_txt: "2020-05-04 21:00:00"
+    },
+    {
+      dt: 1588636800,
+      main: {
+        temp: 8.55,
+        feels_like: 4.79,
+        temp_min: 8.55,
+        temp_max: 8.55,
+        pressure: 1021,
+        sea_level: 1021,
+        grnd_level: 1016,
+        humidity: 65,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 804,
+          main: "Clouds",
+          description: "overcast clouds",
+          icon: "04n"
+        }
+      ],
+      clouds: {
+        all: 86
+      },
+      wind: {
+        speed: 3.07,
+        deg: 54
+      },
+      sys: {
+        pod: "n"
+      },
+      dt_txt: "2020-05-05 00:00:00"
+    },
+    {
+      dt: 1588647600,
+      main: {
+        temp: 6.96,
+        feels_like: 3.33,
+        temp_min: 6.96,
+        temp_max: 6.96,
+        pressure: 1021,
+        sea_level: 1021,
+        grnd_level: 1016,
+        humidity: 68,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 800,
+          main: "Clear",
+          description: "clear sky",
+          icon: "01n"
+        }
+      ],
+      clouds: {
+        all: 10
+      },
+      wind: {
+        speed: 2.67,
+        deg: 42
+      },
+      sys: {
+        pod: "n"
+      },
+      dt_txt: "2020-05-05 03:00:00"
+    },
+    {
+      dt: 1588658400,
+      main: {
+        temp: 9.07,
+        feels_like: 6.05,
+        temp_min: 9.07,
+        temp_max: 9.07,
+        pressure: 1022,
+        sea_level: 1022,
+        grnd_level: 1016,
+        humidity: 59,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 800,
+          main: "Clear",
+          description: "clear sky",
+          icon: "01d"
+        }
+      ],
+      clouds: {
+        all: 5
+      },
+      wind: {
+        speed: 1.81,
+        deg: 26
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-05-05 06:00:00"
+    },
+    {
+      dt: 1588669200,
+      main: {
+        temp: 13.73,
+        feels_like: 10.13,
+        temp_min: 13.73,
+        temp_max: 13.73,
+        pressure: 1022,
+        sea_level: 1022,
+        grnd_level: 1017,
+        humidity: 38,
+        temp_kf: 0
+      },
+      weather: [
+        {
+          id: 800,
+          main: "Clear",
+          description: "clear sky",
+          icon: "01d"
+        }
+      ],
+      clouds: {
+        all: 0
+      },
+      wind: {
+        speed: 2.23,
+        deg: 25
+      },
+      sys: {
+        pod: "d"
+      },
+      dt_txt: "2020-05-05 09:00:00"
+    }
+  ]
+};

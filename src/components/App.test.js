@@ -1,8 +1,12 @@
 import React from "react";
-import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import { cleanup, render, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import App from "./App";
 import { mockWeatherData, mockForecastData } from "../__mocks__/Weather.mock";
+
+jest.mock("../use-debounce", () => {
+  return jest.fn(searchCity => searchCity);
+});
 
 jest.mock(
   "./LoadingSpinner",
@@ -21,80 +25,42 @@ jest.mock(
 describe("<App />", () => {
   afterEach(cleanup);
 
-  beforeEach(() => {
-    jest.spyOn(window, "fetch").mockImplementationOnce(() =>
-      Promise.resolve({
-        ok: true,
-        json: () => Promise.resolve({})
-      })
-    );
+  afterEach(() => jest.restoreAllMocks());
 
-    jest.spyOn(window, "fetch").mockImplementationOnce(() =>
-      Promise.resolve({
-        ok: true,
-        json: () => Promise.resolve({})
-      })
-    );
-  });
+  test("fetches and then renders the current weather and forecast", async () => {
+    jest
+      .spyOn(window, "fetch")
+      .mockImplementationOnce(() =>
+        Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockWeatherData)
+        })
+      )
+      .mockImplementationOnce(() =>
+        Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockForecastData)
+        })
+      );
 
-  test("renders without crashing", async () => {
-    const { container } = render(<App />);
+    const { getByText } = render(<App />);
 
-    await waitFor(() => expect(container).toBeDefined());
-
-    expect(window.fetch).toHaveBeenCalledTimes(2);
-    window.fetch.mockRestore();
-  });
-
-  test("renders a loading spinner while fetching weather data", async () => {
-    render(<App />);
-
-    await waitFor(() => screen.getByRole("progressbar"));
-
-    expect(screen.getByRole("progressbar")).toBeDefined();
-    expect(window.fetch).toHaveBeenCalledTimes(2);
-    window.fetch.mockRestore();
-  });
-
-  test("fetches and renders weather data", async () => {
-    jest.spyOn(window, "fetch").mockReset();
-
-    jest.spyOn(window, "fetch").mockImplementationOnce(() =>
-      Promise.resolve({
-        ok: true,
-        json: () => Promise.resolve(mockWeatherData)
-      })
-    );
-
-    jest.spyOn(window, "fetch").mockImplementationOnce(() =>
-      Promise.resolve({
-        ok: true,
-        json: () => Promise.resolve(mockForecastData)
-      })
-    );
-
-    render(<App />);
-
-    await waitFor(() => screen.getByText("About"));
-
-    expect(screen.getByText("About")).toBeInTheDocument();
-    expect(screen.getByText("GitHub")).toBeInTheDocument();
-    expect(screen.getByText("Enter city name")).toBeInTheDocument();
-    expect(screen.getByText("Eldoret, KE")).toBeInTheDocument();
+    const aboutEl = await waitFor(() => getByText("About"));
+    expect(aboutEl).toBeInTheDocument();
+    expect(getByText("GitHub")).toBeInTheDocument();
+    expect(getByText("Enter city name")).toBeInTheDocument();
+    expect(getByText("Eldoret, KE")).toBeInTheDocument();
+    expect(getByText("Thursday, 1:24 PM, Broken Clouds")).toBeInTheDocument();
+    expect(getByText("20°C")).toBeInTheDocument();
+    expect(getByText(/30\s+km\/h Winds/)).toBeInTheDocument();
+    expect(getByText(/49% Humidity/)).toBeInTheDocument();
     expect(
-      screen.getByText("Thursday, 1:24 PM, Broken Clouds")
+      getByText("'Netflix and chill' weather. It's pleasant outside")
     ).toBeInTheDocument();
-    expect(screen.getByText("20°C")).toBeInTheDocument();
-    expect(screen.getByText(/30\s+km\/h Winds/)).toBeInTheDocument();
-    expect(screen.getByText(/49% Humidity/)).toBeInTheDocument();
-    expect(
-      screen.getByText("'Netflix and chill' weather. It's pleasant outside")
-    ).toBeInTheDocument();
-    expect(screen.getByText("Saturday")).toBeInTheDocument();
-    expect(screen.getByText("Sunday")).toBeInTheDocument();
-    expect(screen.getByText("Monday")).toBeInTheDocument();
-    expect(screen.getByText("Tuesday")).toBeInTheDocument();
+    expect(getByText("Saturday")).toBeInTheDocument();
+    expect(getByText("Sunday")).toBeInTheDocument();
+    expect(getByText("Monday")).toBeInTheDocument();
+    expect(getByText("Tuesday")).toBeInTheDocument();
     expect(window.fetch).toHaveBeenCalledTimes(2);
-    window.fetch.mockRestore();
   });
 });

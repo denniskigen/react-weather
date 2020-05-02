@@ -17,7 +17,10 @@ export default function App() {
         setError(null);
       })
       .catch(err => {
-        console.error(`Error fetching current weather for ${city}: `, error);
+        console.error(
+          `Error fetching current weather for ${city}: `,
+          err.message
+        );
         setError(err.message);
       });
   }, [city, error]);
@@ -29,7 +32,7 @@ export default function App() {
         setError(null);
       })
       .catch(err => {
-        console.error(`Error fetching forecast for ${city}:`, error);
+        console.error(`Error fetching forecast for ${city}:`, err.message);
         setError(err.message);
       });
   }, [city, error]);

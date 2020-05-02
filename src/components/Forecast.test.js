@@ -1,5 +1,5 @@
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
+import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import Forecast from "./Forecast";
 import { mockForecast } from "../__mocks__/Weather.mock";
@@ -14,16 +14,12 @@ describe("<Forecast />", () => {
     };
   });
 
-  test("renders without crashing", () => {
-    const { container } = render(<Forecast forecast={testProps.forecast} />);
-
-    expect(container).toBeDefined();
-  });
-
-  test("renders the weekly forecast for the specified location", () => {
+  test("renders the weekly forecast for the specified location", async () => {
     const { getByText, getAllByText, getAllByRole } = render(
       <Forecast forecast={testProps.forecast} />
     );
+
+    await waitFor(() => screen.getByText("Wednesday"));
 
     expect(getByText("Wednesday")).toBeInTheDocument();
     expect(getByText("Thursday")).toBeInTheDocument();

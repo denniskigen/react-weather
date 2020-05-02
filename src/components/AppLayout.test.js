@@ -1,5 +1,5 @@
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
+import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import AppLayout from "./AppLayout";
 import { mockCurrentWeather, mockForecast } from "../__mocks__/Weather.mock";
 import "@testing-library/jest-dom/extend-expect";
@@ -18,19 +18,7 @@ describe("<AppLayout />", () => {
 
   afterEach(cleanup);
 
-  test("renders without crashing", () => {
-    const { container } = render(
-      <AppLayout
-        currentWeather={testProps.currentWeather}
-        forecast={testProps.forecast}
-        icon={testProps.icon}
-        recommendation={testProps.recommendation}
-      />
-    );
-    expect(container).toBeDefined();
-  });
-
-  test("renders the elements that make up the app layout", () => {
+  test("renders the elements that make up the app layout", async () => {
     const { getByText } = render(
       <AppLayout
         currentWeather={testProps.currentWeather}
@@ -39,6 +27,9 @@ describe("<AppLayout />", () => {
         recommendation={testProps.recommendation}
       />
     );
+
+    await waitFor(() => screen.getByText("Eldoret, KE"));
+
     expect(getByText("Eldoret, KE")).toBeInTheDocument();
     expect(getByText("Wednesday, 10:36 AM, Few Clouds")).toBeInTheDocument();
     expect(getByText("19°C")).toBeInTheDocument();

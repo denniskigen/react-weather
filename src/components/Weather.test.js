@@ -1,5 +1,5 @@
 import React from "react";
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { cleanup, render, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import Weather from "./Weather";
 import { mockCurrentWeather, mockForecast } from "../__mocks__/Weather.mock";
@@ -18,21 +18,7 @@ describe("<Weather />", () => {
     };
   });
 
-  test("renders without crashing", () => {
-    const { container } = render(
-      <Weather
-        city={testProps.city}
-        currentWeather={testProps.currentWeather}
-        forecast={testProps.forecast}
-        error={testProps.error}
-        onCityChange={testProps.onCityChange}
-      />
-    );
-
-    expect(container).toBeDefined();
-  });
-
-  test("renders the navbar, weather search and app layout", () => {
+  test("renders the navbar, weather search and app layout", async () => {
     const { getByText, getByAltText } = render(
       <Weather
         city={testProps.city}
@@ -61,5 +47,6 @@ describe("<Weather />", () => {
     expect(getByText("Friday")).toBeInTheDocument();
     expect(getByText("Saturday")).toBeInTheDocument();
     expect(getByText("Sunday")).toBeInTheDocument();
+    await waitFor(() => getByText("About"));
   });
 });
