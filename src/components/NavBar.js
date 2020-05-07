@@ -61,7 +61,6 @@ const TemporaryDrawer = () => {
       role="presentation"
       onClick={toggleDrawer(side, false)}
       onKeyDown={toggleDrawer(side, false)}
-      data-testid="side-drawer"
     >
       <img src={about} className={classes.aboutImg} alt="about" />
       <Typography className={classes.aboutText} component="div" gutterBottom>
@@ -161,7 +160,6 @@ const TemporaryDrawer = () => {
         anchor="right"
         open={state.right}
         onClose={toggleDrawer("right", false)}
-        data-testid="drawer"
       >
         {sideList("right")}
       </Drawer>
@@ -176,12 +174,7 @@ export default function NavBar() {
     <div className={classes.root}>
       <AppBar className={classes.appBar}>
         <Toolbar>
-          <img
-            src={logo}
-            className={classes.appLogo}
-            alt="logo"
-            data-testid="app-logo"
-          />
+          <img src={logo} className={classes.appLogo} alt="logo" />
           <Grid justify="space-between" container></Grid>
           <TemporaryDrawer />
           <Button className="github-btn">
