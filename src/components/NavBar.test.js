@@ -1,11 +1,9 @@
 import React from "react";
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import NavBar from "./NavBar";
 
 describe("<NavBar />", () => {
-  afterEach(cleanup);
-
   test("renders without crashing", () => {
     const { container } = render(<NavBar />);
 
@@ -13,11 +11,11 @@ describe("<NavBar />", () => {
   });
 
   test("renders the navbar with the app logo, app links and side drawer", () => {
-    const { getByText, getByAltText } = render(<NavBar />);
+    render(<NavBar />);
 
-    expect(getByText("About")).toBeInTheDocument();
-    expect(getByText("GitHub")).toBeInTheDocument();
-    expect(getByAltText("logo")).toBeInTheDocument();
+    expect(screen.getByText("About")).toBeInTheDocument();
+    expect(screen.getByText("GitHub")).toBeInTheDocument();
+    expect(screen.getByAltText("logo")).toBeInTheDocument();
 
     fireEvent.click(screen.getByTestId("toggle"));
 

@@ -1,12 +1,11 @@
 import React from "react";
-import { cleanup, render, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import Weather from "./Weather";
 import { mockCurrentWeather, mockForecast } from "../__mocks__/Weather.mock";
 
 describe("<Weather />", () => {
   let testProps;
-  afterEach(cleanup);
 
   beforeEach(() => {
     testProps = {
@@ -18,8 +17,8 @@ describe("<Weather />", () => {
     };
   });
 
-  test("renders the navbar, weather search and app layout", async () => {
-    const { getByText, getByAltText } = render(
+  test("renders the navbar, weather search and app layout", () => {
+    render(
       <Weather
         city={testProps.city}
         currentWeather={testProps.currentWeather}
@@ -29,24 +28,25 @@ describe("<Weather />", () => {
       />
     );
 
-    expect(getByText("About")).toBeInTheDocument();
-    expect(getByText("GitHub")).toBeInTheDocument();
-    expect(getByAltText("logo")).toBeInTheDocument();
-    expect(getByText("Eldoret, KE")).toBeInTheDocument();
-    expect(getByText("Wednesday, 10:36 AM, Few Clouds")).toBeInTheDocument();
-    expect(getByText("19°C")).toBeInTheDocument();
-    expect(getByText(/24 km\/h Winds\s+/)).toBeInTheDocument();
-    expect(getByText(/68% Humidity/)).toBeInTheDocument();
+    expect(screen.getByText("About")).toBeInTheDocument();
+    expect(screen.getByText("GitHub")).toBeInTheDocument();
+    expect(screen.getByAltText("logo")).toBeInTheDocument();
+    expect(screen.getByText("Eldoret, KE")).toBeInTheDocument();
     expect(
-      getByText(
+      screen.getByText("Wednesday, 10:36 AM, Few Clouds")
+    ).toBeInTheDocument();
+    expect(screen.getByText("19°C")).toBeInTheDocument();
+    expect(screen.getByText(/24 km\/h Winds\s+/)).toBeInTheDocument();
+    expect(screen.getByText(/68% Humidity/)).toBeInTheDocument();
+    expect(
+      screen.getByText(
         "Great day for a bit of laundry and maybe a nice picnic date later :)"
       )
     ).toBeInTheDocument();
-    expect(getByText("Wednesday")).toBeInTheDocument();
-    expect(getByText("Thursday")).toBeInTheDocument();
-    expect(getByText("Friday")).toBeInTheDocument();
-    expect(getByText("Saturday")).toBeInTheDocument();
-    expect(getByText("Sunday")).toBeInTheDocument();
-    await waitFor(() => getByText("About"));
+    expect(screen.getByText("Wednesday")).toBeInTheDocument();
+    expect(screen.getByText("Thursday")).toBeInTheDocument();
+    expect(screen.getByText("Friday")).toBeInTheDocument();
+    expect(screen.getByText("Saturday")).toBeInTheDocument();
+    expect(screen.getByText("Sunday")).toBeInTheDocument();
   });
 });

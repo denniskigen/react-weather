@@ -1,11 +1,19 @@
 {
   "plugins": [
     // ...
-    "react-hooks"
+    "jest-dom",
+    "react-hooks",
+    "testing-library"
   ],
   "rules": {
     // ...
     "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
     "react-hooks/exhaustive-deps": "warn" // Checks effect dependencies
-  }
+  },
+  "extends": [
+    "plugin:testing-library/recommended",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended"
+  ],
+  "parser": "babel-eslint"
 }

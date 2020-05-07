@@ -1,5 +1,5 @@
 import React from "react";
-import { cleanup, render, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import App from "./App";
 import { mockWeatherData, mockForecastData } from "../__mocks__/Weather.mock";
@@ -9,8 +9,6 @@ jest.mock("../use-debounce", () => {
 });
 
 describe("<App />", () => {
-  afterEach(cleanup);
-
   afterEach(() => jest.restoreAllMocks());
 
   test("fetches and then renders the current weather and forecast", async () => {
@@ -29,24 +27,26 @@ describe("<App />", () => {
         })
       );
 
-    const { getByText } = render(<App />);
+    render(<App />);
 
-    const aboutEl = await waitFor(() => getByText("About"));
+    const aboutEl = await screen.findByText("About");
     expect(aboutEl).toBeInTheDocument();
-    expect(getByText("GitHub")).toBeInTheDocument();
-    expect(getByText("Enter city name")).toBeInTheDocument();
-    expect(getByText("Eldoret, KE")).toBeInTheDocument();
-    expect(getByText("Thursday, 1:24 PM, Broken Clouds")).toBeInTheDocument();
-    expect(getByText("20°C")).toBeInTheDocument();
-    expect(getByText(/30\s+km\/h Winds/)).toBeInTheDocument();
-    expect(getByText(/49% Humidity/)).toBeInTheDocument();
+    expect(screen.getByText("GitHub")).toBeInTheDocument();
+    expect(screen.getByText("Enter city name")).toBeInTheDocument();
+    expect(screen.getByText("Eldoret, KE")).toBeInTheDocument();
     expect(
-      getByText("'Netflix and chill' weather. It's pleasant outside")
+      screen.getByText("Thursday, 1:24 PM, Broken Clouds")
     ).toBeInTheDocument();
-    expect(getByText("Saturday")).toBeInTheDocument();
-    expect(getByText("Sunday")).toBeInTheDocument();
-    expect(getByText("Monday")).toBeInTheDocument();
-    expect(getByText("Tuesday")).toBeInTheDocument();
+    expect(screen.getByText("20°C")).toBeInTheDocument();
+    expect(screen.getByText(/30\s+km\/h Winds/)).toBeInTheDocument();
+    expect(screen.getByText(/49% Humidity/)).toBeInTheDocument();
+    expect(
+      screen.getByText("'Netflix and chill' weather. It's pleasant outside")
+    ).toBeInTheDocument();
+    expect(screen.getByText("Saturday")).toBeInTheDocument();
+    expect(screen.getByText("Sunday")).toBeInTheDocument();
+    expect(screen.getByText("Monday")).toBeInTheDocument();
+    expect(screen.getByText("Tuesday")).toBeInTheDocument();
     expect(window.fetch).toHaveBeenCalledTimes(2);
   });
 
@@ -62,11 +62,11 @@ describe("<App />", () => {
       .spyOn(window, "fetch")
       .mockImplementation(() => Promise.reject(mockErrorResponse));
 
-    const { getByRole, getByText } = render(<App />);
+    render(<App />);
 
     // loading spinner
-    await waitFor(() => getByRole("progressbar"));
-    expect(getByRole("progressbar")).toBeInTheDocument();
-    expect(getByText(mockErrorResponse.message)).toBeInTheDocument();
+    await screen.findByRole("progressbar");
+    expect(screen.getByRole("progressbar")).toBeInTheDocument();
+    expect(screen.getByText(mockErrorResponse.message)).toBeInTheDocument();
   });
 });
