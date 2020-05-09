@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "@material-ui/core";
+import { createMuiTheme, Container, ThemeProvider } from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 import Weather from "./Weather";
+import NavBar from "./NavBar";
 
 export default function App() {
   const [city, setCity] = useState("Eldoret");
@@ -36,20 +38,44 @@ export default function App() {
     setCity(city);
   };
 
+  const theme = createMuiTheme({
+    typography: {
+      fontFamily: [
+        "Inter",
+        "-apple-system",
+        "BlinkMacSystemFont",
+        '"Helvetica Neue"',
+        "Arial",
+        "sans-serif",
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"'
+      ].join(","),
+      fontSize: 14,
+      h5: {
+        fontWeight: 600
+      }
+    }
+  });
+
   if (
     (currentWeather && Object.keys(currentWeather).length) ||
     (forecast && Object.keys(forecast).length)
   ) {
     return (
-      <Container maxWidth="sm">
-        <Weather
-          city={city}
-          currentWeather={currentWeather}
-          forecast={forecast}
-          onCityChange={handleCityChange}
-          error={error}
-        />
-      </Container>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <NavBar />
+        <Container maxWidth="sm">
+          <Weather
+            city={city}
+            currentWeather={currentWeather}
+            forecast={forecast}
+            onCityChange={handleCityChange}
+            error={error}
+          />
+        </Container>
+      </ThemeProvider>
     );
   } else {
     return (

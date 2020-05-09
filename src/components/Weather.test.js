@@ -17,7 +17,7 @@ describe("<Weather />", () => {
     };
   });
 
-  test("renders the navbar, weather search and app layout", () => {
+  test("renders the weather search and app layout", () => {
     render(
       <Weather
         city={testProps.city}
@@ -28,9 +28,6 @@ describe("<Weather />", () => {
       />
     );
 
-    expect(screen.getByText("About")).toBeInTheDocument();
-    expect(screen.getByText("GitHub")).toBeInTheDocument();
-    expect(screen.getByAltText("logo")).toBeInTheDocument();
     expect(screen.getByText("Eldoret, KE")).toBeInTheDocument();
     expect(
       screen.getByText("Wednesday, 10:36 AM, Few Clouds")

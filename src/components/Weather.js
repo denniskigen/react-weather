@@ -1,7 +1,6 @@
 import React from "react";
 
 import AppLayout from "./AppLayout";
-import NavBar from "./NavBar";
 import WeatherSearch from "./WeatherSearch";
 
 import * as weatherIcons from "../icons";
@@ -17,7 +16,6 @@ export default function Weather(props) {
 
     return (
       <div>
-        <NavBar />
         <WeatherSearch city={city} onCityChange={onCityChange} error={error} />
         <AppLayout
           currentWeather={currentWeather}

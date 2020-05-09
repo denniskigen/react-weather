@@ -5,7 +5,6 @@ import {
   Button,
   Divider,
   Drawer,
-  Grid,
   Toolbar,
   Typography
 } from "@material-ui/core";
@@ -28,7 +27,8 @@ const useStyles = makeStyles(theme => ({
   },
   appBar: {
     background: "transparent",
-    boxShadow: "none"
+    boxShadow: "none",
+    position: "sticky"
   },
   appLogo: {
     width: "160px"
@@ -173,9 +173,9 @@ export default function NavBar() {
   return (
     <div className={classes.root}>
       <AppBar className={classes.appBar}>
-        <Toolbar>
+        <Toolbar variant="dense">
           <img src={logo} className={classes.appLogo} alt="logo" />
-          <Grid justify="space-between" container></Grid>
+          <div style={{ flex: "1 1 auto" }}></div>
           <TemporaryDrawer />
           <Button className="github-btn">
             <a
