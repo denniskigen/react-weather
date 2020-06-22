@@ -91,7 +91,7 @@ function handleResponse(response) {
   if (response.ok) {
     return response.json();
   } else {
-    throw new Error("Error: Location " + response.statusText);
+    throw new Error("Error: Location " + (response.statusText).toLowerCase());
   }
 }
 
