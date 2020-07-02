@@ -9,11 +9,15 @@ jest.mock("../use-debounce", () => {
 });
 
 describe("<App />", () => {
+  beforeAll(() => {
+    process.env.REACT_APP_API_URL = "https://api.openweathermap.org/data/2.5";
+    process.env.REACT_APP_API_KEY = "some-api-key";
+  });
+  beforeEach(() => jest.spyOn(window, "fetch"));
   afterEach(() => jest.restoreAllMocks());
 
   test("fetches and then renders the current weather and forecast", async () => {
-    jest
-      .spyOn(window, "fetch")
+    window.fetch
       .mockImplementationOnce(() =>
         Promise.resolve({
           ok: true,
@@ -48,6 +52,12 @@ describe("<App />", () => {
     expect(screen.getByText("Monday")).toBeInTheDocument();
     expect(screen.getByText("Tuesday")).toBeInTheDocument();
     expect(window.fetch).toHaveBeenCalledTimes(2);
+    expect(window.fetch).toHaveBeenCalledWith(
+      "https://api.openweathermap.org/data/2.5/weather/?q=Eldoret&units=metric&APPID=some-api-key"
+    );
+    expect(window.fetch).toHaveBeenCalledWith(
+      "https://api.openweathermap.org/data/2.5/forecast/?q=Eldoret&units=metric&APPID=some-api-key"
+    );
   });
 
   test("renders loading spinner & an error if there's a problem getting weather data", async () => {
@@ -58,9 +68,9 @@ describe("<App />", () => {
       message: "An internal server error occurred"
     };
 
-    jest
-      .spyOn(window, "fetch")
-      .mockImplementation(() => Promise.reject(mockErrorResponse));
+    window.fetch.mockImplementationOnce(() =>
+      Promise.reject(mockErrorResponse)
+    );
 
     render(<App />);
 
