@@ -5,7 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
-    "dayjs": "^1.8.35",
+    "dayjs": "^1.8.36",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.3"
@@ -40,11 +40,12 @@
     "eslint": "^6.8.0",
     "eslint-plugin-jest-dom": "^2.1.0",
     "eslint-plugin-react-hooks": "^2.5.1",
-    "eslint-plugin-testing-library": "^3.8.0",
+    "eslint-plugin-testing-library": "^3.9.0",
     "husky": "^3.1.0",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "prettier": "^1.19.1",
-    "pretty-quick": "^2.0.2"
+    "pretty-quick": "^2.0.2",
+    "tsutils": "^3.17.1"
   },
   "husky": {
     "hooks": {
