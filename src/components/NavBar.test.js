@@ -15,7 +15,7 @@ describe("<NavBar />", () => {
 
     expect(screen.getByText("About")).toBeInTheDocument();
     expect(screen.getByText("GitHub")).toBeInTheDocument();
-    expect(screen.getByAltText("logo")).toBeInTheDocument();
+    expect(screen.getByTitle("React weather")).toBeInTheDocument();
 
     fireEvent.click(screen.getByTestId("toggle"));
 

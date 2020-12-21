@@ -10,7 +10,7 @@ import {
 } from "@material-ui/core";
 
 import about from "../about.png";
-import logo from "../logo.svg";
+import { Logo } from "./Logo";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -29,9 +29,6 @@ const useStyles = makeStyles(theme => ({
     background: "transparent",
     boxShadow: "none",
     position: "sticky"
-  },
-  appLogo: {
-    width: "160px"
   },
   list: {
     width: 400
@@ -174,7 +171,7 @@ export default function NavBar() {
     <div className={classes.root}>
       <AppBar className={classes.appBar}>
         <Toolbar variant="dense">
-          <img src={logo} className={classes.appLogo} alt="logo" />
+          <Logo />
           <div style={{ flex: "1 1 auto" }}></div>
           <TemporaryDrawer />
           <Button className="github-btn">
