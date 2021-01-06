@@ -113,13 +113,11 @@ function getForecast(city) {
     `${process.env.REACT_APP_API_URL}/forecast/?q=${city}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`
   )
     .then(res => handleResponse(res))
-    .then(result => {
-      if (Object.entries(result).length) {
-        const forecast = [];
-        for (let i = 0; i < result.list.length; i += 8) {
-          forecast.push(mapDataToWeatherInterface(result.list[i + 4]));
-        }
-        return forecast;
+    .then(forecastData => {
+      if (Object.entries(forecastData).length) {
+        return forecastData.list
+          .filter(forecast => forecast.dt_txt.match(/09:00:00/))
+          .map(forecast => mapDataToWeatherInterface(forecast));
       }
     });
 }
