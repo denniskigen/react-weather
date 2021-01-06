@@ -91,7 +91,7 @@ function handleResponse(response) {
   if (response.ok) {
     return response.json();
   } else {
-    throw new Error("Error: Location " + (response.statusText).toLowerCase());
+    throw new Error("Error: Location " + response.statusText.toLowerCase());
   }
 }
 
@@ -152,8 +152,8 @@ function mapDataToWeatherInterface(data) {
   }
 
   // remove undefined fields
-  Object.keys(mapped).forEach(
-    key => mapped[key] === undefined && delete data[key]
+  Object.entries(mapped).map(
+    ([key, value]) => value === undefined && delete mapped[key]
   );
 
   return mapped;
