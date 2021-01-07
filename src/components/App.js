@@ -125,15 +125,18 @@ function getForecast(city) {
 function mapDataToWeatherInterface(data) {
   const mapped = {
     city: data.name,
+    condition: data.cod,
     country: data.sys.country,
     date: data.dt * 1000,
+    description: data.weather[0].description,
     feels_like: Math.round(data.main.feels_like),
     humidity: data.main.humidity,
     icon_id: data.weather[0].id,
+    sunrise: data.sys.sunrise * 1000,
+    sunset: data.sys.sunset * 1000,
     temperature: Math.round(data.main.temp),
-    description: data.weather[0].description,
-    wind_speed: Math.round(data.wind.speed * 3.6), // convert from m/s to km/h
-    condition: data.cod
+    timezone: data.timezone / 60,
+    wind_speed: Math.round(data.wind.speed * 3.6) // convert from m/s to km/h
   };
 
   // Add extra properties for the five day forecast: dt_txt, icon, min, max

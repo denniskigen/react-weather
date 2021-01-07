@@ -1,17 +1,17 @@
 export const mockCurrentWeather = {
   city: "Eldoret",
+  condition: 200,
   country: "KE",
   date: 1579073776000,
+  description: "few clouds",
+  feels_like: 17,
   humidity: 68,
   icon_id: 801,
+  sunrise: 1610077360000,
+  sunset: 1610120889000,
   temperature: 19,
-  feels_like: 17,
-  description: "few clouds",
-  wind_speed: 24,
-  condition: 200,
-  icon: "02d",
-  max: 19,
-  min: 19
+  timezone: 180,
+  wind_speed: 24
 };
 
 export const mockForecast = [

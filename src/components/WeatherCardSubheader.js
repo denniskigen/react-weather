@@ -1,5 +1,7 @@
 import React from "react";
 import dayjs from "dayjs";
+var utc = require("dayjs/plugin/utc"); // dependent on utc plugin
+dayjs.extend(utc);
 
 export default function WeatherCardSubHeader(props) {
   const { currentWeather } = props;
@@ -11,8 +13,11 @@ export default function WeatherCardSubHeader(props) {
   return (
     <>
       <span>
-        {dayjs(date).format("dddd")}, {dayjs(date).format("h:mm")}{" "}
-        {dayjs(date).format("A")},{" "}
+        {dayjs(date).format("dddd")},{" "}
+        {dayjs(date)
+          .utcOffset(currentWeather.timezone)
+          .format("h:mm A")}
+        ,{" "}
         {description.replace(/\w\S*/g, txt => {
           return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
         })}

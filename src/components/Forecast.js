@@ -22,7 +22,9 @@ export default function Forecast(props) {
   const prefix = "wi wi-";
   const { forecast } = props;
   const result = forecast.map((item, index) => {
-    const icon = prefix + weatherIcons.default[item.icon_id].icon;
+    const currentHour = dayjs(item.date).format("H");
+    const timeOfDay = currentHour > 7 && currentHour < 19 ? "day" : "night";
+    const icon = prefix + weatherIcons.default[timeOfDay][item.icon_id].icon;
     return (
       <ListItem key={index} className="forecastItem">
         <ListItemText
