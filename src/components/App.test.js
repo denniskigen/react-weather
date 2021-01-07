@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
+
 import App from "./App";
 import { mockWeatherData, mockForecastData } from "../__mocks__/Weather.mock";
 
@@ -9,6 +10,8 @@ jest.mock("../use-debounce", () => {
 });
 
 describe("<App />", () => {
+  const renderApp = () => render(<App />);
+
   beforeAll(() => {
     process.env.REACT_APP_API_URL = "https://api.openweathermap.org/data/2.5";
     process.env.REACT_APP_API_KEY = "some-api-key";
@@ -31,7 +34,7 @@ describe("<App />", () => {
         })
       );
 
-    render(<App />);
+    renderApp();
 
     const aboutEl = await screen.findByText("About");
     expect(aboutEl).toBeInTheDocument();
@@ -72,7 +75,7 @@ describe("<App />", () => {
       Promise.reject(mockErrorResponse)
     );
 
-    render(<App />);
+    renderApp();
 
     // loading spinner
     await screen.findByRole("progressbar");

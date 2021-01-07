@@ -1,18 +1,19 @@
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
+
 import NavBar from "./NavBar";
 
 describe("<NavBar />", () => {
-  test("renders without crashing", () => {
-    const { container } = render(<NavBar />);
+  const renderNavBar = () => render(<NavBar />);
 
-    expect(container).toBeDefined();
+  beforeEach(() => renderNavBar());
+
+  test("renders without crashing", () => {
+    expect(screen.getByText("React weather")).toBeInTheDocument();
   });
 
   test("renders the navbar with the app logo, app links and side drawer", () => {
-    render(<NavBar />);
-
     expect(screen.getByText("About")).toBeInTheDocument();
     expect(screen.getByText("GitHub")).toBeInTheDocument();
     expect(screen.getByTitle("React weather")).toBeInTheDocument();

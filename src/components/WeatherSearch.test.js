@@ -8,17 +8,13 @@ jest.mock("../use-debounce", () => {
 });
 
 describe("<WeatherSearch />", () => {
-  let testProps;
-  beforeEach(() => {
-    testProps = {
-      city: "Eldoret",
-      onCityChange: () => {},
-      error: null
-    };
-  });
+  const testProps = {
+    city: "Eldoret",
+    onCityChange: () => {},
+    error: null
+  };
 
-  test("renders a search input where one can type in a city", async () => {
-    const mockOnCityChange = jest.fn();
+  const renderWeatherSearch = mockOnCityChange => {
     render(
       <WeatherSearch
         city={testProps.city}
@@ -26,19 +22,18 @@ describe("<WeatherSearch />", () => {
         error={testProps.error}
       />
     );
+  };
+
+  test("renders a search input where one can type in a city", async () => {
+    const mockOnCityChange = jest.fn();
+    renderWeatherSearch(mockOnCityChange);
 
     await screen.findByRole("search");
-
     expect(screen.getByRole("search")).toBeInTheDocument();
-
     const searchInput = screen.getByLabelText("Enter city name");
-
     expect(searchInput).toBeInTheDocument();
-
     fireEvent.change(searchInput, { target: { value: "Berlin" } });
-
     await screen.findByLabelText("Enter city name");
-
     expect(mockOnCityChange).toHaveBeenCalledTimes(2);
     expect(mockOnCityChange).toHaveBeenCalledWith("Berlin");
   });

@@ -1,23 +1,12 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
+
 import Weather from "./Weather";
 import { mockCurrentWeather, mockForecast } from "../__mocks__/Weather.mock";
 
 describe("<Weather />", () => {
-  let testProps;
-
-  beforeEach(() => {
-    testProps = {
-      city: "Eldoret",
-      currentWeather: mockCurrentWeather,
-      forecast: mockForecast,
-      error: null,
-      onCityChange: () => {}
-    };
-  });
-
-  test("renders the weather search and app layout", () => {
+  const renderWeather = testProps =>
     render(
       <Weather
         city={testProps.city}
@@ -28,6 +17,19 @@ describe("<Weather />", () => {
       />
     );
 
+  beforeEach(() => {
+    const testProps = {
+      city: "Eldoret",
+      currentWeather: mockCurrentWeather,
+      forecast: mockForecast,
+      error: null,
+      onCityChange: () => {}
+    };
+
+    renderWeather(testProps);
+  });
+
+  test("renders the weather search and app layout", () => {
     expect(screen.getByText("Eldoret, KE")).toBeInTheDocument();
     expect(
       screen.getByText("Wednesday, 10:36 AM, Few Clouds")

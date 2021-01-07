@@ -117,7 +117,7 @@ function getForecast(city) {
       if (Object.entries(forecastData).length) {
         return forecastData.list
           .filter(forecast => forecast.dt_txt.match(/09:00:00/))
-          .map(forecast => mapDataToWeatherInterface(forecast));
+          .map(mapDataToWeatherInterface);
       }
     });
 }
@@ -127,9 +127,10 @@ function mapDataToWeatherInterface(data) {
     city: data.name,
     country: data.sys.country,
     date: data.dt * 1000,
+    feels_like: Math.round(data.main.feels_like),
     humidity: data.main.humidity,
     icon_id: data.weather[0].id,
-    temperature: data.main.temp,
+    temperature: Math.round(data.main.temp),
     description: data.weather[0].description,
     wind_speed: Math.round(data.wind.speed * 3.6), // convert from m/s to km/h
     condition: data.cod
@@ -145,8 +146,8 @@ function mapDataToWeatherInterface(data) {
   }
 
   if (data.main.temp_min && data.main.temp_max) {
-    mapped.max = data.main.temp_max;
-    mapped.min = data.main.temp_min;
+    mapped.max = Math.round(data.main.temp_max);
+    mapped.min = Math.round(data.main.temp_min);
   }
 
   // remove undefined fields

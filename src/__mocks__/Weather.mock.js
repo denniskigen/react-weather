@@ -5,6 +5,7 @@ export const mockCurrentWeather = {
   humidity: 68,
   icon_id: 801,
   temperature: 19,
+  feels_like: 17,
   description: "few clouds",
   wind_speed: 24,
   condition: 200,
@@ -15,79 +16,69 @@ export const mockCurrentWeather = {
 
 export const mockForecast = [
   {
-    city: undefined,
-    country: undefined,
     date: 1579122000000,
     humidity: 85,
     icon_id: 801,
-    temperature: 13.76,
+    feels_like: 13,
+    temperature: 14,
     description: "few clouds",
     wind_speed: 7,
-    condition: undefined,
     dt_txt: "2020-01-15 21:00:00",
     icon: "02n",
-    max: 13.76,
-    min: 13.76
+    max: 14,
+    min: 14
   },
   {
-    city: undefined,
-    country: undefined,
     date: 1579208400000,
     humidity: 77,
     icon_id: 802,
-    temperature: 14.47,
+    feels_like: 13,
+    temperature: 15,
     description: "scattered clouds",
     wind_speed: 6,
-    condition: undefined,
     dt_txt: "2020-01-16 21:00:00",
     icon: "03n",
-    max: 14.47,
-    min: 14.47
+    max: 15,
+    min: 15
   },
   {
-    city: undefined,
-    country: undefined,
     date: 1579294800000,
     humidity: 53,
     icon_id: 803,
-    temperature: 15.34,
+    feels_like: 15,
+    temperature: 17,
     description: "broken clouds",
     wind_speed: 5,
-    condition: undefined,
     dt_txt: "2020-01-17 21:00:00",
     icon: "04n",
-    max: 15.34,
-    min: 15.34
+    max: 17,
+    min: 17
   },
   {
-    city: undefined,
-    country: undefined,
     date: 1579381200000,
     humidity: 46,
     icon_id: 803,
-    temperature: 15.43,
+    feels_like: 12,
+    temperature: 13,
     description: "broken clouds",
     wind_speed: 4,
-    condition: undefined,
     dt_txt: "2020-01-18 21:00:00",
     icon: "04n",
-    max: 15.43,
-    min: 15.43
+    max: 13,
+    min: 13
   },
   {
-    city: undefined,
-    country: undefined,
     date: 1579467600000,
     humidity: 52,
     icon_id: 804,
-    temperature: 15.02,
+    feels_like: 15,
+    temperature: 16,
     description: "overcast clouds",
     wind_speed: 6,
-    condition: undefined,
     dt_txt: "2020-01-19 21:00:00",
     icon: "04n",
-    max: 15.02,
-    min: 15.02
+    max: 16,
+    min: 16
   }
 ];
 
@@ -260,9 +251,9 @@ export const mockForecastData = {
     {
       dt: 1572642000,
       main: {
-        temp: 15.34,
+        temp: 15,
         temp_min: 14.76,
-        temp_max: 15.34,
+        temp_max: 15,
         pressure: 1014,
         sea_level: 1014,
         grnd_level: 794,

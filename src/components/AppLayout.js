@@ -108,7 +108,10 @@ const WeatherCard = props => {
           component="h2"
           style={{ fontFamily: "Montserrat", paddingTop: "30px" }}
         >
-          {Math.round(currentWeather.temperature)}&deg;C
+          {currentWeather.temperature}&deg;C
+        </Typography>
+        <Typography variant="subtitle2" color="textSecondary" gutterBottom>
+          Feels like {currentWeather.feels_like}&deg;C
         </Typography>
         <Typography
           variant="subtitle2"

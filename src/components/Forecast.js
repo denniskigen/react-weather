@@ -38,10 +38,10 @@ export default function Forecast(props) {
         </IconButton>
         <span className="temp" style={{ flex: "1 1 0%", textAlign: "right" }}>
           <Typography variant="body2" component="span" color="textPrimary">
-            {Math.round(item.min)}&deg; /{" "}
+            {item.min}&deg; /{" "}
           </Typography>
           <Typography variant="body2" component="span" color="textSecondary">
-            {Math.round(item.max)}&deg;
+            {item.max}&deg;
           </Typography>
         </span>
       </ListItem>
