@@ -96,6 +96,7 @@ export const mockWeatherData = {
   id: 198629,
   main: {
     temp: 20,
+    feels_like: 18,
     pressure: 1026,
     humidity: 49,
     temp_min: 20,

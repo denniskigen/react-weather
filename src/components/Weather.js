@@ -19,7 +19,7 @@ export default function Weather(props) {
     const icon =
       prefix + weatherIcons.default[timeOfDay][currentWeather.icon_id].icon;
     const recommendation =
-      recommendations.default[currentWeather.icon_id].recommendation;
+      recommendations.default[timeOfDay][currentWeather.icon_id].recommendation;
 
     return (
       <div>
