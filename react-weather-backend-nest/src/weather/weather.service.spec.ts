@@ -15,4 +15,10 @@ describe('WeatherService', () => {
         "lat": 31.9514
       });
   });
+
+    it('should get forcast', async () => {
+        await expect(service.getForcast('lod')).resolves.toHaveProperty('city',
+            expect.objectContaining({"name": "Lod"})
+        );
+    });
 });
