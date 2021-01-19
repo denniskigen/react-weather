@@ -1,22 +1,34 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import * as request from 'supertest';
+import {INestApplication} from "@nestjs/common";
+import {AppModule} from "./app.module";
 
 describe('AppController', () => {
-  let appController: AppController;
+
+  let weatherApp: INestApplication;
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
-      controllers: [AppController],
-      providers: [AppService],
+      imports: [AppModule],
     }).compile();
 
-    appController = app.get<AppController>(AppController);
+    weatherApp = app.createNestApplication();
+    await weatherApp.init();
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+
+    it('/weather (GET) with city', async () => {
+
+      //when
+      const res: request.Response = await request(weatherApp.getHttpServer()).get(`/weather?city=Lod`);
+
+      //then
+      expect(res.body).toHaveProperty("clouds");
+      expect(res.body).toHaveProperty("coord");
+      expect(res.body).toHaveProperty("weather");
+
     });
   });
 });
