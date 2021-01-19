@@ -30,5 +30,17 @@ describe('AppController', () => {
       expect(res.body).toHaveProperty("weather");
 
     });
+
+    it('/forecast (GET) with city=Lod', async () => {
+
+      //when
+      const res: request.Response = await request(weatherApp.getHttpServer()).get(`/forecast?city=Lod`);
+
+      //then
+      expect(res.body).toHaveProperty("city");
+      expect(res.body).toHaveProperty("list");
+      expect(res.body).toHaveProperty("cod");
+
+    });
   });
 });

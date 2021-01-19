@@ -9,4 +9,9 @@ export class AppController {
   async weather(@Query('city') city:string): Promise<any> {
     return this.weatherService.getWeather(city);
   }
+
+  @Get("/forecast")
+  async forecast(@Query('city') city:string): Promise<any> {
+    return this.weatherService.getForcast(city);
+  }
 }
