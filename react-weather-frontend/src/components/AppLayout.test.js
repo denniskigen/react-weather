@@ -30,7 +30,7 @@ describe("<AppLayout />", () => {
 
     expect(screen.getByText("Eldoret, KE")).toBeInTheDocument();
     expect(
-      screen.getByText("Wednesday, 10:36 AM, Few Clouds")
+      screen.getByText("Wednesday, 9:36 AM, Few Clouds")
     ).toBeInTheDocument();
     expect(screen.getByText("19°C")).toBeInTheDocument();
     expect(screen.getByText(/24 km\/h Winds\s+/)).toBeInTheDocument();

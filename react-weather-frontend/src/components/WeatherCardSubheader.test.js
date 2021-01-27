@@ -23,7 +23,7 @@ describe("<WeatherCardSubheader />", () => {
     render(<WeatherCardSubHeader currentWeather={testProps.currentWeather} />);
 
     expect(
-      screen.getByText("Wednesday, 10:36 AM, Few Clouds")
+      screen.getByText("Wednesday, 9:36 AM, Few Clouds")
     ).toBeInTheDocument();
   });
 });

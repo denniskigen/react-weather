@@ -39,7 +39,7 @@ describe("<App />", () => {
     expect(screen.getByText("Enter city name")).toBeInTheDocument();
     expect(screen.getByText("Eldoret, KE")).toBeInTheDocument();
     expect(
-      screen.getByText("Thursday, 1:24 PM, Broken Clouds")
+      screen.getByText("Thursday, 12:24 PM, Broken Clouds")
     ).toBeInTheDocument();
     expect(screen.getByText("20°C")).toBeInTheDocument();
     expect(screen.getByText(/30\s+km\/h Winds/)).toBeInTheDocument();
