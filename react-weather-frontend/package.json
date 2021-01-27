@@ -11,7 +11,7 @@
     "react-scripts": "^3.4.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=3333 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "test:non-watch": "react-scripts test --watchAll=false --env=jest-environment-jsdom-sixteen",

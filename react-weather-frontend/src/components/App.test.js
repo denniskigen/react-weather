@@ -10,7 +10,7 @@ jest.mock("../use-debounce", () => {
 
 describe("<App />", () => {
   beforeAll(() => {
-    process.env.REACT_APP_API_URL = "https://api.openweathermap.org/data/2.5";
+    process.env.REACT_APP_API_URL = "http://localhost:3010";
     process.env.REACT_APP_API_KEY = "some-api-key";
   });
   beforeEach(() => jest.spyOn(window, "fetch"));
@@ -53,10 +53,10 @@ describe("<App />", () => {
     expect(screen.getByText("Tuesday")).toBeInTheDocument();
     expect(window.fetch).toHaveBeenCalledTimes(2);
     expect(window.fetch).toHaveBeenCalledWith(
-      "https://api.openweathermap.org/data/2.5/weather/?q=Eldoret&units=metric&APPID=some-api-key"
+      "http://localhost:3010/weather/?city=Eldoret"
     );
     expect(window.fetch).toHaveBeenCalledWith(
-      "https://api.openweathermap.org/data/2.5/forecast/?q=Eldoret&units=metric&APPID=some-api-key"
+      "http://localhost:3010/forecast/?city=Eldoret"
     );
   });
 

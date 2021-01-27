@@ -91,14 +91,12 @@ function handleResponse(response) {
   if (response.ok) {
     return response.json();
   } else {
-    throw new Error("Error: Location " + (response.statusText).toLowerCase());
+    throw new Error("Error: Location " + response.statusText.toLowerCase());
   }
 }
 
 function getWeather(city) {
-  return fetch(
-    `${process.env.REACT_APP_API_URL}/weather/?q=${city}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`
-  )
+  return fetch(`${process.env.REACT_APP_API_URL}/weather/?city=${city}`)
     .then(res => handleResponse(res))
     .then(weather => {
       if (Object.entries(weather).length) {
@@ -109,9 +107,7 @@ function getWeather(city) {
 }
 
 function getForecast(city) {
-  return fetch(
-    `${process.env.REACT_APP_API_URL}/forecast/?q=${city}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`
-  )
+  return fetch(`${process.env.REACT_APP_API_URL}/forecast/?city=${city}`)
     .then(res => handleResponse(res))
     .then(result => {
       if (Object.entries(result).length) {
