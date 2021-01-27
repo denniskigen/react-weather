@@ -7,9 +7,11 @@ describe('FavoritesService', () => {
     service = new FavoritesService();
   });
 
-  it('should return last city', () => {
-    const city = 'Jerusalem';
-    service.setLastCity(city);
-    expect(service.getLastCity()).toEqual(city);
-  });
+  it.each([['Jerusalem'], ['Eilat']])(
+    'should return last city',
+    (city: string) => {
+      service.setLastCity(city);
+      expect(service.getLastCity()).toEqual(city);
+    },
+  );
 });

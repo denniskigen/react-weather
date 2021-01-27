@@ -2,9 +2,13 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class FavoritesService {
-  setLastCity(city: string) {}
+  private lastCity: string;
+
+  setLastCity(city: string) {
+    this.lastCity = city;
+  }
 
   getLastCity() {
-    return 'Jerusalem';
+    return this.lastCity;
   }
 }
