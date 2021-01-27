@@ -6,6 +6,8 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Weather from "./Weather";
 import NavBar from "./NavBar";
 
+const REACT_APP_API_URL = "http://localhost:3010";
+
 export default function App() {
   const [city, setCity] = useState("Eldoret");
   const [error, setError] = useState(null);
@@ -96,18 +98,17 @@ function handleResponse(response) {
 }
 
 function getWeather(city) {
-  return fetch(`${process.env.REACT_APP_API_URL}/weather/?city=${city}`)
+  return fetch(`${REACT_APP_API_URL}/weather/?city=${city}`)
     .then(res => handleResponse(res))
     .then(weather => {
       if (Object.entries(weather).length) {
-        const mappedData = mapDataToWeatherInterface(weather);
-        return mappedData;
+        return mapDataToWeatherInterface(weather);
       }
     });
 }
 
 function getForecast(city) {
-  return fetch(`${process.env.REACT_APP_API_URL}/forecast/?city=${city}`)
+  return fetch(`${REACT_APP_API_URL}/forecast/?city=${city}`)
     .then(res => handleResponse(res))
     .then(result => {
       if (Object.entries(result).length) {
