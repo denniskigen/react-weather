@@ -6,33 +6,93 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Weather from "./Weather";
 import NavBar from "./NavBar";
 
+const geolocationOptions = {
+  enableHighAccuracy: false,
+  timeout: 5000,
+  maximumAge: 0
+};
+
 export default function App() {
-  const [city, setCity] = useState("Eldoret");
+  const [geoInitialized, setGeoInitialized] = useState(false);
+  const [city, setCity] = useState(localStorage.getItem("city") || "Eldoret");
   const [error, setError] = useState(null);
-  const [currentWeather, setCurrentWeather] = useState({});
-  const [forecast, setForecast] = useState([]);
+  const [currentWeather, setCurrentWeather] = useState(
+    JSON.parse(localStorage.getItem("weather")) || {}
+  );
+  const [forecast, setForecast] = useState(
+    JSON.parse(localStorage.getItem("forecast")) || []
+  );
 
-  useEffect(() => {
-    getWeather(city)
+  function geolocationGranted(pos) {
+    fetch(
+      `${process.env.REACT_APP_API_URL}/weather/?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`
+    )
+      .then(res => handleResponse(res))
       .then(weather => {
-        setCurrentWeather(weather);
+        setCity(weather.name);
         setError(null);
+        setGeoInitialized(true);
       })
       .catch(err => {
-        setError(err.message);
+        setGeoInitialized(true);
       });
-  }, [city, error]);
+  }
+
+  function geolocationDenied(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+  }
+  useEffect(() => {
+    if ("geolocation" in navigator) {
+      navigator.permissions
+        .query({ name: "geolocation" })
+        .then(result => {
+          if (result.state === "granted" || result.state === "prompt") {
+            navigator.geolocation.getCurrentPosition(
+              geolocationGranted,
+              geolocationDenied,
+              geolocationOptions
+            );
+          } else {
+            setGeoInitialized(true);
+          }
+        })
+        .catch(err => {
+          setGeoInitialized(true);
+        });
+    } else {
+      setGeoInitialized(true);
+    }
+  }, []);
 
   useEffect(() => {
-    getForecast(city)
-      .then(data => {
-        setForecast(data);
-        setError(null);
-      })
-      .catch(err => {
-        setError(err.message);
-      });
-  }, [city, error]);
+    localStorage.setItem("weather", JSON.stringify(currentWeather));
+  }, [currentWeather]);
+
+  useEffect(() => {
+    localStorage.setItem("forecast", JSON.stringify(forecast));
+  }, [forecast]);
+
+  useEffect(() => {
+    if (geoInitialized && city !== localStorage.getItem("city")) {
+      getWeather(city)
+        .then(weather => {
+          setCurrentWeather(weather);
+          setError(null);
+        })
+        .catch(err => {
+          setError(err.message);
+        });
+      getForecast(city)
+        .then(data => {
+          setForecast(data);
+          setError(null);
+        })
+        .catch(err => {
+          setError(err.message);
+        });
+      localStorage.setItem("city", city);
+    }
+  }, [city, error, geoInitialized]);
 
   const handleCityChange = city => {
     setCity(city);
@@ -91,7 +151,7 @@ function handleResponse(response) {
   if (response.ok) {
     return response.json();
   } else {
-    throw new Error("Error: Location " + response.statusText.toLowerCase());
+    throw new Error("Error: " + response.statusText.toLowerCase());
   }
 }
 

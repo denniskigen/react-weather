@@ -15,8 +15,12 @@ describe("<App />", () => {
   beforeAll(() => {
     process.env.REACT_APP_API_URL = "https://api.openweathermap.org/data/2.5";
     process.env.REACT_APP_API_KEY = "some-api-key";
+    localStorage.clear();
   });
-  beforeEach(() => jest.spyOn(window, "fetch"));
+  beforeEach(() => {
+    localStorage.clear();
+    jest.spyOn(window, "fetch");
+  });
   afterEach(() => jest.restoreAllMocks());
 
   test("fetches and then renders the current weather and forecast", async () => {
