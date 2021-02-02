@@ -37,11 +37,6 @@ describe("<Weather />", () => {
     expect(screen.getByText("19°C")).toBeInTheDocument();
     expect(screen.getByText(/24 km\/h Winds\s+/)).toBeInTheDocument();
     expect(screen.getByText(/68% Humidity/)).toBeInTheDocument();
-    expect(
-      screen.getByText(
-        "Great day for a hanging out the laundry and maybe a nice picnic date later :)"
-      )
-    ).toBeInTheDocument();
     expect(screen.getByText("Wednesday")).toBeInTheDocument();
     expect(screen.getByText("Thursday")).toBeInTheDocument();
     expect(screen.getByText("Friday")).toBeInTheDocument();

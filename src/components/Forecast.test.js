@@ -7,10 +7,18 @@ import { mockForecast } from "../__mocks__/Weather.mock";
 
 describe("<Forecast />", () => {
   const renderForecast = testProps =>
-    render(<Forecast forecast={testProps.forecast} />);
+    render(
+      <Forecast
+        forecast={testProps.forecast}
+        getTemperature={testProps.getTemperature}
+      />
+    );
 
   const testProps = {
-    forecast: mockForecast
+    forecast: mockForecast,
+    getTemperature: function(t) {
+      return t;
+    }
   };
 
   test("renders the weekly forecast for the specified location", async () => {

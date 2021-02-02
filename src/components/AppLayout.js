@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Card,
@@ -10,6 +10,7 @@ import {
   Grid
 } from "@material-ui/core";
 
+import { RadioGroup, FormControlLabel, Radio } from "@material-ui/core";
 import Forecast from "./Forecast";
 import WeatherCardSubheader from "./WeatherCardSubheader";
 
@@ -88,7 +89,21 @@ const WeatherCard = props => {
   const humidity = "wi wi-humidity";
   const strongWind = "wi wi-strong-wind";
   const { currentWeather, forecast, icon, recommendation } = props;
+  const [temperatureFormat, setTemperatureFormat] = useState("C");
 
+  const handleTemperatureFormat = (event, newFormat) => {
+    setTemperatureFormat(newFormat);
+  };
+  const getTemperature = useCallback(
+    t => {
+      if (temperatureFormat === "C") {
+        return t;
+      } else {
+        return Math.round(t * 1.8 + 32);
+      }
+    },
+    [temperatureFormat]
+  );
   return (
     <Card className={classes.card}>
       <CardHeader
@@ -96,6 +111,26 @@ const WeatherCard = props => {
         subheader={<WeatherCardSubheader currentWeather={currentWeather} />}
       />
       <CardContent>
+        <RadioGroup
+          row
+          aria-label="temperature format"
+          name="temperature format"
+          value={temperatureFormat}
+          onChange={handleTemperatureFormat}
+        >
+          <FormControlLabel
+            value="F"
+            control={<Radio color="primary" />}
+            label="&deg;F"
+            labelPlacement="top"
+          />
+          <FormControlLabel
+            value="C"
+            control={<Radio color="primary" />}
+            label="&deg;C"
+            labelPlacement="top"
+          />
+        </RadioGroup>
         <CardMedia
           className={`${icon} ${classes.wi}`}
           src={icon}
@@ -108,10 +143,11 @@ const WeatherCard = props => {
           component="h2"
           style={{ fontFamily: "Montserrat", paddingTop: "30px" }}
         >
-          {currentWeather.temperature}&deg;C
+          {getTemperature(currentWeather.temperature)}&deg;{temperatureFormat}
         </Typography>
         <Typography variant="subtitle2" color="textSecondary" gutterBottom>
-          Feels like {currentWeather.feels_like}&deg;C
+          Feels like {getTemperature(currentWeather.feels_like)}&deg;
+          {temperatureFormat}
         </Typography>
         <Typography
           variant="subtitle2"
@@ -137,7 +173,7 @@ const WeatherCard = props => {
           {recommendation}
         </Typography>
         <Divider variant="middle" />
-        <Forecast forecast={forecast} />
+        <Forecast forecast={forecast} getTemperature={getTemperature} />
       </CardContent>
     </Card>
   );

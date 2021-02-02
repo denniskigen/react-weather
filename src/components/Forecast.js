@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
 export default function Forecast(props) {
   const classes = useStyles();
   const prefix = "wi wi-";
-  const { forecast } = props;
+  const { forecast, getTemperature } = props;
   const result = forecast.map((item, index) => {
     const currentHour = dayjs(item.date).format("H");
     const timeOfDay = currentHour > 7 && currentHour < 19 ? "day" : "night";
@@ -40,10 +40,10 @@ export default function Forecast(props) {
         </IconButton>
         <span className="temp" style={{ flex: "1 1 0%", textAlign: "right" }}>
           <Typography variant="body2" component="span" color="textPrimary">
-            {item.min}&deg; /{" "}
+            {getTemperature(item.min)}&deg; /{" "}
           </Typography>
           <Typography variant="body2" component="span" color="textSecondary">
-            {item.max}&deg;
+            {getTemperature(item.max)}&deg;
           </Typography>
         </span>
       </ListItem>
