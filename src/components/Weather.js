@@ -1,21 +1,35 @@
 import React from "react";
 
+import dayjs from "dayjs";
+
 import AppLayout from "./AppLayout";
 import WeatherSearch from "./WeatherSearch";
 
 import * as weatherIcons from "../icons";
 import * as recommendations from "../recommendations";
 
+const utc = require("dayjs/plugin/utc");
+dayjs.extend(utc);
+
 export default function Weather(props) {
   const { city, currentWeather, forecast, onCityChange, error } = props;
   if (currentWeather && forecast) {
-    const now = new Date();
-    // Convert to UTC Date
-    const date = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
     const prefix = "wi wi-";
-    const sunrise = new Date(currentWeather.sunrise);
-    const sunset = new Date(currentWeather.sunset);
-    const timeOfDay = date > sunrise && date < sunset ? "day" : "night";
+    const currentTime = dayjs
+      .utc(currentWeather.date)
+      .utcOffset(currentWeather.timezone)
+      .format();
+    const sunrise = dayjs
+      .utc(currentWeather.sunrise)
+      .utcOffset(currentWeather.timezone)
+      .format();
+    const sunset = dayjs
+      .utc(currentWeather.sunset)
+      .utcOffset(currentWeather.timezone)
+      .format();
+
+    const timeOfDay =
+      currentTime > sunrise && currentTime < sunset ? "day" : "night";
     const icon =
       prefix + weatherIcons.default[timeOfDay][currentWeather.icon_id].icon;
     const recommendation =
