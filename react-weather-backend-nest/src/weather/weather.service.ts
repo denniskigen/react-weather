@@ -1,5 +1,5 @@
 import {HttpService, Injectable} from '@nestjs/common'
-import {appConfig} from '../config'
+import appConfig from '../config'
 import {secrets} from "../secrets";
 
 @Injectable()
