@@ -11,7 +11,7 @@ describe("<WeatherCardSubheader />", () => {
 
   beforeEach(() => {
     const testProps = {
-      currentWeather: mockCurrentWeather
+      currentWeather: mockCurrentWeather,
     };
     renderWeatherCardSubheader(testProps);
   });

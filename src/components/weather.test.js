@@ -23,7 +23,7 @@ describe("<Weather />", () => {
       currentWeather: mockCurrentWeather,
       forecast: mockForecast,
       error: null,
-      onCityChange: () => {}
+      onCityChange: () => {},
     };
 
     renderWeather(testProps);

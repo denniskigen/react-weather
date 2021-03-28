@@ -20,13 +20,13 @@ describe("<App />", () => {
       .mockImplementationOnce(() =>
         Promise.resolve({
           ok: true,
-          json: () => Promise.resolve(mockWeatherData)
+          json: () => Promise.resolve(mockWeatherData),
         })
       )
       .mockImplementationOnce(() =>
         Promise.resolve({
           ok: true,
-          json: () => Promise.resolve(mockForecastData)
+          json: () => Promise.resolve(mockForecastData),
         })
       );
 
@@ -65,7 +65,7 @@ describe("<App />", () => {
       ok: false,
       status: 500,
       statusText: "Internal Server Error",
-      message: "An internal server error occurred"
+      message: "An internal server error occurred",
     };
 
     window.fetch.mockImplementationOnce(() =>

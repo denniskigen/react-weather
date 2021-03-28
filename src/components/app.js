@@ -49,13 +49,13 @@ export default function App() {
         "sans-serif",
         '"Apple Color Emoji"',
         '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"'
+        '"Segoe UI Symbol"',
       ].join(","),
       fontSize: 14,
       h5: {
-        fontWeight: 600
-      }
-    }
+        fontWeight: 600,
+      },
+    },
   });
 
   if (
@@ -136,7 +136,7 @@ function mapDataToWeatherInterface(data) {
     sunset: data.sys.sunset * 1000, // convert from seconds to milliseconds
     temperature: Math.round(data.main.temp),
     timezone: data.timezone / 3600, // convert from seconds to hours
-    wind_speed: Math.round(data.wind.speed * 3.6) // convert from m/s to km/h
+    wind_speed: Math.round(data.wind.speed * 3.6), // convert from m/s to km/h
   };
 
   // Add extra properties for the five day forecast: dt_txt, icon, min, max

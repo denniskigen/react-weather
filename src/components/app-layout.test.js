@@ -22,7 +22,7 @@ describe("<AppLayout />", () => {
       forecast: mockForecast,
       icon: "wi wi-day-cloudy-gusts",
       recommendation:
-        "Great day for a bit of laundry and maybe a nice picnic date later :)"
+        "Great day for a bit of laundry and maybe a nice picnic date later :)",
     };
 
     renderAppLayout(testProps);

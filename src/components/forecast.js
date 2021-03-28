@@ -4,7 +4,7 @@ import {
   List,
   ListItem,
   ListItemText,
-  Typography
+  Typography,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -13,8 +13,8 @@ import * as weatherIcons from "../icons";
 
 const useStyles = makeStyles(theme => ({
   wi: {
-    color: "#673ab7"
-  }
+    color: "#673ab7",
+  },
 }));
 
 export default function Forecast(props) {

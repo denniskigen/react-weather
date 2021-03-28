@@ -7,7 +7,7 @@ import {
   CardMedia,
   Divider,
   Typography,
-  Grid
+  Grid,
 } from "@material-ui/core";
 
 import Forecast from "./forecast";
@@ -16,51 +16,51 @@ import WeatherCardSubheader from "./weather-card-subheader";
 const useStyles = makeStyles(theme => ({
   atmospheric: {
     fontSize: "28px",
-    padding: "5px"
+    padding: "5px",
   },
   buttons: {
-    color: "black"
+    color: "black",
   },
   card: {
     minWidth: 600,
-    minHeight: 600
+    minHeight: 600,
   },
   container: {
     display: "flex",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
   },
   error: {
     color: "red",
-    padding: "10px"
+    padding: "10px",
   },
   fullList: {
-    width: "auto"
+    width: "auto",
   },
   layout: {
-    marginTop: "20px"
+    marginTop: "20px",
   },
 
   paper: {
     padding: theme.spacing(2),
     textAlign: "center",
-    color: theme.palette.text.secondary
+    color: theme.palette.text.secondary,
   },
   recommendation: {
     fontFamily: "Montserrat, sans-serif",
     padding: "20px 0px 10px 0px",
     fontSize: "26px",
-    textAlign: "center"
+    textAlign: "center",
   },
   root: {
     flexiGrow: 1,
-    color: "black"
+    color: "black",
   },
   search: {
-    marginTop: "100px"
+    marginTop: "100px",
   },
   wi: {
-    color: "#673ab7"
-  }
+    color: "#673ab7",
+  },
 }));
 
 export default function AppLayout(props) {

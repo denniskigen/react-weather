@@ -11,7 +11,7 @@ export const mockCurrentWeather = {
   sunset: 1610120889000,
   temperature: 19,
   timezone: 180,
-  wind_speed: 24
+  wind_speed: 24,
 };
 
 export const mockForecast = [
@@ -26,7 +26,7 @@ export const mockForecast = [
     dt_txt: "2020-01-15 21:00:00",
     icon: "02n",
     max: 14,
-    min: 14
+    min: 14,
   },
   {
     date: 1579208400000,
@@ -39,7 +39,7 @@ export const mockForecast = [
     dt_txt: "2020-01-16 21:00:00",
     icon: "03n",
     max: 15,
-    min: 15
+    min: 15,
   },
   {
     date: 1579294800000,
@@ -52,7 +52,7 @@ export const mockForecast = [
     dt_txt: "2020-01-17 21:00:00",
     icon: "04n",
     max: 17,
-    min: 17
+    min: 17,
   },
   {
     date: 1579381200000,
@@ -65,7 +65,7 @@ export const mockForecast = [
     dt_txt: "2020-01-18 21:00:00",
     icon: "04n",
     max: 13,
-    min: 13
+    min: 13,
   },
   {
     date: 1579467600000,
@@ -78,19 +78,19 @@ export const mockForecast = [
     dt_txt: "2020-01-19 21:00:00",
     icon: "04n",
     max: 16,
-    min: 16
-  }
+    min: 16,
+  },
 ];
 
 export const mockWeatherData = {
   base: "stations",
   clouds: {
-    all: 75
+    all: 75,
   },
   cod: 200,
   coord: {
     lon: 35.27,
-    lat: 0.52
+    lat: 0.52,
   },
   dt: 1572517487,
   id: 198629,
@@ -100,7 +100,7 @@ export const mockWeatherData = {
     pressure: 1026,
     humidity: 49,
     temp_min: 20,
-    temp_max: 20
+    temp_max: 20,
   },
   name: "Eldoret",
   sys: {
@@ -108,7 +108,7 @@ export const mockWeatherData = {
     id: 2541,
     sunrise: 1572491974,
     sunset: 1572535523,
-    type: 1
+    type: 1,
   },
   timezone: 10800,
   visibility: 10000,
@@ -117,20 +117,20 @@ export const mockWeatherData = {
       id: 803,
       main: "Clouds",
       description: "broken clouds",
-      icon: "04d"
-    }
+      icon: "04d",
+    },
   ],
   wind: {
     deg: 130,
-    speed: 8.2
-  }
+    speed: 8.2,
+  },
 };
 
 export const mockForecastData = {
   city: {
     coord: {
       lat: 0.5198,
-      lon: 35.2715
+      lon: 35.2715,
     },
     country: "KE",
     id: 198629,
@@ -138,7 +138,7 @@ export const mockForecastData = {
     population: 218446,
     sunrise: 1572578373,
     sunset: 1572621920,
-    timezone: 10800
+    timezone: 10800,
   },
   cod: "200",
   message: 0.0064,
@@ -154,30 +154,30 @@ export const mockForecastData = {
         sea_level: 1010,
         grnd_level: 792,
         humidity: 51,
-        temp_kf: 2.33
+        temp_kf: 2.33,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10d"
-        }
+          icon: "10d",
+        },
       ],
       clouds: {
-        all: 76
+        all: 76,
       },
       wind: {
         speed: 2.47,
-        deg: 59
+        deg: 59,
       },
       rain: {
-        "3h": 1.06
+        "3h": 1.06,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2019-11-01 12:00:00"
+      dt_txt: "2019-11-01 12:00:00",
     },
     {
       dt: 1572620400,
@@ -189,30 +189,30 @@ export const mockForecastData = {
         sea_level: 1011,
         grnd_level: 792,
         humidity: 67,
-        temp_kf: 1.75
+        temp_kf: 1.75,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10d"
-        }
+          icon: "10d",
+        },
       ],
       clouds: {
-        all: 100
+        all: 100,
       },
       wind: {
         speed: 0.95,
-        deg: 52
+        deg: 52,
       },
       rain: {
-        "3h": 0.94
+        "3h": 0.94,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2019-11-01 15:00:00"
+      dt_txt: "2019-11-01 15:00:00",
     },
     {
       dt: 1572631200,
@@ -224,30 +224,30 @@ export const mockForecastData = {
         sea_level: 1013,
         grnd_level: 794,
         humidity: 82,
-        temp_kf: 1.16
+        temp_kf: 1.16,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10n"
-        }
+          icon: "10n",
+        },
       ],
       clouds: {
-        all: 99
+        all: 99,
       },
       wind: {
         speed: 1.67,
-        deg: 141
+        deg: 141,
       },
       rain: {
-        "3h": 0.37
+        "3h": 0.37,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2019-11-01 18:00:00"
+      dt_txt: "2019-11-01 18:00:00",
     },
     {
       dt: 1572642000,
@@ -259,30 +259,30 @@ export const mockForecastData = {
         sea_level: 1014,
         grnd_level: 794,
         humidity: 87,
-        temp_kf: 0.58
+        temp_kf: 0.58,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10n"
-        }
+          icon: "10n",
+        },
       ],
       clouds: {
-        all: 93
+        all: 93,
       },
       wind: {
         speed: 0.5,
-        deg: 139
+        deg: 139,
       },
       rain: {
-        "3h": 0.94
+        "3h": 0.94,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2019-11-01 21:00:00"
+      dt_txt: "2019-11-01 21:00:00",
     },
     {
       dt: 1572652800,
@@ -294,30 +294,30 @@ export const mockForecastData = {
         sea_level: 1013,
         grnd_level: 793,
         humidity: 87,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10n"
-        }
+          icon: "10n",
+        },
       ],
       clouds: {
-        all: 78
+        all: 78,
       },
       wind: {
         speed: 0.62,
-        deg: 173
+        deg: 173,
       },
       rain: {
-        "3h": 0.12
+        "3h": 0.12,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2019-11-02 00:00:00"
+      dt_txt: "2019-11-02 00:00:00",
     },
     {
       dt: 1572663600,
@@ -329,27 +329,27 @@ export const mockForecastData = {
         sea_level: 1013,
         grnd_level: 793,
         humidity: 92,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 800,
           main: "Clear",
           description: "clear sky",
-          icon: "01n"
-        }
+          icon: "01n",
+        },
       ],
       clouds: {
-        all: 0
+        all: 0,
       },
       wind: {
         speed: 0.12,
-        deg: 115
+        deg: 115,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2019-11-02 03:00:00"
+      dt_txt: "2019-11-02 03:00:00",
     },
     {
       dt: 1572674400,
@@ -361,27 +361,27 @@ export const mockForecastData = {
         sea_level: 1014,
         grnd_level: 795,
         humidity: 71,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 800,
           main: "Clear",
           description: "clear sky",
-          icon: "01d"
-        }
+          icon: "01d",
+        },
       ],
       clouds: {
-        all: 0
+        all: 0,
       },
       wind: {
         speed: 2.33,
-        deg: 78
+        deg: 78,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2019-11-02 06:00:00"
+      dt_txt: "2019-11-02 06:00:00",
     },
     {
       dt: 1572685200,
@@ -393,27 +393,27 @@ export const mockForecastData = {
         sea_level: 1011,
         grnd_level: 794,
         humidity: 52,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 800,
           main: "Clear",
           description: "clear sky",
-          icon: "01d"
-        }
+          icon: "01d",
+        },
       ],
       clouds: {
-        all: 0
+        all: 0,
       },
       wind: {
         speed: 3.2,
-        deg: 64
+        deg: 64,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2019-11-02 09:00:00"
+      dt_txt: "2019-11-02 09:00:00",
     },
     {
       dt: 1572696000,
@@ -425,30 +425,30 @@ export const mockForecastData = {
         sea_level: 1009,
         grnd_level: 792,
         humidity: 53,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10d"
-        }
+          icon: "10d",
+        },
       ],
       clouds: {
-        all: 15
+        all: 15,
       },
       wind: {
         speed: 2.29,
-        deg: 58
+        deg: 58,
       },
       rain: {
-        "3h": 0.94
+        "3h": 0.94,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2019-11-02 12:00:00"
+      dt_txt: "2019-11-02 12:00:00",
     },
     {
       dt: 1572706800,
@@ -460,30 +460,30 @@ export const mockForecastData = {
         sea_level: 1010,
         grnd_level: 792,
         humidity: 67,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10d"
-        }
+          icon: "10d",
+        },
       ],
       clouds: {
-        all: 69
+        all: 69,
       },
       wind: {
         speed: 2.93,
-        deg: 42
+        deg: 42,
       },
       rain: {
-        "3h": 1
+        "3h": 1,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2019-11-02 15:00:00"
+      dt_txt: "2019-11-02 15:00:00",
     },
     {
       dt: 1572717600,
@@ -495,30 +495,30 @@ export const mockForecastData = {
         sea_level: 1014,
         grnd_level: 794,
         humidity: 85,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10n"
-        }
+          icon: "10n",
+        },
       ],
       clouds: {
-        all: 80
+        all: 80,
       },
       wind: {
         speed: 1.92,
-        deg: 72
+        deg: 72,
       },
       rain: {
-        "3h": 0.94
+        "3h": 0.94,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2019-11-02 18:00:00"
+      dt_txt: "2019-11-02 18:00:00",
     },
     {
       dt: 1572728400,
@@ -530,30 +530,30 @@ export const mockForecastData = {
         sea_level: 1014,
         grnd_level: 794,
         humidity: 95,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10n"
-        }
+          icon: "10n",
+        },
       ],
       clouds: {
-        all: 100
+        all: 100,
       },
       wind: {
         speed: 0.96,
-        deg: 128
+        deg: 128,
       },
       rain: {
-        "3h": 1.69
+        "3h": 1.69,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2019-11-02 21:00:00"
+      dt_txt: "2019-11-02 21:00:00",
     },
     {
       dt: 1572739200,
@@ -565,30 +565,30 @@ export const mockForecastData = {
         sea_level: 1013,
         grnd_level: 793,
         humidity: 92,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10n"
-        }
+          icon: "10n",
+        },
       ],
       clouds: {
-        all: 84
+        all: 84,
       },
       wind: {
         speed: 1.44,
-        deg: 117
+        deg: 117,
       },
       rain: {
-        "3h": 1.44
+        "3h": 1.44,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2019-11-03 00:00:00"
+      dt_txt: "2019-11-03 00:00:00",
     },
     {
       dt: 1572750000,
@@ -600,27 +600,27 @@ export const mockForecastData = {
         sea_level: 1014,
         grnd_level: 794,
         humidity: 94,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 802,
           main: "Clouds",
           description: "scattered clouds",
-          icon: "03n"
-        }
+          icon: "03n",
+        },
       ],
       clouds: {
-        all: 42
+        all: 42,
       },
       wind: {
         speed: 0.99,
-        deg: 113
+        deg: 113,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2019-11-03 03:00:00"
+      dt_txt: "2019-11-03 03:00:00",
     },
     {
       dt: 1572760800,
@@ -632,27 +632,27 @@ export const mockForecastData = {
         sea_level: 1015,
         grnd_level: 796,
         humidity: 74,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 801,
           main: "Clouds",
           description: "few clouds",
-          icon: "02d"
-        }
+          icon: "02d",
+        },
       ],
       clouds: {
-        all: 24
+        all: 24,
       },
       wind: {
         speed: 3.57,
-        deg: 84
+        deg: 84,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2019-11-03 06:00:00"
+      dt_txt: "2019-11-03 06:00:00",
     },
     {
       dt: 1572771600,
@@ -664,27 +664,27 @@ export const mockForecastData = {
         sea_level: 1012,
         grnd_level: 794,
         humidity: 49,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 800,
           main: "Clear",
           description: "clear sky",
-          icon: "01d"
-        }
+          icon: "01d",
+        },
       ],
       clouds: {
-        all: 0
+        all: 0,
       },
       wind: {
         speed: 3.82,
-        deg: 67
+        deg: 67,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2019-11-03 09:00:00"
+      dt_txt: "2019-11-03 09:00:00",
     },
     {
       dt: 1572782400,
@@ -696,27 +696,27 @@ export const mockForecastData = {
         sea_level: 1010,
         grnd_level: 792,
         humidity: 40,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 801,
           main: "Clouds",
           description: "few clouds",
-          icon: "02d"
-        }
+          icon: "02d",
+        },
       ],
       clouds: {
-        all: 22
+        all: 22,
       },
       wind: {
         speed: 3.46,
-        deg: 63
+        deg: 63,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2019-11-03 12:00:00"
+      dt_txt: "2019-11-03 12:00:00",
     },
     {
       dt: 1572793200,
@@ -728,27 +728,27 @@ export const mockForecastData = {
         sea_level: 1011,
         grnd_level: 793,
         humidity: 60,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 804,
           main: "Clouds",
           description: "overcast clouds",
-          icon: "04d"
-        }
+          icon: "04d",
+        },
       ],
       clouds: {
-        all: 100
+        all: 100,
       },
       wind: {
         speed: 2.02,
-        deg: 80
+        deg: 80,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2019-11-03 15:00:00"
+      dt_txt: "2019-11-03 15:00:00",
     },
     {
       dt: 1572804000,
@@ -760,27 +760,27 @@ export const mockForecastData = {
         sea_level: 1015,
         grnd_level: 795,
         humidity: 60,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 804,
           main: "Clouds",
           description: "overcast clouds",
-          icon: "04n"
-        }
+          icon: "04n",
+        },
       ],
       clouds: {
-        all: 97
+        all: 97,
       },
       wind: {
         speed: 2.05,
-        deg: 70
+        deg: 70,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2019-11-03 18:00:00"
+      dt_txt: "2019-11-03 18:00:00",
     },
     {
       dt: 1572814800,
@@ -792,27 +792,27 @@ export const mockForecastData = {
         sea_level: 1015,
         grnd_level: 795,
         humidity: 72,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 803,
           main: "Clouds",
           description: "broken clouds",
-          icon: "04n"
-        }
+          icon: "04n",
+        },
       ],
       clouds: {
-        all: 84
+        all: 84,
       },
       wind: {
         speed: 1.4,
-        deg: 56
+        deg: 56,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2019-11-03 21:00:00"
+      dt_txt: "2019-11-03 21:00:00",
     },
     {
       dt: 1572825600,
@@ -824,27 +824,27 @@ export const mockForecastData = {
         sea_level: 1014,
         grnd_level: 794,
         humidity: 82,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 803,
           main: "Clouds",
           description: "broken clouds",
-          icon: "04n"
-        }
+          icon: "04n",
+        },
       ],
       clouds: {
-        all: 52
+        all: 52,
       },
       wind: {
         speed: 1.36,
-        deg: 94
+        deg: 94,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2019-11-04 00:00:00"
+      dt_txt: "2019-11-04 00:00:00",
     },
     {
       dt: 1572836400,
@@ -856,27 +856,27 @@ export const mockForecastData = {
         sea_level: 1015,
         grnd_level: 795,
         humidity: 86,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 800,
           main: "Clear",
           description: "clear sky",
-          icon: "01n"
-        }
+          icon: "01n",
+        },
       ],
       clouds: {
-        all: 4
+        all: 4,
       },
       wind: {
         speed: 1.84,
-        deg: 90
+        deg: 90,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2019-11-04 03:00:00"
+      dt_txt: "2019-11-04 03:00:00",
     },
     {
       dt: 1572847200,
@@ -888,27 +888,27 @@ export const mockForecastData = {
         sea_level: 1016,
         grnd_level: 797,
         humidity: 61,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 801,
           main: "Clouds",
           description: "few clouds",
-          icon: "02d"
-        }
+          icon: "02d",
+        },
       ],
       clouds: {
-        all: 18
+        all: 18,
       },
       wind: {
         speed: 3.55,
-        deg: 81
+        deg: 81,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2019-11-04 06:00:00"
+      dt_txt: "2019-11-04 06:00:00",
     },
     {
       dt: 1572858000,
@@ -920,27 +920,27 @@ export const mockForecastData = {
         sea_level: 1013,
         grnd_level: 795,
         humidity: 47,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 802,
           main: "Clouds",
           description: "scattered clouds",
-          icon: "03d"
-        }
+          icon: "03d",
+        },
       ],
       clouds: {
-        all: 36
+        all: 36,
       },
       wind: {
         speed: 3.7,
-        deg: 66
+        deg: 66,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2019-11-04 09:00:00"
+      dt_txt: "2019-11-04 09:00:00",
     },
     {
       dt: 1572868800,
@@ -952,27 +952,27 @@ export const mockForecastData = {
         sea_level: 1010,
         grnd_level: 793,
         humidity: 42,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 802,
           main: "Clouds",
           description: "scattered clouds",
-          icon: "03d"
-        }
+          icon: "03d",
+        },
       ],
       clouds: {
-        all: 34
+        all: 34,
       },
       wind: {
         speed: 3.1,
-        deg: 68
+        deg: 68,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2019-11-04 12:00:00"
+      dt_txt: "2019-11-04 12:00:00",
     },
     {
       dt: 1572879600,
@@ -984,27 +984,27 @@ export const mockForecastData = {
         sea_level: 1012,
         grnd_level: 793,
         humidity: 59,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 801,
           main: "Clouds",
           description: "few clouds",
-          icon: "02d"
-        }
+          icon: "02d",
+        },
       ],
       clouds: {
-        all: 13
+        all: 13,
       },
       wind: {
         speed: 1.58,
-        deg: 67
+        deg: 67,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2019-11-04 15:00:00"
+      dt_txt: "2019-11-04 15:00:00",
     },
     {
       dt: 1572890400,
@@ -1016,27 +1016,27 @@ export const mockForecastData = {
         sea_level: 1015,
         grnd_level: 795,
         humidity: 63,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 802,
           main: "Clouds",
           description: "scattered clouds",
-          icon: "03n"
-        }
+          icon: "03n",
+        },
       ],
       clouds: {
-        all: 37
+        all: 37,
       },
       wind: {
         speed: 1.27,
-        deg: 83
+        deg: 83,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2019-11-04 18:00:00"
+      dt_txt: "2019-11-04 18:00:00",
     },
     {
       dt: 1572901200,
@@ -1048,30 +1048,30 @@ export const mockForecastData = {
         sea_level: 1014,
         grnd_level: 794,
         humidity: 78,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10n"
-        }
+          icon: "10n",
+        },
       ],
       clouds: {
-        all: 74
+        all: 74,
       },
       wind: {
         speed: 1.63,
-        deg: 84
+        deg: 84,
       },
       rain: {
-        "3h": 0.13
+        "3h": 0.13,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2019-11-04 21:00:00"
+      dt_txt: "2019-11-04 21:00:00",
     },
     {
       dt: 1572912000,
@@ -1083,27 +1083,27 @@ export const mockForecastData = {
         sea_level: 1013,
         grnd_level: 793,
         humidity: 87,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 802,
           main: "Clouds",
           description: "scattered clouds",
-          icon: "03n"
-        }
+          icon: "03n",
+        },
       ],
       clouds: {
-        all: 39
+        all: 39,
       },
       wind: {
         speed: 0.8,
-        deg: 99
+        deg: 99,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2019-11-05 00:00:00"
+      dt_txt: "2019-11-05 00:00:00",
     },
     {
       dt: 1572922800,
@@ -1115,27 +1115,27 @@ export const mockForecastData = {
         sea_level: 1015,
         grnd_level: 794,
         humidity: 92,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 800,
           main: "Clear",
           description: "clear sky",
-          icon: "01n"
-        }
+          icon: "01n",
+        },
       ],
       clouds: {
-        all: 0
+        all: 0,
       },
       wind: {
         speed: 0.96,
-        deg: 101
+        deg: 101,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2019-11-05 03:00:00"
+      dt_txt: "2019-11-05 03:00:00",
     },
     {
       dt: 1572933600,
@@ -1147,30 +1147,30 @@ export const mockForecastData = {
         sea_level: 1015,
         grnd_level: 796,
         humidity: 73,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10d"
-        }
+          icon: "10d",
+        },
       ],
       clouds: {
-        all: 0
+        all: 0,
       },
       wind: {
         speed: 3.11,
-        deg: 81
+        deg: 81,
       },
       rain: {
-        "3h": 0.13
+        "3h": 0.13,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2019-11-05 06:00:00"
+      dt_txt: "2019-11-05 06:00:00",
     },
     {
       dt: 1572944400,
@@ -1182,30 +1182,30 @@ export const mockForecastData = {
         sea_level: 1012,
         grnd_level: 794,
         humidity: 65,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10d"
-        }
+          icon: "10d",
+        },
       ],
       clouds: {
-        all: 21
+        all: 21,
       },
       wind: {
         speed: 3.08,
-        deg: 72
+        deg: 72,
       },
       rain: {
-        "3h": 0.81
+        "3h": 0.81,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2019-11-05 09:00:00"
+      dt_txt: "2019-11-05 09:00:00",
     },
     {
       dt: 1572955200,
@@ -1217,30 +1217,30 @@ export const mockForecastData = {
         sea_level: 1010,
         grnd_level: 793,
         humidity: 62,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10d"
-        }
+          icon: "10d",
+        },
       ],
       clouds: {
-        all: 35
+        all: 35,
       },
       wind: {
         speed: 1.72,
-        deg: 80
+        deg: 80,
       },
       rain: {
-        "3h": 1.94
+        "3h": 1.94,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2019-11-05 12:00:00"
+      dt_txt: "2019-11-05 12:00:00",
     },
     {
       dt: 1572966000,
@@ -1252,30 +1252,30 @@ export const mockForecastData = {
         sea_level: 1011,
         grnd_level: 793,
         humidity: 73,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10d"
-        }
+          icon: "10d",
+        },
       ],
       clouds: {
-        all: 0
+        all: 0,
       },
       wind: {
         speed: 1.55,
-        deg: 205
+        deg: 205,
       },
       rain: {
-        "3h": 1.94
+        "3h": 1.94,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2019-11-05 15:00:00"
+      dt_txt: "2019-11-05 15:00:00",
     },
     {
       dt: 1572976800,
@@ -1287,30 +1287,30 @@ export const mockForecastData = {
         sea_level: 1014,
         grnd_level: 794,
         humidity: 81,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10n"
-        }
+          icon: "10n",
+        },
       ],
       clouds: {
-        all: 41
+        all: 41,
       },
       wind: {
         speed: 0.68,
-        deg: 203
+        deg: 203,
       },
       rain: {
-        "3h": 0.44
+        "3h": 0.44,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2019-11-05 18:00:00"
+      dt_txt: "2019-11-05 18:00:00",
     },
     {
       dt: 1572987600,
@@ -1322,30 +1322,30 @@ export const mockForecastData = {
         sea_level: 1013,
         grnd_level: 794,
         humidity: 87,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10n"
-        }
+          icon: "10n",
+        },
       ],
       clouds: {
-        all: 47
+        all: 47,
       },
       wind: {
         speed: 0.43,
-        deg: 75
+        deg: 75,
       },
       rain: {
-        "3h": 0.13
+        "3h": 0.13,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2019-11-05 21:00:00"
+      dt_txt: "2019-11-05 21:00:00",
     },
     {
       dt: 1572998400,
@@ -1357,30 +1357,30 @@ export const mockForecastData = {
         sea_level: 1012,
         grnd_level: 792,
         humidity: 92,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10n"
-        }
+          icon: "10n",
+        },
       ],
       clouds: {
-        all: 44
+        all: 44,
       },
       wind: {
         speed: 0.78,
-        deg: 122
+        deg: 122,
       },
       rain: {
-        "3h": 0.19
+        "3h": 0.19,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2019-11-06 00:00:00"
+      dt_txt: "2019-11-06 00:00:00",
     },
     {
       dt: 1573009200,
@@ -1392,30 +1392,30 @@ export const mockForecastData = {
         sea_level: 1014,
         grnd_level: 794,
         humidity: 93,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10n"
-        }
+          icon: "10n",
+        },
       ],
       clouds: {
-        all: 1
+        all: 1,
       },
       wind: {
         speed: 1.39,
-        deg: 105
+        deg: 105,
       },
       rain: {
-        "3h": 0.44
+        "3h": 0.44,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2019-11-06 03:00:00"
+      dt_txt: "2019-11-06 03:00:00",
     },
     {
       dt: 1573020000,
@@ -1427,30 +1427,30 @@ export const mockForecastData = {
         sea_level: 1014,
         grnd_level: 795,
         humidity: 78,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10d"
-        }
+          icon: "10d",
+        },
       ],
       clouds: {
-        all: 0
+        all: 0,
       },
       wind: {
         speed: 3.2,
-        deg: 86
+        deg: 86,
       },
       rain: {
-        "3h": 0.12
+        "3h": 0.12,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2019-11-06 06:00:00"
+      dt_txt: "2019-11-06 06:00:00",
     },
     {
       dt: 1573030800,
@@ -1462,43 +1462,43 @@ export const mockForecastData = {
         sea_level: 1011,
         grnd_level: 794,
         humidity: 58,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10d"
-        }
+          icon: "10d",
+        },
       ],
       clouds: {
-        all: 0
+        all: 0,
       },
       wind: {
         speed: 3.46,
-        deg: 70
+        deg: 70,
       },
       rain: {
-        "3h": 0.13
+        "3h": 0.13,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2019-11-06 09:00:00"
-    }
-  ]
+      dt_txt: "2019-11-06 09:00:00",
+    },
+  ],
 };
 
 export const mockSearchWeatherData = {
   base: "stations",
   clouds: {
-    all: 20
+    all: 20,
   },
   cod: 200,
   coord: {
     lon: 13.41,
-    lat: 52.52
+    lat: 52.52,
   },
   dt: 1588244935,
   id: 2950159,
@@ -1508,7 +1508,7 @@ export const mockSearchWeatherData = {
     temp_min: 16,
     temp_max: 18.33,
     pressure: 1003,
-    humidity: 67
+    humidity: 67,
   },
   name: "Berlin",
   sys: {
@@ -1516,7 +1516,7 @@ export const mockSearchWeatherData = {
     id: 1275,
     country: "DE",
     sunrise: 1588217769,
-    sunset: 1588271443
+    sunset: 1588271443,
   },
   timezone: 7200,
   visibility: 10000,
@@ -1525,13 +1525,13 @@ export const mockSearchWeatherData = {
       id: 500,
       main: "Rain",
       description: "light rain",
-      icon: "10d"
-    }
+      icon: "10d",
+    },
   ],
   wind: {
     speed: 4.1,
-    deg: 200
-  }
+    deg: 200,
+  },
 };
 
 export const mockSearchForecastData = {
@@ -1540,13 +1540,13 @@ export const mockSearchForecastData = {
     name: "Berlin",
     coord: {
       lat: 52.5244,
-      lon: 13.4105
+      lon: 13.4105,
     },
     country: "DE",
     population: 1000000,
     timezone: 7200,
     sunrise: 1588217768,
-    sunset: 1588271444
+    sunset: 1588271444,
   },
   cod: "200",
   message: 0,
@@ -1563,30 +1563,30 @@ export const mockSearchForecastData = {
         sea_level: 1004,
         grnd_level: 999,
         humidity: 67,
-        temp_kf: 0.97
+        temp_kf: 0.97,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10d"
-        }
+          icon: "10d",
+        },
       ],
       clouds: {
-        all: 59
+        all: 59,
       },
       wind: {
         speed: 4.34,
-        deg: 200
+        deg: 200,
       },
       rain: {
-        "3h": 0.65
+        "3h": 0.65,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-04-30 12:00:00"
+      dt_txt: "2020-04-30 12:00:00",
     },
     {
       dt: 1588258800,
@@ -1599,30 +1599,30 @@ export const mockSearchForecastData = {
         sea_level: 1003,
         grnd_level: 998,
         humidity: 60,
-        temp_kf: 0.01
+        temp_kf: 0.01,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10d"
-        }
+          icon: "10d",
+        },
       ],
       clouds: {
-        all: 83
+        all: 83,
       },
       wind: {
         speed: 5.6,
-        deg: 222
+        deg: 222,
       },
       rain: {
-        "3h": 0.62
+        "3h": 0.62,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-04-30 15:00:00"
+      dt_txt: "2020-04-30 15:00:00",
     },
     {
       dt: 1588269600,
@@ -1635,30 +1635,30 @@ export const mockSearchForecastData = {
         sea_level: 1004,
         grnd_level: 999,
         humidity: 68,
-        temp_kf: 0.15
+        temp_kf: 0.15,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10d"
-        }
+          icon: "10d",
+        },
       ],
       clouds: {
-        all: 95
+        all: 95,
       },
       wind: {
         speed: 3.02,
-        deg: 231
+        deg: 231,
       },
       rain: {
-        "3h": 0.13
+        "3h": 0.13,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-04-30 18:00:00"
+      dt_txt: "2020-04-30 18:00:00",
     },
     {
       dt: 1588280400,
@@ -1671,30 +1671,30 @@ export const mockSearchForecastData = {
         sea_level: 1003,
         grnd_level: 998,
         humidity: 79,
-        temp_kf: 0.04
+        temp_kf: 0.04,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10n"
-        }
+          icon: "10n",
+        },
       ],
       clouds: {
-        all: 99
+        all: 99,
       },
       wind: {
         speed: 2.25,
-        deg: 175
+        deg: 175,
       },
       rain: {
-        "3h": 0.34
+        "3h": 0.34,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2020-04-30 21:00:00"
+      dt_txt: "2020-04-30 21:00:00",
     },
     {
       dt: 1588291200,
@@ -1707,30 +1707,30 @@ export const mockSearchForecastData = {
         sea_level: 1004,
         grnd_level: 999,
         humidity: 72,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10n"
-        }
+          icon: "10n",
+        },
       ],
       clouds: {
-        all: 100
+        all: 100,
       },
       wind: {
         speed: 4.62,
-        deg: 208
+        deg: 208,
       },
       rain: {
-        "3h": 0.26
+        "3h": 0.26,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2020-05-01 00:00:00"
+      dt_txt: "2020-05-01 00:00:00",
     },
     {
       dt: 1588302000,
@@ -1743,27 +1743,27 @@ export const mockSearchForecastData = {
         sea_level: 1003,
         grnd_level: 998,
         humidity: 74,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 804,
           main: "Clouds",
           description: "overcast clouds",
-          icon: "04n"
-        }
+          icon: "04n",
+        },
       ],
       clouds: {
-        all: 100
+        all: 100,
       },
       wind: {
         speed: 4.55,
-        deg: 216
+        deg: 216,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2020-05-01 03:00:00"
+      dt_txt: "2020-05-01 03:00:00",
     },
     {
       dt: 1588312800,
@@ -1776,27 +1776,27 @@ export const mockSearchForecastData = {
         sea_level: 1004,
         grnd_level: 999,
         humidity: 72,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 804,
           main: "Clouds",
           description: "overcast clouds",
-          icon: "04d"
-        }
+          icon: "04d",
+        },
       ],
       clouds: {
-        all: 100
+        all: 100,
       },
       wind: {
         speed: 5.34,
-        deg: 225
+        deg: 225,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-05-01 06:00:00"
+      dt_txt: "2020-05-01 06:00:00",
     },
     {
       dt: 1588323600,
@@ -1809,27 +1809,27 @@ export const mockSearchForecastData = {
         sea_level: 1004,
         grnd_level: 998,
         humidity: 49,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 803,
           main: "Clouds",
           description: "broken clouds",
-          icon: "04d"
-        }
+          icon: "04d",
+        },
       ],
       clouds: {
-        all: 69
+        all: 69,
       },
       wind: {
         speed: 4.64,
-        deg: 236
+        deg: 236,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-05-01 09:00:00"
+      dt_txt: "2020-05-01 09:00:00",
     },
     {
       dt: 1588334400,
@@ -1842,30 +1842,30 @@ export const mockSearchForecastData = {
         sea_level: 1003,
         grnd_level: 998,
         humidity: 42,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10d"
-        }
+          icon: "10d",
+        },
       ],
       clouds: {
-        all: 51
+        all: 51,
       },
       wind: {
         speed: 5.3,
-        deg: 232
+        deg: 232,
       },
       rain: {
-        "3h": 0.6
+        "3h": 0.6,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-05-01 12:00:00"
+      dt_txt: "2020-05-01 12:00:00",
     },
     {
       dt: 1588345200,
@@ -1878,30 +1878,30 @@ export const mockSearchForecastData = {
         sea_level: 1001,
         grnd_level: 996,
         humidity: 40,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10d"
-        }
+          icon: "10d",
+        },
       ],
       clouds: {
-        all: 48
+        all: 48,
       },
       wind: {
         speed: 5.44,
-        deg: 226
+        deg: 226,
       },
       rain: {
-        "3h": 0.19
+        "3h": 0.19,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-05-01 15:00:00"
+      dt_txt: "2020-05-01 15:00:00",
     },
     {
       dt: 1588356000,
@@ -1914,30 +1914,30 @@ export const mockSearchForecastData = {
         sea_level: 1002,
         grnd_level: 997,
         humidity: 55,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10d"
-        }
+          icon: "10d",
+        },
       ],
       clouds: {
-        all: 73
+        all: 73,
       },
       wind: {
         speed: 4.49,
-        deg: 226
+        deg: 226,
       },
       rain: {
-        "3h": 0.37
+        "3h": 0.37,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-05-01 18:00:00"
+      dt_txt: "2020-05-01 18:00:00",
     },
     {
       dt: 1588366800,
@@ -1950,30 +1950,30 @@ export const mockSearchForecastData = {
         sea_level: 1002,
         grnd_level: 997,
         humidity: 65,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10n"
-        }
+          icon: "10n",
+        },
       ],
       clouds: {
-        all: 62
+        all: 62,
       },
       wind: {
         speed: 3.69,
-        deg: 220
+        deg: 220,
       },
       rain: {
-        "3h": 0.15
+        "3h": 0.15,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2020-05-01 21:00:00"
+      dt_txt: "2020-05-01 21:00:00",
     },
     {
       dt: 1588377600,
@@ -1986,27 +1986,27 @@ export const mockSearchForecastData = {
         sea_level: 1003,
         grnd_level: 998,
         humidity: 75,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 802,
           main: "Clouds",
           description: "scattered clouds",
-          icon: "03n"
-        }
+          icon: "03n",
+        },
       ],
       clouds: {
-        all: 34
+        all: 34,
       },
       wind: {
         speed: 4.06,
-        deg: 233
+        deg: 233,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2020-05-02 00:00:00"
+      dt_txt: "2020-05-02 00:00:00",
     },
     {
       dt: 1588388400,
@@ -2019,27 +2019,27 @@ export const mockSearchForecastData = {
         sea_level: 1004,
         grnd_level: 999,
         humidity: 78,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 802,
           main: "Clouds",
           description: "scattered clouds",
-          icon: "03n"
-        }
+          icon: "03n",
+        },
       ],
       clouds: {
-        all: 46
+        all: 46,
       },
       wind: {
         speed: 3.98,
-        deg: 232
+        deg: 232,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2020-05-02 03:00:00"
+      dt_txt: "2020-05-02 03:00:00",
     },
     {
       dt: 1588399200,
@@ -2052,27 +2052,27 @@ export const mockSearchForecastData = {
         sea_level: 1005,
         grnd_level: 1000,
         humidity: 73,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 802,
           main: "Clouds",
           description: "scattered clouds",
-          icon: "03d"
-        }
+          icon: "03d",
+        },
       ],
       clouds: {
-        all: 43
+        all: 43,
       },
       wind: {
         speed: 3.91,
-        deg: 237
+        deg: 237,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-05-02 06:00:00"
+      dt_txt: "2020-05-02 06:00:00",
     },
     {
       dt: 1588410000,
@@ -2085,30 +2085,30 @@ export const mockSearchForecastData = {
         sea_level: 1005,
         grnd_level: 1000,
         humidity: 58,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10d"
-        }
+          icon: "10d",
+        },
       ],
       clouds: {
-        all: 9
+        all: 9,
       },
       wind: {
         speed: 5.12,
-        deg: 245
+        deg: 245,
       },
       rain: {
-        "3h": 1.05
+        "3h": 1.05,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-05-02 09:00:00"
+      dt_txt: "2020-05-02 09:00:00",
     },
     {
       dt: 1588420800,
@@ -2121,30 +2121,30 @@ export const mockSearchForecastData = {
         sea_level: 1005,
         grnd_level: 1000,
         humidity: 57,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10d"
-        }
+          icon: "10d",
+        },
       ],
       clouds: {
-        all: 45
+        all: 45,
       },
       wind: {
         speed: 5.62,
-        deg: 267
+        deg: 267,
       },
       rain: {
-        "3h": 2.31
+        "3h": 2.31,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-05-02 12:00:00"
+      dt_txt: "2020-05-02 12:00:00",
     },
     {
       dt: 1588431600,
@@ -2157,30 +2157,30 @@ export const mockSearchForecastData = {
         sea_level: 1004,
         grnd_level: 999,
         humidity: 53,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10d"
-        }
+          icon: "10d",
+        },
       ],
       clouds: {
-        all: 96
+        all: 96,
       },
       wind: {
         speed: 5.09,
-        deg: 260
+        deg: 260,
       },
       rain: {
-        "3h": 1.26
+        "3h": 1.26,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-05-02 15:00:00"
+      dt_txt: "2020-05-02 15:00:00",
     },
     {
       dt: 1588442400,
@@ -2193,30 +2193,30 @@ export const mockSearchForecastData = {
         sea_level: 1005,
         grnd_level: 1000,
         humidity: 62,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10d"
-        }
+          icon: "10d",
+        },
       ],
       clouds: {
-        all: 97
+        all: 97,
       },
       wind: {
         speed: 4.38,
-        deg: 260
+        deg: 260,
       },
       rain: {
-        "3h": 0.82
+        "3h": 0.82,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-05-02 18:00:00"
+      dt_txt: "2020-05-02 18:00:00",
     },
     {
       dt: 1588453200,
@@ -2229,30 +2229,30 @@ export const mockSearchForecastData = {
         sea_level: 1007,
         grnd_level: 1002,
         humidity: 77,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10n"
-        }
+          icon: "10n",
+        },
       ],
       clouds: {
-        all: 100
+        all: 100,
       },
       wind: {
         speed: 4.05,
-        deg: 274
+        deg: 274,
       },
       rain: {
-        "3h": 0.17
+        "3h": 0.17,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2020-05-02 21:00:00"
+      dt_txt: "2020-05-02 21:00:00",
     },
     {
       dt: 1588464000,
@@ -2265,27 +2265,27 @@ export const mockSearchForecastData = {
         sea_level: 1009,
         grnd_level: 1004,
         humidity: 82,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 804,
           main: "Clouds",
           description: "overcast clouds",
-          icon: "04n"
-        }
+          icon: "04n",
+        },
       ],
       clouds: {
-        all: 100
+        all: 100,
       },
       wind: {
         speed: 4.6,
-        deg: 286
+        deg: 286,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2020-05-03 00:00:00"
+      dt_txt: "2020-05-03 00:00:00",
     },
     {
       dt: 1588474800,
@@ -2298,27 +2298,27 @@ export const mockSearchForecastData = {
         sea_level: 1011,
         grnd_level: 1006,
         humidity: 87,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 803,
           main: "Clouds",
           description: "broken clouds",
-          icon: "04n"
-        }
+          icon: "04n",
+        },
       ],
       clouds: {
-        all: 63
+        all: 63,
       },
       wind: {
         speed: 4.89,
-        deg: 283
+        deg: 283,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2020-05-03 03:00:00"
+      dt_txt: "2020-05-03 03:00:00",
     },
     {
       dt: 1588485600,
@@ -2331,27 +2331,27 @@ export const mockSearchForecastData = {
         sea_level: 1014,
         grnd_level: 1008,
         humidity: 83,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 803,
           main: "Clouds",
           description: "broken clouds",
-          icon: "04d"
-        }
+          icon: "04d",
+        },
       ],
       clouds: {
-        all: 82
+        all: 82,
       },
       wind: {
         speed: 5.66,
-        deg: 289
+        deg: 289,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-05-03 06:00:00"
+      dt_txt: "2020-05-03 06:00:00",
     },
     {
       dt: 1588496400,
@@ -2364,27 +2364,27 @@ export const mockSearchForecastData = {
         sea_level: 1016,
         grnd_level: 1010,
         humidity: 74,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 804,
           main: "Clouds",
           description: "overcast clouds",
-          icon: "04d"
-        }
+          icon: "04d",
+        },
       ],
       clouds: {
-        all: 100
+        all: 100,
       },
       wind: {
         speed: 5.14,
-        deg: 277
+        deg: 277,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-05-03 09:00:00"
+      dt_txt: "2020-05-03 09:00:00",
     },
     {
       dt: 1588507200,
@@ -2397,27 +2397,27 @@ export const mockSearchForecastData = {
         sea_level: 1016,
         grnd_level: 1011,
         humidity: 54,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 804,
           main: "Clouds",
           description: "overcast clouds",
-          icon: "04d"
-        }
+          icon: "04d",
+        },
       ],
       clouds: {
-        all: 97
+        all: 97,
       },
       wind: {
         speed: 4.43,
-        deg: 277
+        deg: 277,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-05-03 12:00:00"
+      dt_txt: "2020-05-03 12:00:00",
     },
     {
       dt: 1588518000,
@@ -2430,30 +2430,30 @@ export const mockSearchForecastData = {
         sea_level: 1016,
         grnd_level: 1011,
         humidity: 50,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 500,
           main: "Rain",
           description: "light rain",
-          icon: "10d"
-        }
+          icon: "10d",
+        },
       ],
       clouds: {
-        all: 66
+        all: 66,
       },
       wind: {
         speed: 4.75,
-        deg: 270
+        deg: 270,
       },
       rain: {
-        "3h": 0.14
+        "3h": 0.14,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-05-03 15:00:00"
+      dt_txt: "2020-05-03 15:00:00",
     },
     {
       dt: 1588528800,
@@ -2466,27 +2466,27 @@ export const mockSearchForecastData = {
         sea_level: 1017,
         grnd_level: 1012,
         humidity: 67,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 802,
           main: "Clouds",
           description: "scattered clouds",
-          icon: "03d"
-        }
+          icon: "03d",
+        },
       ],
       clouds: {
-        all: 37
+        all: 37,
       },
       wind: {
         speed: 3.68,
-        deg: 268
+        deg: 268,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-05-03 18:00:00"
+      dt_txt: "2020-05-03 18:00:00",
     },
     {
       dt: 1588539600,
@@ -2499,27 +2499,27 @@ export const mockSearchForecastData = {
         sea_level: 1019,
         grnd_level: 1014,
         humidity: 84,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 800,
           main: "Clear",
           description: "clear sky",
-          icon: "01n"
-        }
+          icon: "01n",
+        },
       ],
       clouds: {
-        all: 1
+        all: 1,
       },
       wind: {
         speed: 3.11,
-        deg: 303
+        deg: 303,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2020-05-03 21:00:00"
+      dt_txt: "2020-05-03 21:00:00",
     },
     {
       dt: 1588550400,
@@ -2532,27 +2532,27 @@ export const mockSearchForecastData = {
         sea_level: 1020,
         grnd_level: 1015,
         humidity: 77,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 800,
           main: "Clear",
           description: "clear sky",
-          icon: "01n"
-        }
+          icon: "01n",
+        },
       ],
       clouds: {
-        all: 9
+        all: 9,
       },
       wind: {
         speed: 2.23,
-        deg: 314
+        deg: 314,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2020-05-04 00:00:00"
+      dt_txt: "2020-05-04 00:00:00",
     },
     {
       dt: 1588561200,
@@ -2565,27 +2565,27 @@ export const mockSearchForecastData = {
         sea_level: 1020,
         grnd_level: 1015,
         humidity: 84,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 800,
           main: "Clear",
           description: "clear sky",
-          icon: "01n"
-        }
+          icon: "01n",
+        },
       ],
       clouds: {
-        all: 7
+        all: 7,
       },
       wind: {
         speed: 1.89,
-        deg: 294
+        deg: 294,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2020-05-04 03:00:00"
+      dt_txt: "2020-05-04 03:00:00",
     },
     {
       dt: 1588572000,
@@ -2598,27 +2598,27 @@ export const mockSearchForecastData = {
         sea_level: 1021,
         grnd_level: 1016,
         humidity: 69,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 801,
           main: "Clouds",
           description: "few clouds",
-          icon: "02d"
-        }
+          icon: "02d",
+        },
       ],
       clouds: {
-        all: 18
+        all: 18,
       },
       wind: {
         speed: 2.15,
-        deg: 295
+        deg: 295,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-05-04 06:00:00"
+      dt_txt: "2020-05-04 06:00:00",
     },
     {
       dt: 1588582800,
@@ -2631,27 +2631,27 @@ export const mockSearchForecastData = {
         sea_level: 1021,
         grnd_level: 1016,
         humidity: 39,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 803,
           main: "Clouds",
           description: "broken clouds",
-          icon: "04d"
-        }
+          icon: "04d",
+        },
       ],
       clouds: {
-        all: 81
+        all: 81,
       },
       wind: {
         speed: 2.22,
-        deg: 293
+        deg: 293,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-05-04 09:00:00"
+      dt_txt: "2020-05-04 09:00:00",
     },
     {
       dt: 1588593600,
@@ -2664,27 +2664,27 @@ export const mockSearchForecastData = {
         sea_level: 1020,
         grnd_level: 1015,
         humidity: 31,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 804,
           main: "Clouds",
           description: "overcast clouds",
-          icon: "04d"
-        }
+          icon: "04d",
+        },
       ],
       clouds: {
-        all: 85
+        all: 85,
       },
       wind: {
         speed: 1.92,
-        deg: 288
+        deg: 288,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-05-04 12:00:00"
+      dt_txt: "2020-05-04 12:00:00",
     },
     {
       dt: 1588604400,
@@ -2697,27 +2697,27 @@ export const mockSearchForecastData = {
         sea_level: 1019,
         grnd_level: 1014,
         humidity: 31,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 804,
           main: "Clouds",
           description: "overcast clouds",
-          icon: "04d"
-        }
+          icon: "04d",
+        },
       ],
       clouds: {
-        all: 100
+        all: 100,
       },
       wind: {
         speed: 2.41,
-        deg: 306
+        deg: 306,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-05-04 15:00:00"
+      dt_txt: "2020-05-04 15:00:00",
     },
     {
       dt: 1588615200,
@@ -2730,27 +2730,27 @@ export const mockSearchForecastData = {
         sea_level: 1020,
         grnd_level: 1014,
         humidity: 42,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 804,
           main: "Clouds",
           description: "overcast clouds",
-          icon: "04d"
-        }
+          icon: "04d",
+        },
       ],
       clouds: {
-        all: 99
+        all: 99,
       },
       wind: {
         speed: 2.66,
-        deg: 336
+        deg: 336,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-05-04 18:00:00"
+      dt_txt: "2020-05-04 18:00:00",
     },
     {
       dt: 1588626000,
@@ -2763,27 +2763,27 @@ export const mockSearchForecastData = {
         sea_level: 1021,
         grnd_level: 1015,
         humidity: 58,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 804,
           main: "Clouds",
           description: "overcast clouds",
-          icon: "04n"
-        }
+          icon: "04n",
+        },
       ],
       clouds: {
-        all: 86
+        all: 86,
       },
       wind: {
         speed: 3.25,
-        deg: 33
+        deg: 33,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2020-05-04 21:00:00"
+      dt_txt: "2020-05-04 21:00:00",
     },
     {
       dt: 1588636800,
@@ -2796,27 +2796,27 @@ export const mockSearchForecastData = {
         sea_level: 1021,
         grnd_level: 1016,
         humidity: 65,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 804,
           main: "Clouds",
           description: "overcast clouds",
-          icon: "04n"
-        }
+          icon: "04n",
+        },
       ],
       clouds: {
-        all: 86
+        all: 86,
       },
       wind: {
         speed: 3.07,
-        deg: 54
+        deg: 54,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2020-05-05 00:00:00"
+      dt_txt: "2020-05-05 00:00:00",
     },
     {
       dt: 1588647600,
@@ -2829,27 +2829,27 @@ export const mockSearchForecastData = {
         sea_level: 1021,
         grnd_level: 1016,
         humidity: 68,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 800,
           main: "Clear",
           description: "clear sky",
-          icon: "01n"
-        }
+          icon: "01n",
+        },
       ],
       clouds: {
-        all: 10
+        all: 10,
       },
       wind: {
         speed: 2.67,
-        deg: 42
+        deg: 42,
       },
       sys: {
-        pod: "n"
+        pod: "n",
       },
-      dt_txt: "2020-05-05 03:00:00"
+      dt_txt: "2020-05-05 03:00:00",
     },
     {
       dt: 1588658400,
@@ -2862,27 +2862,27 @@ export const mockSearchForecastData = {
         sea_level: 1022,
         grnd_level: 1016,
         humidity: 59,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 800,
           main: "Clear",
           description: "clear sky",
-          icon: "01d"
-        }
+          icon: "01d",
+        },
       ],
       clouds: {
-        all: 5
+        all: 5,
       },
       wind: {
         speed: 1.81,
-        deg: 26
+        deg: 26,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-05-05 06:00:00"
+      dt_txt: "2020-05-05 06:00:00",
     },
     {
       dt: 1588669200,
@@ -2895,27 +2895,27 @@ export const mockSearchForecastData = {
         sea_level: 1022,
         grnd_level: 1017,
         humidity: 38,
-        temp_kf: 0
+        temp_kf: 0,
       },
       weather: [
         {
           id: 800,
           main: "Clear",
           description: "clear sky",
-          icon: "01d"
-        }
+          icon: "01d",
+        },
       ],
       clouds: {
-        all: 0
+        all: 0,
       },
       wind: {
         speed: 2.23,
-        deg: 25
+        deg: 25,
       },
       sys: {
-        pod: "d"
+        pod: "d",
       },
-      dt_txt: "2020-05-05 09:00:00"
-    }
-  ]
+      dt_txt: "2020-05-05 09:00:00",
+    },
+  ],
 };

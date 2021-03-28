@@ -17,7 +17,10 @@
     "test": "react-scripts test",
     "test:non-watch": "react-scripts test --watchAll=false",
     "coverage": "react-scripts test --coverage --watchAll=false",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint . --cache-location node_modules/.cache/eslint",
+    "format": "prettier --write \"**/*.+(js|json|css|html)\"",
+    "check": "prettier --check \"**/*.+(js|json|css|html)\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -49,7 +52,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && npm run test:non-watch"
+      "pre-commit": "pretty-quick --staged && npm run format && npm run check && npm run test:non-watch"
     }
   },
   "jest": {

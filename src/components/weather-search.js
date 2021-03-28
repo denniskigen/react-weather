@@ -7,7 +7,7 @@ import {
   InputAdornment,
   InputLabel,
   Tooltip,
-  Typography
+  Typography,
 } from "@material-ui/core";
 import Search from "@material-ui/icons/Search";
 import { makeStyles } from "@material-ui/core/styles";
@@ -16,11 +16,11 @@ import debounce from "lodash-es/debounce";
 const useStyles = makeStyles(theme => ({
   error: {
     color: "red",
-    padding: "10px"
+    padding: "10px",
   },
   search: {
-    marginTop: "10px"
-  }
+    marginTop: "10px",
+  },
 }));
 
 export default function WeatherSearch(props) {

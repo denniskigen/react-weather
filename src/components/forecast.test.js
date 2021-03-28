@@ -10,7 +10,7 @@ describe("<Forecast />", () => {
     render(<Forecast forecast={testProps.forecast} />);
 
   const testProps = {
-    forecast: mockForecast
+    forecast: mockForecast,
   };
 
   test("renders the weekly forecast for the specified location", async () => {

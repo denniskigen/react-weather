@@ -11,7 +11,7 @@ describe("<WeatherSearch />", () => {
     const testProps = {
       city: "Eldoret",
       onCityChange: mockOnCityChange,
-      error: null
+      error: null,
     };
 
     render(<WeatherSearch {...testProps} />);

@@ -6,7 +6,7 @@ import {
   Divider,
   Drawer,
   Toolbar,
-  Typography
+  Typography,
 } from "@material-ui/core";
 
 import about from "../about.png";
@@ -15,30 +15,30 @@ import { Logo } from "./logo";
 const useStyles = makeStyles(theme => ({
   root: {
     flexiGrow: 1,
-    color: "black"
+    color: "black",
   },
   aboutImg: {
     padding: "30px 150px 0px 150px",
-    width: "100px"
+    width: "100px",
   },
   aboutText: {
     fontFamily: "Montserrat",
-    padding: "30px"
+    padding: "30px",
   },
   appBar: {
     background: "transparent",
     boxShadow: "none",
-    position: "sticky"
+    position: "sticky",
   },
   list: {
-    width: 400
-  }
+    width: 400,
+  },
 }));
 
 const TemporaryDrawer = () => {
   const classes = useStyles();
   const [state, setState] = useState({
-    right: false
+    right: false,
   });
 
   const toggleDrawer = (side, open) => event => {
