@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function WeatherSearch(props) {
-  const searchTimeout = 300;
+  const searchTimeout = 1000;
   const classes = useStyles();
   const { onCityChange, error } = props;
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
