@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import {
   CircularProgress,
   FormControl,
@@ -11,8 +11,7 @@ import {
 } from "@material-ui/core";
 import Search from "@material-ui/icons/Search";
 import { makeStyles } from "@material-ui/core/styles";
-
-import useDebounce from "../use-debounce";
+import debounce from "lodash-es/debounce";
 
 const useStyles = makeStyles(theme => ({
   error: {
@@ -25,24 +24,32 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function WeatherSearch(props) {
+  const searchTimeout = 300;
   const classes = useStyles();
   const { onCityChange, error } = props;
-  const [searchTerm, setSearchTerm] = useState("");
-  const [isSearching, setSearching] = useState(false);
-  const debouncedSearchTerm = useDebounce(searchTerm, 1000);
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
+  const [isSearching, setIsSearching] = useState(false);
   const hasError = error ? true : false;
 
   const handleSearch = event => {
-    setSearching(true);
-    setSearchTerm(event.target.value);
+    setIsSearching(true);
+    debounceSearch(event.target.value);
   };
+
+  const debounceSearch = useMemo(
+    () =>
+      debounce(searchTerm => {
+        setDebouncedSearchTerm(searchTerm);
+      }, searchTimeout),
+    []
+  );
 
   useEffect(() => {
     if (debouncedSearchTerm) {
       onCityChange(debouncedSearchTerm);
-      setSearching(false);
+      setIsSearching(false);
     }
-  }, [onCityChange, debouncedSearchTerm, isSearching]);
+  }, [debouncedSearchTerm, isSearching, onCityChange]);
 
   return (
     <div className={classes.search}>

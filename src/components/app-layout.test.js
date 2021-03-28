@@ -2,44 +2,46 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
-import Weather from "./Weather";
-import { mockCurrentWeather, mockForecast } from "../__mocks__/Weather.mock";
+import { mockCurrentWeather, mockForecast } from "../__mocks__/weather.mock";
+import AppLayout from "./app-layout";
 
-describe("<Weather />", () => {
-  const renderWeather = testProps =>
+describe("<AppLayout />", () => {
+  const renderAppLayout = testProps =>
     render(
-      <Weather
-        city={testProps.city}
+      <AppLayout
         currentWeather={testProps.currentWeather}
         forecast={testProps.forecast}
-        error={testProps.error}
-        onCityChange={testProps.onCityChange}
+        icon={testProps.icon}
+        recommendation={testProps.recommendation}
       />
     );
 
   beforeEach(() => {
     const testProps = {
-      city: "Eldoret",
       currentWeather: mockCurrentWeather,
       forecast: mockForecast,
-      error: null,
-      onCityChange: () => {}
+      icon: "wi wi-day-cloudy-gusts",
+      recommendation:
+        "Great day for a bit of laundry and maybe a nice picnic date later :)"
     };
 
-    renderWeather(testProps);
+    renderAppLayout(testProps);
   });
 
-  test("renders the weather search and app layout", () => {
+  test("renders the elements that make up the app layout", async () => {
+    await screen.findByText("Eldoret, KE");
+
     expect(screen.getByText("Eldoret, KE")).toBeInTheDocument();
     expect(
       screen.getByText("Wednesday, 10:36 AM, Few Clouds")
     ).toBeInTheDocument();
     expect(screen.getByText("19°C")).toBeInTheDocument();
+    expect(screen.getByText(/Feels like 17°C/)).toBeInTheDocument();
     expect(screen.getByText(/24 km\/h Winds\s+/)).toBeInTheDocument();
     expect(screen.getByText(/68% Humidity/)).toBeInTheDocument();
     expect(
       screen.getByText(
-        "Cloudy skies on a blustery evening. Snuggle up with a hot cuppa"
+        "Great day for a bit of laundry and maybe a nice picnic date later :)"
       )
     ).toBeInTheDocument();
     expect(screen.getByText("Wednesday")).toBeInTheDocument();

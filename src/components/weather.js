@@ -1,9 +1,8 @@
 import React from "react";
-
 import dayjs from "dayjs";
 
-import AppLayout from "./AppLayout";
-import WeatherSearch from "./WeatherSearch";
+import AppLayout from "./app-layout";
+import WeatherSearch from "./weather-search";
 
 import * as weatherIcons from "../icons";
 import * as recommendations from "../recommendations";

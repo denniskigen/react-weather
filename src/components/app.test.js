@@ -2,12 +2,8 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
-import App from "./App";
-import { mockWeatherData, mockForecastData } from "../__mocks__/Weather.mock";
-
-jest.mock("../use-debounce", () => {
-  return jest.fn(searchCity => searchCity);
-});
+import App from "./app";
+import { mockWeatherData, mockForecastData } from "../__mocks__/weather.mock";
 
 describe("<App />", () => {
   const renderApp = () => render(<App />);

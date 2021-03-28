@@ -2,46 +2,44 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
-import AppLayout from "./AppLayout";
-import { mockCurrentWeather, mockForecast } from "../__mocks__/Weather.mock";
+import Weather from "./weather";
+import { mockCurrentWeather, mockForecast } from "../__mocks__/weather.mock";
 
-describe("<AppLayout />", () => {
-  const renderAppLayout = testProps =>
+describe("<Weather />", () => {
+  const renderWeather = testProps =>
     render(
-      <AppLayout
+      <Weather
+        city={testProps.city}
         currentWeather={testProps.currentWeather}
         forecast={testProps.forecast}
-        icon={testProps.icon}
-        recommendation={testProps.recommendation}
+        error={testProps.error}
+        onCityChange={testProps.onCityChange}
       />
     );
 
   beforeEach(() => {
     const testProps = {
+      city: "Eldoret",
       currentWeather: mockCurrentWeather,
       forecast: mockForecast,
-      icon: "wi wi-day-cloudy-gusts",
-      recommendation:
-        "Great day for a bit of laundry and maybe a nice picnic date later :)"
+      error: null,
+      onCityChange: () => {}
     };
 
-    renderAppLayout(testProps);
+    renderWeather(testProps);
   });
 
-  test("renders the elements that make up the app layout", async () => {
-    await screen.findByText("Eldoret, KE");
-
+  test("renders the weather search and app layout", () => {
     expect(screen.getByText("Eldoret, KE")).toBeInTheDocument();
     expect(
       screen.getByText("Wednesday, 10:36 AM, Few Clouds")
     ).toBeInTheDocument();
     expect(screen.getByText("19°C")).toBeInTheDocument();
-    expect(screen.getByText(/Feels like 17°C/)).toBeInTheDocument();
     expect(screen.getByText(/24 km\/h Winds\s+/)).toBeInTheDocument();
     expect(screen.getByText(/68% Humidity/)).toBeInTheDocument();
     expect(
       screen.getByText(
-        "Great day for a bit of laundry and maybe a nice picnic date later :)"
+        "Cloudy skies on a blustery evening. Snuggle up with a hot cuppa"
       )
     ).toBeInTheDocument();
     expect(screen.getByText("Wednesday")).toBeInTheDocument();

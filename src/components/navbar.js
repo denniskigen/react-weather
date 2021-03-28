@@ -10,7 +10,7 @@ import {
 } from "@material-ui/core";
 
 import about from "../about.png";
-import { Logo } from "./Logo";
+import { Logo } from "./logo";
 
 const useStyles = makeStyles(theme => ({
   root: {

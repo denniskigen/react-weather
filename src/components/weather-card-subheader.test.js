@@ -2,8 +2,8 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
-import WeatherCardSubHeader from "./WeatherCardSubheader";
-import { mockCurrentWeather } from "../__mocks__/Weather.mock";
+import WeatherCardSubHeader from "./weather-card-subheader";
+import { mockCurrentWeather } from "../__mocks__/weather.mock";
 
 describe("<WeatherCardSubheader />", () => {
   const renderWeatherCardSubheader = testProps =>

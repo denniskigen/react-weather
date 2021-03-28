@@ -2,8 +2,8 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
-import Forecast from "./Forecast";
-import { mockForecast } from "../__mocks__/Weather.mock";
+import Forecast from "./forecast";
+import { mockForecast } from "../__mocks__/weather.mock";
 
 describe("<Forecast />", () => {
   const renderForecast = testProps =>

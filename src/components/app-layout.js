@@ -10,8 +10,8 @@ import {
   Grid
 } from "@material-ui/core";
 
-import Forecast from "./Forecast";
-import WeatherCardSubheader from "./WeatherCardSubheader";
+import Forecast from "./forecast";
+import WeatherCardSubheader from "./weather-card-subheader";
 
 const useStyles = makeStyles(theme => ({
   atmospheric: {
