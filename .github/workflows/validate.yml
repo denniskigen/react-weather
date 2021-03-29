@@ -16,7 +16,7 @@ jobs:
       - name: ⎔ Setup node
         uses: actions/setup-node@v1
         with:
-          node_version: 14
+          node-version: "14"
 
       - run: npm install
       - run: npm run lint
