@@ -13,7 +13,7 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v2
 
-      - name: 🧳 Cache node modules
+      - name: 💾 Cache node modules
         uses: actions/cache@v2
         env:
           cache-name: cache-node-modules
