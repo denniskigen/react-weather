@@ -1,5 +1,9 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import {
+  render,
+  screen,
+  waitForElementToBeRemoved,
+} from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
 import App from "./app";
@@ -32,6 +36,9 @@ describe("<App />", () => {
 
     renderApp();
 
+    await waitForLoadingToFinish();
+
+    expect(screen.queryByRole(/progressbar/)).not.toBeInTheDocument();
     const aboutEl = await screen.findByText("About");
     expect(aboutEl).toBeInTheDocument();
     expect(screen.getByText("GitHub")).toBeInTheDocument();
@@ -74,9 +81,14 @@ describe("<App />", () => {
 
     renderApp();
 
-    // loading spinner
-    await screen.findByRole("progressbar");
-    expect(screen.getByRole("progressbar")).toBeInTheDocument();
+    // loading spinner shown
+    await screen.findByRole(/progressbar/);
+    expect(screen.getByRole(/progressbar/)).toBeInTheDocument();
     expect(screen.getByText(mockErrorResponse.message)).toBeInTheDocument();
   });
 });
+
+const waitForLoadingToFinish = () =>
+  waitForElementToBeRemoved(() => screen.queryByRole(/progressbar/), {
+    timeout: 3000,
+  });
