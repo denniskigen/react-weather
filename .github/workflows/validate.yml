@@ -30,22 +30,22 @@ jobs:
         with:
           node-version: "14"
 
-      - name: Install dependencies
+      - name: 📀 Install dependencies
         run: npm install
 
-      - name: Lint
+      - name: 🧹 Lint
         run: npm run lint
 
-      - name: Prettier check
+      - name: 😍 Prettier check
         run: npm run check
 
-      - name: Test
+      - name: 🧪 Test
         run: npm run coverage
 
-      - name: Build
+      - name: 👷‍♀️ Build
         run: npm run build -- --prod
 
-      - name: Upload artifacts
+      - name: ⏫ Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: build
@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: ⤵️ Download build artifacts from build job
+      - name: ⏬ Download build artifacts from build job
         uses: actions/download-artifact@v2
         with:
           name: build
