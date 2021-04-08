@@ -1,54 +1,39 @@
-import React from "react";
-import {
-  IconButton,
-  List,
-  ListItem,
-  ListItemText,
-  Typography,
-} from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react';
+import dayjs from 'dayjs';
 
-import dayjs from "dayjs";
-import * as weatherIcons from "../icons";
+import * as weatherIcons from '../icons';
 
-const useStyles = makeStyles(theme => ({
-  wi: {
-    color: "#673ab7",
-  },
-}));
-
-export default function Forecast(props) {
-  const classes = useStyles();
-  const prefix = "wi wi-";
+const Forecast = props => {
   const { forecast } = props;
-  const result = forecast.map((item, index) => {
-    const currentHour = dayjs(item.date).format("H");
-    const timeOfDay = currentHour > 7 && currentHour < 19 ? "day" : "night";
-    const icon = prefix + weatherIcons.default[timeOfDay][item.icon_id].icon;
-    return (
-      <ListItem key={index} className="forecastItem">
-        <ListItemText
-          className="week-day"
-          primary={dayjs(item.dt_txt).format("dddd")}
-          style={{ flex: "1 1 0%", textAlign: "left" }}
-        ></ListItemText>
-        <IconButton disabled={true} aria-label="forecast icon">
-          <span
-            className={`${classes.wi} ${icon}`}
-            style={{ fontSize: "24px" }}
-          ></span>
-        </IconButton>
-        <span className="temp" style={{ flex: "1 1 0%", textAlign: "right" }}>
-          <Typography variant="body2" component="span" color="textPrimary">
-            {item.min}&deg; /{" "}
-          </Typography>
-          <Typography variant="body2" component="span" color="textSecondary">
-            {item.max}&deg;
-          </Typography>
-        </span>
-      </ListItem>
-    );
-  });
+  const iconPrefix = 'wi wi-';
 
-  return <List aria-label="forecast data">{result}</List>;
-}
+  return (
+    <div className="mt-4 border-t border-green-300">
+      {forecast.map((item, index) => {
+        const currentHour = dayjs(item.date).format('H');
+        const isDay = currentHour > 7 && currentHour < 19 ? true : false;
+        const icon =
+          iconPrefix +
+          weatherIcons.default[isDay ? 'day' : 'night'][item.icon_id].icon;
+
+        return (
+          <ul className="mt-4" key={index}>
+            <li className="flex flex-row text-gray-500 p-1">
+              <span className="flex-1 text-left">
+                {dayjs(item.dt_txt).format('dddd')}
+              </span>
+              <span className="text-indigo-700 text-2xl">
+                <span className={icon}></span>
+              </span>
+              <span className="flex-1 text-right">
+                {item.min}&deg; / {item.max}&deg;
+              </span>
+            </li>
+          </ul>
+        );
+      })}
+    </div>
+  );
+};
+
+export default Forecast;

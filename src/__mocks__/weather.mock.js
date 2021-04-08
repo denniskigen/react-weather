@@ -1,9 +1,9 @@
-export const mockCurrentWeather = {
-  city: "Eldoret",
+export const mockWeather = {
+  location: 'Eldoret',
   condition: 200,
-  country: "KE",
+  country: 'KE',
   date: 1579073776000,
-  description: "few clouds",
+  description: 'few clouds',
   feels_like: 17,
   humidity: 68,
   icon_id: 801,
@@ -21,10 +21,10 @@ export const mockForecast = [
     icon_id: 801,
     feels_like: 13,
     temperature: 14,
-    description: "few clouds",
+    description: 'few clouds',
     wind_speed: 7,
-    dt_txt: "2020-01-15 21:00:00",
-    icon: "02n",
+    dt_txt: '2020-01-15 21:00:00',
+    icon: '02n',
     max: 14,
     min: 14,
   },
@@ -34,10 +34,10 @@ export const mockForecast = [
     icon_id: 802,
     feels_like: 13,
     temperature: 15,
-    description: "scattered clouds",
+    description: 'scattered clouds',
     wind_speed: 6,
-    dt_txt: "2020-01-16 21:00:00",
-    icon: "03n",
+    dt_txt: '2020-01-16 21:00:00',
+    icon: '03n',
     max: 15,
     min: 15,
   },
@@ -47,10 +47,10 @@ export const mockForecast = [
     icon_id: 803,
     feels_like: 15,
     temperature: 17,
-    description: "broken clouds",
+    description: 'broken clouds',
     wind_speed: 5,
-    dt_txt: "2020-01-17 21:00:00",
-    icon: "04n",
+    dt_txt: '2020-01-17 21:00:00',
+    icon: '04n',
     max: 17,
     min: 17,
   },
@@ -60,10 +60,10 @@ export const mockForecast = [
     icon_id: 803,
     feels_like: 12,
     temperature: 13,
-    description: "broken clouds",
+    description: 'broken clouds',
     wind_speed: 4,
-    dt_txt: "2020-01-18 21:00:00",
-    icon: "04n",
+    dt_txt: '2020-01-18 21:00:00',
+    icon: '04n',
     max: 13,
     min: 13,
   },
@@ -73,17 +73,17 @@ export const mockForecast = [
     icon_id: 804,
     feels_like: 15,
     temperature: 16,
-    description: "overcast clouds",
+    description: 'overcast clouds',
     wind_speed: 6,
-    dt_txt: "2020-01-19 21:00:00",
-    icon: "04n",
+    dt_txt: '2020-01-19 21:00:00',
+    icon: '04n',
     max: 16,
     min: 16,
   },
 ];
 
 export const mockWeatherData = {
-  base: "stations",
+  base: 'stations',
   clouds: {
     all: 75,
   },
@@ -102,9 +102,9 @@ export const mockWeatherData = {
     temp_min: 20,
     temp_max: 20,
   },
-  name: "Eldoret",
+  name: 'Eldoret',
   sys: {
-    country: "KE",
+    country: 'KE',
     id: 2541,
     sunrise: 1572491974,
     sunset: 1572535523,
@@ -115,9 +115,9 @@ export const mockWeatherData = {
   weather: [
     {
       id: 803,
-      main: "Clouds",
-      description: "broken clouds",
-      icon: "04d",
+      main: 'Clouds',
+      description: 'broken clouds',
+      icon: '04d',
     },
   ],
   wind: {
@@ -127,20 +127,20 @@ export const mockWeatherData = {
 };
 
 export const mockForecastData = {
-  city: {
+  location: {
     coord: {
       lat: 0.5198,
       lon: 35.2715,
     },
-    country: "KE",
+    country: 'KE',
     id: 198629,
-    name: "Eldoret",
+    name: 'Eldoret',
     population: 218446,
     sunrise: 1572578373,
     sunset: 1572621920,
     timezone: 10800,
   },
-  cod: "200",
+  cod: '200',
   message: 0.0064,
   cnt: 40,
   list: [
@@ -159,9 +159,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10d",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10d',
         },
       ],
       clouds: {
@@ -172,12 +172,12 @@ export const mockForecastData = {
         deg: 59,
       },
       rain: {
-        "3h": 1.06,
+        '3h': 1.06,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2019-11-01 12:00:00",
+      dt_txt: '2019-11-01 12:00:00',
     },
     {
       dt: 1572620400,
@@ -194,9 +194,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10d",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10d',
         },
       ],
       clouds: {
@@ -207,12 +207,12 @@ export const mockForecastData = {
         deg: 52,
       },
       rain: {
-        "3h": 0.94,
+        '3h': 0.94,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2019-11-01 15:00:00",
+      dt_txt: '2019-11-01 15:00:00',
     },
     {
       dt: 1572631200,
@@ -229,9 +229,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10n",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10n',
         },
       ],
       clouds: {
@@ -242,12 +242,12 @@ export const mockForecastData = {
         deg: 141,
       },
       rain: {
-        "3h": 0.37,
+        '3h': 0.37,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2019-11-01 18:00:00",
+      dt_txt: '2019-11-01 18:00:00',
     },
     {
       dt: 1572642000,
@@ -264,9 +264,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10n",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10n',
         },
       ],
       clouds: {
@@ -277,12 +277,12 @@ export const mockForecastData = {
         deg: 139,
       },
       rain: {
-        "3h": 0.94,
+        '3h': 0.94,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2019-11-01 21:00:00",
+      dt_txt: '2019-11-01 21:00:00',
     },
     {
       dt: 1572652800,
@@ -299,9 +299,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10n",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10n',
         },
       ],
       clouds: {
@@ -312,12 +312,12 @@ export const mockForecastData = {
         deg: 173,
       },
       rain: {
-        "3h": 0.12,
+        '3h': 0.12,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2019-11-02 00:00:00",
+      dt_txt: '2019-11-02 00:00:00',
     },
     {
       dt: 1572663600,
@@ -334,9 +334,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 800,
-          main: "Clear",
-          description: "clear sky",
-          icon: "01n",
+          main: 'Clear',
+          description: 'clear sky',
+          icon: '01n',
         },
       ],
       clouds: {
@@ -347,9 +347,9 @@ export const mockForecastData = {
         deg: 115,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2019-11-02 03:00:00",
+      dt_txt: '2019-11-02 03:00:00',
     },
     {
       dt: 1572674400,
@@ -366,9 +366,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 800,
-          main: "Clear",
-          description: "clear sky",
-          icon: "01d",
+          main: 'Clear',
+          description: 'clear sky',
+          icon: '01d',
         },
       ],
       clouds: {
@@ -379,9 +379,9 @@ export const mockForecastData = {
         deg: 78,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2019-11-02 06:00:00",
+      dt_txt: '2019-11-02 06:00:00',
     },
     {
       dt: 1572685200,
@@ -398,9 +398,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 800,
-          main: "Clear",
-          description: "clear sky",
-          icon: "01d",
+          main: 'Clear',
+          description: 'clear sky',
+          icon: '01d',
         },
       ],
       clouds: {
@@ -411,9 +411,9 @@ export const mockForecastData = {
         deg: 64,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2019-11-02 09:00:00",
+      dt_txt: '2019-11-02 09:00:00',
     },
     {
       dt: 1572696000,
@@ -430,9 +430,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10d",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10d',
         },
       ],
       clouds: {
@@ -443,12 +443,12 @@ export const mockForecastData = {
         deg: 58,
       },
       rain: {
-        "3h": 0.94,
+        '3h': 0.94,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2019-11-02 12:00:00",
+      dt_txt: '2019-11-02 12:00:00',
     },
     {
       dt: 1572706800,
@@ -465,9 +465,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10d",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10d',
         },
       ],
       clouds: {
@@ -478,12 +478,12 @@ export const mockForecastData = {
         deg: 42,
       },
       rain: {
-        "3h": 1,
+        '3h': 1,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2019-11-02 15:00:00",
+      dt_txt: '2019-11-02 15:00:00',
     },
     {
       dt: 1572717600,
@@ -500,9 +500,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10n",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10n',
         },
       ],
       clouds: {
@@ -513,12 +513,12 @@ export const mockForecastData = {
         deg: 72,
       },
       rain: {
-        "3h": 0.94,
+        '3h': 0.94,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2019-11-02 18:00:00",
+      dt_txt: '2019-11-02 18:00:00',
     },
     {
       dt: 1572728400,
@@ -535,9 +535,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10n",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10n',
         },
       ],
       clouds: {
@@ -548,12 +548,12 @@ export const mockForecastData = {
         deg: 128,
       },
       rain: {
-        "3h": 1.69,
+        '3h': 1.69,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2019-11-02 21:00:00",
+      dt_txt: '2019-11-02 21:00:00',
     },
     {
       dt: 1572739200,
@@ -570,9 +570,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10n",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10n',
         },
       ],
       clouds: {
@@ -583,12 +583,12 @@ export const mockForecastData = {
         deg: 117,
       },
       rain: {
-        "3h": 1.44,
+        '3h': 1.44,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2019-11-03 00:00:00",
+      dt_txt: '2019-11-03 00:00:00',
     },
     {
       dt: 1572750000,
@@ -605,9 +605,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 802,
-          main: "Clouds",
-          description: "scattered clouds",
-          icon: "03n",
+          main: 'Clouds',
+          description: 'scattered clouds',
+          icon: '03n',
         },
       ],
       clouds: {
@@ -618,9 +618,9 @@ export const mockForecastData = {
         deg: 113,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2019-11-03 03:00:00",
+      dt_txt: '2019-11-03 03:00:00',
     },
     {
       dt: 1572760800,
@@ -637,9 +637,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 801,
-          main: "Clouds",
-          description: "few clouds",
-          icon: "02d",
+          main: 'Clouds',
+          description: 'few clouds',
+          icon: '02d',
         },
       ],
       clouds: {
@@ -650,9 +650,9 @@ export const mockForecastData = {
         deg: 84,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2019-11-03 06:00:00",
+      dt_txt: '2019-11-03 06:00:00',
     },
     {
       dt: 1572771600,
@@ -669,9 +669,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 800,
-          main: "Clear",
-          description: "clear sky",
-          icon: "01d",
+          main: 'Clear',
+          description: 'clear sky',
+          icon: '01d',
         },
       ],
       clouds: {
@@ -682,9 +682,9 @@ export const mockForecastData = {
         deg: 67,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2019-11-03 09:00:00",
+      dt_txt: '2019-11-03 09:00:00',
     },
     {
       dt: 1572782400,
@@ -701,9 +701,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 801,
-          main: "Clouds",
-          description: "few clouds",
-          icon: "02d",
+          main: 'Clouds',
+          description: 'few clouds',
+          icon: '02d',
         },
       ],
       clouds: {
@@ -714,9 +714,9 @@ export const mockForecastData = {
         deg: 63,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2019-11-03 12:00:00",
+      dt_txt: '2019-11-03 12:00:00',
     },
     {
       dt: 1572793200,
@@ -733,9 +733,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 804,
-          main: "Clouds",
-          description: "overcast clouds",
-          icon: "04d",
+          main: 'Clouds',
+          description: 'overcast clouds',
+          icon: '04d',
         },
       ],
       clouds: {
@@ -746,9 +746,9 @@ export const mockForecastData = {
         deg: 80,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2019-11-03 15:00:00",
+      dt_txt: '2019-11-03 15:00:00',
     },
     {
       dt: 1572804000,
@@ -765,9 +765,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 804,
-          main: "Clouds",
-          description: "overcast clouds",
-          icon: "04n",
+          main: 'Clouds',
+          description: 'overcast clouds',
+          icon: '04n',
         },
       ],
       clouds: {
@@ -778,9 +778,9 @@ export const mockForecastData = {
         deg: 70,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2019-11-03 18:00:00",
+      dt_txt: '2019-11-03 18:00:00',
     },
     {
       dt: 1572814800,
@@ -797,9 +797,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 803,
-          main: "Clouds",
-          description: "broken clouds",
-          icon: "04n",
+          main: 'Clouds',
+          description: 'broken clouds',
+          icon: '04n',
         },
       ],
       clouds: {
@@ -810,9 +810,9 @@ export const mockForecastData = {
         deg: 56,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2019-11-03 21:00:00",
+      dt_txt: '2019-11-03 21:00:00',
     },
     {
       dt: 1572825600,
@@ -829,9 +829,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 803,
-          main: "Clouds",
-          description: "broken clouds",
-          icon: "04n",
+          main: 'Clouds',
+          description: 'broken clouds',
+          icon: '04n',
         },
       ],
       clouds: {
@@ -842,9 +842,9 @@ export const mockForecastData = {
         deg: 94,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2019-11-04 00:00:00",
+      dt_txt: '2019-11-04 00:00:00',
     },
     {
       dt: 1572836400,
@@ -861,9 +861,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 800,
-          main: "Clear",
-          description: "clear sky",
-          icon: "01n",
+          main: 'Clear',
+          description: 'clear sky',
+          icon: '01n',
         },
       ],
       clouds: {
@@ -874,9 +874,9 @@ export const mockForecastData = {
         deg: 90,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2019-11-04 03:00:00",
+      dt_txt: '2019-11-04 03:00:00',
     },
     {
       dt: 1572847200,
@@ -893,9 +893,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 801,
-          main: "Clouds",
-          description: "few clouds",
-          icon: "02d",
+          main: 'Clouds',
+          description: 'few clouds',
+          icon: '02d',
         },
       ],
       clouds: {
@@ -906,9 +906,9 @@ export const mockForecastData = {
         deg: 81,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2019-11-04 06:00:00",
+      dt_txt: '2019-11-04 06:00:00',
     },
     {
       dt: 1572858000,
@@ -925,9 +925,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 802,
-          main: "Clouds",
-          description: "scattered clouds",
-          icon: "03d",
+          main: 'Clouds',
+          description: 'scattered clouds',
+          icon: '03d',
         },
       ],
       clouds: {
@@ -938,9 +938,9 @@ export const mockForecastData = {
         deg: 66,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2019-11-04 09:00:00",
+      dt_txt: '2019-11-04 09:00:00',
     },
     {
       dt: 1572868800,
@@ -957,9 +957,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 802,
-          main: "Clouds",
-          description: "scattered clouds",
-          icon: "03d",
+          main: 'Clouds',
+          description: 'scattered clouds',
+          icon: '03d',
         },
       ],
       clouds: {
@@ -970,9 +970,9 @@ export const mockForecastData = {
         deg: 68,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2019-11-04 12:00:00",
+      dt_txt: '2019-11-04 12:00:00',
     },
     {
       dt: 1572879600,
@@ -989,9 +989,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 801,
-          main: "Clouds",
-          description: "few clouds",
-          icon: "02d",
+          main: 'Clouds',
+          description: 'few clouds',
+          icon: '02d',
         },
       ],
       clouds: {
@@ -1002,9 +1002,9 @@ export const mockForecastData = {
         deg: 67,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2019-11-04 15:00:00",
+      dt_txt: '2019-11-04 15:00:00',
     },
     {
       dt: 1572890400,
@@ -1021,9 +1021,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 802,
-          main: "Clouds",
-          description: "scattered clouds",
-          icon: "03n",
+          main: 'Clouds',
+          description: 'scattered clouds',
+          icon: '03n',
         },
       ],
       clouds: {
@@ -1034,9 +1034,9 @@ export const mockForecastData = {
         deg: 83,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2019-11-04 18:00:00",
+      dt_txt: '2019-11-04 18:00:00',
     },
     {
       dt: 1572901200,
@@ -1053,9 +1053,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10n",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10n',
         },
       ],
       clouds: {
@@ -1066,12 +1066,12 @@ export const mockForecastData = {
         deg: 84,
       },
       rain: {
-        "3h": 0.13,
+        '3h': 0.13,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2019-11-04 21:00:00",
+      dt_txt: '2019-11-04 21:00:00',
     },
     {
       dt: 1572912000,
@@ -1088,9 +1088,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 802,
-          main: "Clouds",
-          description: "scattered clouds",
-          icon: "03n",
+          main: 'Clouds',
+          description: 'scattered clouds',
+          icon: '03n',
         },
       ],
       clouds: {
@@ -1101,9 +1101,9 @@ export const mockForecastData = {
         deg: 99,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2019-11-05 00:00:00",
+      dt_txt: '2019-11-05 00:00:00',
     },
     {
       dt: 1572922800,
@@ -1120,9 +1120,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 800,
-          main: "Clear",
-          description: "clear sky",
-          icon: "01n",
+          main: 'Clear',
+          description: 'clear sky',
+          icon: '01n',
         },
       ],
       clouds: {
@@ -1133,9 +1133,9 @@ export const mockForecastData = {
         deg: 101,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2019-11-05 03:00:00",
+      dt_txt: '2019-11-05 03:00:00',
     },
     {
       dt: 1572933600,
@@ -1152,9 +1152,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10d",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10d',
         },
       ],
       clouds: {
@@ -1165,12 +1165,12 @@ export const mockForecastData = {
         deg: 81,
       },
       rain: {
-        "3h": 0.13,
+        '3h': 0.13,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2019-11-05 06:00:00",
+      dt_txt: '2019-11-05 06:00:00',
     },
     {
       dt: 1572944400,
@@ -1187,9 +1187,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10d",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10d',
         },
       ],
       clouds: {
@@ -1200,12 +1200,12 @@ export const mockForecastData = {
         deg: 72,
       },
       rain: {
-        "3h": 0.81,
+        '3h': 0.81,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2019-11-05 09:00:00",
+      dt_txt: '2019-11-05 09:00:00',
     },
     {
       dt: 1572955200,
@@ -1222,9 +1222,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10d",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10d',
         },
       ],
       clouds: {
@@ -1235,12 +1235,12 @@ export const mockForecastData = {
         deg: 80,
       },
       rain: {
-        "3h": 1.94,
+        '3h': 1.94,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2019-11-05 12:00:00",
+      dt_txt: '2019-11-05 12:00:00',
     },
     {
       dt: 1572966000,
@@ -1257,9 +1257,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10d",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10d',
         },
       ],
       clouds: {
@@ -1270,12 +1270,12 @@ export const mockForecastData = {
         deg: 205,
       },
       rain: {
-        "3h": 1.94,
+        '3h': 1.94,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2019-11-05 15:00:00",
+      dt_txt: '2019-11-05 15:00:00',
     },
     {
       dt: 1572976800,
@@ -1292,9 +1292,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10n",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10n',
         },
       ],
       clouds: {
@@ -1305,12 +1305,12 @@ export const mockForecastData = {
         deg: 203,
       },
       rain: {
-        "3h": 0.44,
+        '3h': 0.44,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2019-11-05 18:00:00",
+      dt_txt: '2019-11-05 18:00:00',
     },
     {
       dt: 1572987600,
@@ -1327,9 +1327,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10n",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10n',
         },
       ],
       clouds: {
@@ -1340,12 +1340,12 @@ export const mockForecastData = {
         deg: 75,
       },
       rain: {
-        "3h": 0.13,
+        '3h': 0.13,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2019-11-05 21:00:00",
+      dt_txt: '2019-11-05 21:00:00',
     },
     {
       dt: 1572998400,
@@ -1362,9 +1362,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10n",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10n',
         },
       ],
       clouds: {
@@ -1375,12 +1375,12 @@ export const mockForecastData = {
         deg: 122,
       },
       rain: {
-        "3h": 0.19,
+        '3h': 0.19,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2019-11-06 00:00:00",
+      dt_txt: '2019-11-06 00:00:00',
     },
     {
       dt: 1573009200,
@@ -1397,9 +1397,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10n",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10n',
         },
       ],
       clouds: {
@@ -1410,12 +1410,12 @@ export const mockForecastData = {
         deg: 105,
       },
       rain: {
-        "3h": 0.44,
+        '3h': 0.44,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2019-11-06 03:00:00",
+      dt_txt: '2019-11-06 03:00:00',
     },
     {
       dt: 1573020000,
@@ -1432,9 +1432,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10d",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10d',
         },
       ],
       clouds: {
@@ -1445,12 +1445,12 @@ export const mockForecastData = {
         deg: 86,
       },
       rain: {
-        "3h": 0.12,
+        '3h': 0.12,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2019-11-06 06:00:00",
+      dt_txt: '2019-11-06 06:00:00',
     },
     {
       dt: 1573030800,
@@ -1467,9 +1467,9 @@ export const mockForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10d",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10d',
         },
       ],
       clouds: {
@@ -1480,18 +1480,18 @@ export const mockForecastData = {
         deg: 70,
       },
       rain: {
-        "3h": 0.13,
+        '3h': 0.13,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2019-11-06 09:00:00",
+      dt_txt: '2019-11-06 09:00:00',
     },
   ],
 };
 
 export const mockSearchWeatherData = {
-  base: "stations",
+  base: 'stations',
   clouds: {
     all: 20,
   },
@@ -1510,11 +1510,11 @@ export const mockSearchWeatherData = {
     pressure: 1003,
     humidity: 67,
   },
-  name: "Berlin",
+  name: 'Berlin',
   sys: {
     type: 1,
     id: 1275,
-    country: "DE",
+    country: 'DE',
     sunrise: 1588217769,
     sunset: 1588271443,
   },
@@ -1523,9 +1523,9 @@ export const mockSearchWeatherData = {
   weather: [
     {
       id: 500,
-      main: "Rain",
-      description: "light rain",
-      icon: "10d",
+      main: 'Rain',
+      description: 'light rain',
+      icon: '10d',
     },
   ],
   wind: {
@@ -1535,20 +1535,20 @@ export const mockSearchWeatherData = {
 };
 
 export const mockSearchForecastData = {
-  city: {
+  location: {
     id: 2950159,
-    name: "Berlin",
+    name: 'Berlin',
     coord: {
       lat: 52.5244,
       lon: 13.4105,
     },
-    country: "DE",
+    country: 'DE',
     population: 1000000,
     timezone: 7200,
     sunrise: 1588217768,
     sunset: 1588271444,
   },
-  cod: "200",
+  cod: '200',
   message: 0,
   cnt: 40,
   list: [
@@ -1568,9 +1568,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10d",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10d',
         },
       ],
       clouds: {
@@ -1581,12 +1581,12 @@ export const mockSearchForecastData = {
         deg: 200,
       },
       rain: {
-        "3h": 0.65,
+        '3h': 0.65,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-04-30 12:00:00",
+      dt_txt: '2020-04-30 12:00:00',
     },
     {
       dt: 1588258800,
@@ -1604,9 +1604,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10d",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10d',
         },
       ],
       clouds: {
@@ -1617,12 +1617,12 @@ export const mockSearchForecastData = {
         deg: 222,
       },
       rain: {
-        "3h": 0.62,
+        '3h': 0.62,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-04-30 15:00:00",
+      dt_txt: '2020-04-30 15:00:00',
     },
     {
       dt: 1588269600,
@@ -1640,9 +1640,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10d",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10d',
         },
       ],
       clouds: {
@@ -1653,12 +1653,12 @@ export const mockSearchForecastData = {
         deg: 231,
       },
       rain: {
-        "3h": 0.13,
+        '3h': 0.13,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-04-30 18:00:00",
+      dt_txt: '2020-04-30 18:00:00',
     },
     {
       dt: 1588280400,
@@ -1676,9 +1676,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10n",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10n',
         },
       ],
       clouds: {
@@ -1689,12 +1689,12 @@ export const mockSearchForecastData = {
         deg: 175,
       },
       rain: {
-        "3h": 0.34,
+        '3h': 0.34,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2020-04-30 21:00:00",
+      dt_txt: '2020-04-30 21:00:00',
     },
     {
       dt: 1588291200,
@@ -1712,9 +1712,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10n",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10n',
         },
       ],
       clouds: {
@@ -1725,12 +1725,12 @@ export const mockSearchForecastData = {
         deg: 208,
       },
       rain: {
-        "3h": 0.26,
+        '3h': 0.26,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2020-05-01 00:00:00",
+      dt_txt: '2020-05-01 00:00:00',
     },
     {
       dt: 1588302000,
@@ -1748,9 +1748,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 804,
-          main: "Clouds",
-          description: "overcast clouds",
-          icon: "04n",
+          main: 'Clouds',
+          description: 'overcast clouds',
+          icon: '04n',
         },
       ],
       clouds: {
@@ -1761,9 +1761,9 @@ export const mockSearchForecastData = {
         deg: 216,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2020-05-01 03:00:00",
+      dt_txt: '2020-05-01 03:00:00',
     },
     {
       dt: 1588312800,
@@ -1781,9 +1781,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 804,
-          main: "Clouds",
-          description: "overcast clouds",
-          icon: "04d",
+          main: 'Clouds',
+          description: 'overcast clouds',
+          icon: '04d',
         },
       ],
       clouds: {
@@ -1794,9 +1794,9 @@ export const mockSearchForecastData = {
         deg: 225,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-05-01 06:00:00",
+      dt_txt: '2020-05-01 06:00:00',
     },
     {
       dt: 1588323600,
@@ -1814,9 +1814,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 803,
-          main: "Clouds",
-          description: "broken clouds",
-          icon: "04d",
+          main: 'Clouds',
+          description: 'broken clouds',
+          icon: '04d',
         },
       ],
       clouds: {
@@ -1827,9 +1827,9 @@ export const mockSearchForecastData = {
         deg: 236,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-05-01 09:00:00",
+      dt_txt: '2020-05-01 09:00:00',
     },
     {
       dt: 1588334400,
@@ -1847,9 +1847,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10d",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10d',
         },
       ],
       clouds: {
@@ -1860,12 +1860,12 @@ export const mockSearchForecastData = {
         deg: 232,
       },
       rain: {
-        "3h": 0.6,
+        '3h': 0.6,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-05-01 12:00:00",
+      dt_txt: '2020-05-01 12:00:00',
     },
     {
       dt: 1588345200,
@@ -1883,9 +1883,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10d",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10d',
         },
       ],
       clouds: {
@@ -1896,12 +1896,12 @@ export const mockSearchForecastData = {
         deg: 226,
       },
       rain: {
-        "3h": 0.19,
+        '3h': 0.19,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-05-01 15:00:00",
+      dt_txt: '2020-05-01 15:00:00',
     },
     {
       dt: 1588356000,
@@ -1919,9 +1919,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10d",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10d',
         },
       ],
       clouds: {
@@ -1932,12 +1932,12 @@ export const mockSearchForecastData = {
         deg: 226,
       },
       rain: {
-        "3h": 0.37,
+        '3h': 0.37,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-05-01 18:00:00",
+      dt_txt: '2020-05-01 18:00:00',
     },
     {
       dt: 1588366800,
@@ -1955,9 +1955,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10n",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10n',
         },
       ],
       clouds: {
@@ -1968,12 +1968,12 @@ export const mockSearchForecastData = {
         deg: 220,
       },
       rain: {
-        "3h": 0.15,
+        '3h': 0.15,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2020-05-01 21:00:00",
+      dt_txt: '2020-05-01 21:00:00',
     },
     {
       dt: 1588377600,
@@ -1991,9 +1991,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 802,
-          main: "Clouds",
-          description: "scattered clouds",
-          icon: "03n",
+          main: 'Clouds',
+          description: 'scattered clouds',
+          icon: '03n',
         },
       ],
       clouds: {
@@ -2004,9 +2004,9 @@ export const mockSearchForecastData = {
         deg: 233,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2020-05-02 00:00:00",
+      dt_txt: '2020-05-02 00:00:00',
     },
     {
       dt: 1588388400,
@@ -2024,9 +2024,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 802,
-          main: "Clouds",
-          description: "scattered clouds",
-          icon: "03n",
+          main: 'Clouds',
+          description: 'scattered clouds',
+          icon: '03n',
         },
       ],
       clouds: {
@@ -2037,9 +2037,9 @@ export const mockSearchForecastData = {
         deg: 232,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2020-05-02 03:00:00",
+      dt_txt: '2020-05-02 03:00:00',
     },
     {
       dt: 1588399200,
@@ -2057,9 +2057,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 802,
-          main: "Clouds",
-          description: "scattered clouds",
-          icon: "03d",
+          main: 'Clouds',
+          description: 'scattered clouds',
+          icon: '03d',
         },
       ],
       clouds: {
@@ -2070,9 +2070,9 @@ export const mockSearchForecastData = {
         deg: 237,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-05-02 06:00:00",
+      dt_txt: '2020-05-02 06:00:00',
     },
     {
       dt: 1588410000,
@@ -2090,9 +2090,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10d",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10d',
         },
       ],
       clouds: {
@@ -2103,12 +2103,12 @@ export const mockSearchForecastData = {
         deg: 245,
       },
       rain: {
-        "3h": 1.05,
+        '3h': 1.05,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-05-02 09:00:00",
+      dt_txt: '2020-05-02 09:00:00',
     },
     {
       dt: 1588420800,
@@ -2126,9 +2126,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10d",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10d',
         },
       ],
       clouds: {
@@ -2139,12 +2139,12 @@ export const mockSearchForecastData = {
         deg: 267,
       },
       rain: {
-        "3h": 2.31,
+        '3h': 2.31,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-05-02 12:00:00",
+      dt_txt: '2020-05-02 12:00:00',
     },
     {
       dt: 1588431600,
@@ -2162,9 +2162,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10d",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10d',
         },
       ],
       clouds: {
@@ -2175,12 +2175,12 @@ export const mockSearchForecastData = {
         deg: 260,
       },
       rain: {
-        "3h": 1.26,
+        '3h': 1.26,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-05-02 15:00:00",
+      dt_txt: '2020-05-02 15:00:00',
     },
     {
       dt: 1588442400,
@@ -2198,9 +2198,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10d",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10d',
         },
       ],
       clouds: {
@@ -2211,12 +2211,12 @@ export const mockSearchForecastData = {
         deg: 260,
       },
       rain: {
-        "3h": 0.82,
+        '3h': 0.82,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-05-02 18:00:00",
+      dt_txt: '2020-05-02 18:00:00',
     },
     {
       dt: 1588453200,
@@ -2234,9 +2234,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10n",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10n',
         },
       ],
       clouds: {
@@ -2247,12 +2247,12 @@ export const mockSearchForecastData = {
         deg: 274,
       },
       rain: {
-        "3h": 0.17,
+        '3h': 0.17,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2020-05-02 21:00:00",
+      dt_txt: '2020-05-02 21:00:00',
     },
     {
       dt: 1588464000,
@@ -2270,9 +2270,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 804,
-          main: "Clouds",
-          description: "overcast clouds",
-          icon: "04n",
+          main: 'Clouds',
+          description: 'overcast clouds',
+          icon: '04n',
         },
       ],
       clouds: {
@@ -2283,9 +2283,9 @@ export const mockSearchForecastData = {
         deg: 286,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2020-05-03 00:00:00",
+      dt_txt: '2020-05-03 00:00:00',
     },
     {
       dt: 1588474800,
@@ -2303,9 +2303,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 803,
-          main: "Clouds",
-          description: "broken clouds",
-          icon: "04n",
+          main: 'Clouds',
+          description: 'broken clouds',
+          icon: '04n',
         },
       ],
       clouds: {
@@ -2316,9 +2316,9 @@ export const mockSearchForecastData = {
         deg: 283,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2020-05-03 03:00:00",
+      dt_txt: '2020-05-03 03:00:00',
     },
     {
       dt: 1588485600,
@@ -2336,9 +2336,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 803,
-          main: "Clouds",
-          description: "broken clouds",
-          icon: "04d",
+          main: 'Clouds',
+          description: 'broken clouds',
+          icon: '04d',
         },
       ],
       clouds: {
@@ -2349,9 +2349,9 @@ export const mockSearchForecastData = {
         deg: 289,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-05-03 06:00:00",
+      dt_txt: '2020-05-03 06:00:00',
     },
     {
       dt: 1588496400,
@@ -2369,9 +2369,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 804,
-          main: "Clouds",
-          description: "overcast clouds",
-          icon: "04d",
+          main: 'Clouds',
+          description: 'overcast clouds',
+          icon: '04d',
         },
       ],
       clouds: {
@@ -2382,9 +2382,9 @@ export const mockSearchForecastData = {
         deg: 277,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-05-03 09:00:00",
+      dt_txt: '2020-05-03 09:00:00',
     },
     {
       dt: 1588507200,
@@ -2402,9 +2402,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 804,
-          main: "Clouds",
-          description: "overcast clouds",
-          icon: "04d",
+          main: 'Clouds',
+          description: 'overcast clouds',
+          icon: '04d',
         },
       ],
       clouds: {
@@ -2415,9 +2415,9 @@ export const mockSearchForecastData = {
         deg: 277,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-05-03 12:00:00",
+      dt_txt: '2020-05-03 12:00:00',
     },
     {
       dt: 1588518000,
@@ -2435,9 +2435,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10d",
+          main: 'Rain',
+          description: 'light rain',
+          icon: '10d',
         },
       ],
       clouds: {
@@ -2448,12 +2448,12 @@ export const mockSearchForecastData = {
         deg: 270,
       },
       rain: {
-        "3h": 0.14,
+        '3h': 0.14,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-05-03 15:00:00",
+      dt_txt: '2020-05-03 15:00:00',
     },
     {
       dt: 1588528800,
@@ -2471,9 +2471,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 802,
-          main: "Clouds",
-          description: "scattered clouds",
-          icon: "03d",
+          main: 'Clouds',
+          description: 'scattered clouds',
+          icon: '03d',
         },
       ],
       clouds: {
@@ -2484,9 +2484,9 @@ export const mockSearchForecastData = {
         deg: 268,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-05-03 18:00:00",
+      dt_txt: '2020-05-03 18:00:00',
     },
     {
       dt: 1588539600,
@@ -2504,9 +2504,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 800,
-          main: "Clear",
-          description: "clear sky",
-          icon: "01n",
+          main: 'Clear',
+          description: 'clear sky',
+          icon: '01n',
         },
       ],
       clouds: {
@@ -2517,9 +2517,9 @@ export const mockSearchForecastData = {
         deg: 303,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2020-05-03 21:00:00",
+      dt_txt: '2020-05-03 21:00:00',
     },
     {
       dt: 1588550400,
@@ -2537,9 +2537,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 800,
-          main: "Clear",
-          description: "clear sky",
-          icon: "01n",
+          main: 'Clear',
+          description: 'clear sky',
+          icon: '01n',
         },
       ],
       clouds: {
@@ -2550,9 +2550,9 @@ export const mockSearchForecastData = {
         deg: 314,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2020-05-04 00:00:00",
+      dt_txt: '2020-05-04 00:00:00',
     },
     {
       dt: 1588561200,
@@ -2570,9 +2570,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 800,
-          main: "Clear",
-          description: "clear sky",
-          icon: "01n",
+          main: 'Clear',
+          description: 'clear sky',
+          icon: '01n',
         },
       ],
       clouds: {
@@ -2583,9 +2583,9 @@ export const mockSearchForecastData = {
         deg: 294,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2020-05-04 03:00:00",
+      dt_txt: '2020-05-04 03:00:00',
     },
     {
       dt: 1588572000,
@@ -2603,9 +2603,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 801,
-          main: "Clouds",
-          description: "few clouds",
-          icon: "02d",
+          main: 'Clouds',
+          description: 'few clouds',
+          icon: '02d',
         },
       ],
       clouds: {
@@ -2616,9 +2616,9 @@ export const mockSearchForecastData = {
         deg: 295,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-05-04 06:00:00",
+      dt_txt: '2020-05-04 06:00:00',
     },
     {
       dt: 1588582800,
@@ -2636,9 +2636,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 803,
-          main: "Clouds",
-          description: "broken clouds",
-          icon: "04d",
+          main: 'Clouds',
+          description: 'broken clouds',
+          icon: '04d',
         },
       ],
       clouds: {
@@ -2649,9 +2649,9 @@ export const mockSearchForecastData = {
         deg: 293,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-05-04 09:00:00",
+      dt_txt: '2020-05-04 09:00:00',
     },
     {
       dt: 1588593600,
@@ -2669,9 +2669,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 804,
-          main: "Clouds",
-          description: "overcast clouds",
-          icon: "04d",
+          main: 'Clouds',
+          description: 'overcast clouds',
+          icon: '04d',
         },
       ],
       clouds: {
@@ -2682,9 +2682,9 @@ export const mockSearchForecastData = {
         deg: 288,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-05-04 12:00:00",
+      dt_txt: '2020-05-04 12:00:00',
     },
     {
       dt: 1588604400,
@@ -2702,9 +2702,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 804,
-          main: "Clouds",
-          description: "overcast clouds",
-          icon: "04d",
+          main: 'Clouds',
+          description: 'overcast clouds',
+          icon: '04d',
         },
       ],
       clouds: {
@@ -2715,9 +2715,9 @@ export const mockSearchForecastData = {
         deg: 306,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-05-04 15:00:00",
+      dt_txt: '2020-05-04 15:00:00',
     },
     {
       dt: 1588615200,
@@ -2735,9 +2735,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 804,
-          main: "Clouds",
-          description: "overcast clouds",
-          icon: "04d",
+          main: 'Clouds',
+          description: 'overcast clouds',
+          icon: '04d',
         },
       ],
       clouds: {
@@ -2748,9 +2748,9 @@ export const mockSearchForecastData = {
         deg: 336,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-05-04 18:00:00",
+      dt_txt: '2020-05-04 18:00:00',
     },
     {
       dt: 1588626000,
@@ -2768,9 +2768,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 804,
-          main: "Clouds",
-          description: "overcast clouds",
-          icon: "04n",
+          main: 'Clouds',
+          description: 'overcast clouds',
+          icon: '04n',
         },
       ],
       clouds: {
@@ -2781,9 +2781,9 @@ export const mockSearchForecastData = {
         deg: 33,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2020-05-04 21:00:00",
+      dt_txt: '2020-05-04 21:00:00',
     },
     {
       dt: 1588636800,
@@ -2801,9 +2801,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 804,
-          main: "Clouds",
-          description: "overcast clouds",
-          icon: "04n",
+          main: 'Clouds',
+          description: 'overcast clouds',
+          icon: '04n',
         },
       ],
       clouds: {
@@ -2814,9 +2814,9 @@ export const mockSearchForecastData = {
         deg: 54,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2020-05-05 00:00:00",
+      dt_txt: '2020-05-05 00:00:00',
     },
     {
       dt: 1588647600,
@@ -2834,9 +2834,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 800,
-          main: "Clear",
-          description: "clear sky",
-          icon: "01n",
+          main: 'Clear',
+          description: 'clear sky',
+          icon: '01n',
         },
       ],
       clouds: {
@@ -2847,9 +2847,9 @@ export const mockSearchForecastData = {
         deg: 42,
       },
       sys: {
-        pod: "n",
+        pod: 'n',
       },
-      dt_txt: "2020-05-05 03:00:00",
+      dt_txt: '2020-05-05 03:00:00',
     },
     {
       dt: 1588658400,
@@ -2867,9 +2867,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 800,
-          main: "Clear",
-          description: "clear sky",
-          icon: "01d",
+          main: 'Clear',
+          description: 'clear sky',
+          icon: '01d',
         },
       ],
       clouds: {
@@ -2880,9 +2880,9 @@ export const mockSearchForecastData = {
         deg: 26,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-05-05 06:00:00",
+      dt_txt: '2020-05-05 06:00:00',
     },
     {
       dt: 1588669200,
@@ -2900,9 +2900,9 @@ export const mockSearchForecastData = {
       weather: [
         {
           id: 800,
-          main: "Clear",
-          description: "clear sky",
-          icon: "01d",
+          main: 'Clear',
+          description: 'clear sky',
+          icon: '01d',
         },
       ],
       clouds: {
@@ -2913,9 +2913,9 @@ export const mockSearchForecastData = {
         deg: 25,
       },
       sys: {
-        pod: "d",
+        pod: 'd',
       },
-      dt_txt: "2020-05-05 09:00:00",
+      dt_txt: '2020-05-05 09:00:00',
     },
   ],
 };

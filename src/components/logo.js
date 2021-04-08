@@ -1,6 +1,6 @@
-import * as React from "react";
+import * as React from 'react';
 
-const Logo = ({ width = "200", height = "30" }) => {
+const Logo = ({ width = '200', height = '30' }) => {
   return (
     <svg
       width={`${width}px`}
