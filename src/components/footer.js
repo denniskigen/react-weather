@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="items-center mt-32">
       <p className="text-center">
-        <span className="text-gray-400">
+        <span className="text-gray-600">
           Open source by{' '}
           <a className="text-indigo-600" href="https://github.com/denniskigen">
             Dennis Kigen
