@@ -20,7 +20,7 @@
     "test:watch": "craco test",
     "coverage": "craco test --coverage --watchAll=false",
     "eject": "craco eject",
-    "lint": "eslint src --ext tsx",
+    "lint": "eslint src --ext js",
     "format": "prettier --write \"**/*.+(js|json|css|html)\"",
     "check": "prettier --check \"**/*.+(js|json|css|html)\""
   },
@@ -59,7 +59,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && npm run format && npm run check && npm run test"
+      "pre-commit": "pretty-quick --staged && npm run lint && npm run format && npm run check && npm run test"
     }
   },
   "jest": {
