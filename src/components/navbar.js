@@ -121,12 +121,14 @@ const NavBar = () => {
             <Link
               to="/"
               className="text-indigo-700 hover:bg-green-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              onClick={toggleButton}
             >
               Home
             </Link>
             <Link
               to="/about"
               className="text-indigo-700 hover:bg-green-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              onClick={toggleButton}
             >
               About
             </Link>
