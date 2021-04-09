@@ -44,9 +44,8 @@ const WeatherCard = props => {
               .utcOffset(weather.timezone)
               .format('h:mm A')}
             ,{' '}
-            {weather.description.replace(/\w\S*/g, txt => {
-              return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-            })}
+            {weather.description.charAt(0).toUpperCase() +
+              weather.description.slice(1)}
           </p>
         </div>
         <div className="flex flex-row justify-between my-10 lg:my-0 lg:mt-6 text-5xl text-gray-500 font-light tracking-wide">
