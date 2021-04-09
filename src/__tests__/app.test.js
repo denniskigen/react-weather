@@ -47,6 +47,7 @@ describe('<App />', () => {
 
     const homeLink = screen.getByRole('heading', { name: /^reactweather$/i });
     userEvent.click(homeLink, leftClick);
+
     expect(screen.queryByText(/about reactweather/i)).not.toBeInTheDocument();
   });
 });
