@@ -12,9 +12,9 @@ describe('<WeatherCard />', () => {
 
     await screen.findByText(/eldoret, ke/i);
     expect(screen.getByText(/few clouds/i)).toBeInTheDocument();
-    expect(screen.getByText(/19°C/i)).toBeInTheDocument();
-    expect(screen.getByText(/feels like 17°C/i)).toBeInTheDocument();
-    expect(screen.getByText(/24 km\/h winds/i)).toBeInTheDocument();
+    expect(screen.getByText(/19°/i)).toBeInTheDocument();
+    expect(screen.getByText(/feels like 17°/i)).toBeInTheDocument();
+    expect(screen.getByText(/24km\/h winds/i)).toBeInTheDocument();
     expect(screen.getByText(/68% humidity/i)).toBeInTheDocument();
     expect(
       screen.getByText(

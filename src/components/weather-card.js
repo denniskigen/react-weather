@@ -49,25 +49,25 @@ const WeatherCard = props => {
             , {description}
           </p>
         </div>
-        <div className="flex flex-row justify-between my-10 lg:my-0 lg:mt-6 text-5xl text-gray-500 font-light tracking-wide">
-          <span className="mt-6 md:mt-10 text-gray-700">
-            {weather.temperature}&deg;C
+        <div className="flex flex-row justify-between my-8 lg:my-4 text-5xl lg:text-6xl tracking-wide">
+          <span className="mt-6 md:mt-10 text-gray-500 font-light">
+            {weather.temperature}&deg;
+            <span className="flex flex-col text-gray-500 font-normal tracking-wide text-base mt-1">
+              Feels like {weather.feels_like}&deg;
+            </span>{' '}
           </span>
-          <div className="text-8xl sm:text-9xl text-indigo-700">
+          <div className="text-8xl sm:text-9xl mt-4 text-indigo-700">
             <span className={icon}></span>
           </div>
         </div>
-        <div className="text-gray-500 tracking-wide text-sm">
-          Feels like {weather.feels_like}&deg;C
-        </div>{' '}
         <div className="text-indigo-700 mt-1">
           <span className="wi wi-strong-wind text-xl"></span>
-          <span className="ml-1 mr-2 text-gray-500 text-sm">
-            {weather.wind_speed} km/h winds
+          <span className="ml-1 mr-2 text-gray-500 tracking-wide">
+            {weather.wind_speed}km/h winds
           </span>
           <span className="wi wi-humidity text-xl"></span>
-          <span className="ml-1 text-gray-500 text-sm">
-            {weather.humidity}% Humidity
+          <span className="ml-1 text-gray-500 tracking-wide">
+            {weather.humidity}% humidity
           </span>
         </div>
         <div className="mt-10 text-center text-2xl text-gray-500 tracking-wide">
