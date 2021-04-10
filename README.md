@@ -14,4 +14,7 @@ A simple React weather app that displays weather information from the OpenWeathe
 REACT_APP_API_URL = 'https://api.openweathermap.org/data/2.5'
 REACT_APP_API_KEY = The API key you obtained from openweathermap.org
 REACT_APP_ICON_URL = 'https://openweathermap.org/img/w'
+
 ```
+
+<a href="https://www.buymeacoffee.com/denniskigen" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="150" height="40"/></a>
