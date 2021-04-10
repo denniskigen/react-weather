@@ -5,7 +5,14 @@ import { mockForecast, mockWeather } from '../__mocks__/weather.mock';
 
 describe('<WeatherCard />', () => {
   const renderWeatherCard = () =>
-    render(<WeatherCard weather={mockWeather} forecast={mockForecast} />);
+    render(
+      <WeatherCard
+        weather={mockWeather}
+        forecast={mockForecast}
+        units="metric"
+        onUnitsChange={() => {}}
+      />,
+    );
 
   test('renders the WeatherCard', async () => {
     renderWeatherCard();
@@ -14,7 +21,7 @@ describe('<WeatherCard />', () => {
     expect(screen.getByText(/few clouds/i)).toBeInTheDocument();
     expect(screen.getByText(/19°/i)).toBeInTheDocument();
     expect(screen.getByText(/feels like 17°/i)).toBeInTheDocument();
-    expect(screen.getByText(/24km\/h winds/i)).toBeInTheDocument();
+    expect(screen.getByText(/24m\/s winds/i)).toBeInTheDocument();
     expect(screen.getByText(/68% humidity/i)).toBeInTheDocument();
     expect(
       screen.getByText(

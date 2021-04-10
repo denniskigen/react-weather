@@ -9,6 +9,9 @@ import NavBar from './navbar';
 import Loading from './loading';
 import Search from './search';
 
+const apiUrl = process.env.REACT_APP_API_URL;
+const apiKey = process.env.REACT_APP_API_KEY;
+
 const App = () => {
   const searchTimeout = 1000;
   const [location, setLocation] = React.useState('Eldoret');
@@ -17,6 +20,7 @@ const App = () => {
   const [weather, setWeather] = React.useState({});
   const [debouncedSearchTerm, setDebouncedSearchTerm] = React.useState('');
   const [isSearching, setIsSearching] = React.useState(false);
+  const [units, setUnits] = React.useState('metric');
 
   const debounceSearch = React.useMemo(
     () =>
@@ -33,6 +37,10 @@ const App = () => {
     debounceSearch(event.target.value);
   };
 
+  const handleUnitsChange = newUnits => {
+    setUnits(newUnits);
+  };
+
   React.useEffect(() => {
     if (debouncedSearchTerm) {
       setLocation(debouncedSearchTerm);
@@ -40,7 +48,7 @@ const App = () => {
   }, [debouncedSearchTerm, isSearching]);
 
   React.useEffect(() => {
-    fetchForecast(location)
+    fetchForecast(location, units)
       .then(forecast => {
         setError(null);
         setIsSearching(false);
@@ -50,10 +58,10 @@ const App = () => {
         setIsSearching(false);
         setError(err);
       });
-  }, [location]);
+  }, [location, units]);
 
   React.useEffect(() => {
-    fetchWeather(location)
+    fetchWeather(location, units)
       .then(weather => {
         setError(null);
         setIsSearching(false);
@@ -63,7 +71,7 @@ const App = () => {
         setIsSearching(false);
         setError(err);
       });
-  }, [location]);
+  }, [location, units]);
 
   return (
     <>
@@ -81,7 +89,12 @@ const App = () => {
                     isSearching={isSearching}
                     onLocationChange={handleLocationChange}
                   />
-                  <WeatherCard weather={weather} forecast={forecast} />
+                  <WeatherCard
+                    forecast={forecast}
+                    weather={weather}
+                    units={units}
+                    onUnitsChange={handleUnitsChange}
+                  />
                   <Footer />
                 </div>
               </main>
@@ -98,9 +111,9 @@ const App = () => {
   );
 };
 
-async function fetchForecast(location) {
+async function fetchForecast(location, units) {
   const response = await window.fetch(
-    `${process.env.REACT_APP_API_URL}/forecast/?q=${location}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`,
+    `${apiUrl}/forecast/?q=${location}&units=${units}&APPID=${apiKey}`,
   );
   const forecast = await response.json();
   if (response.ok) {
@@ -115,9 +128,9 @@ async function fetchForecast(location) {
   }
 }
 
-async function fetchWeather(location) {
+async function fetchWeather(location, units) {
   const response = await window.fetch(
-    `${process.env.REACT_APP_API_URL}/weather/?q=${location}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`,
+    `${apiUrl}/weather/?q=${location}&units=${units}&APPID=${apiKey}`,
   );
   const weather = await response.json();
   if (response.ok) {
