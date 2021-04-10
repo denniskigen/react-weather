@@ -24,6 +24,8 @@ const WeatherCard = props => {
     .utcOffset(weather?.timezone)
     .format();
   const isDay = currentTime > sunrise && currentTime < sunset ? true : false;
+  const description =
+    weather.description.charAt(0).toUpperCase() + weather.description.slice(1);
   const icon =
     iconPrefix +
     weatherIcons.default[isDay ? 'day' : 'night'][weather.icon_id].icon;
@@ -40,12 +42,11 @@ const WeatherCard = props => {
           </p>
           <p className="text-gray-500 tracking-wide">
             {dayjs(date).format('dddd')},{' '}
-            {dayjs(date)
+            {dayjs
+              .utc(date)
               .utcOffset(weather.timezone)
               .format('h:mm A')}
-            ,{' '}
-            {weather.description.charAt(0).toUpperCase() +
-              weather.description.slice(1)}
+            , {description}
           </p>
         </div>
         <div className="flex flex-row justify-between my-10 lg:my-0 lg:mt-6 text-5xl text-gray-500 font-light tracking-wide">
