@@ -15,18 +15,18 @@ const WeatherCard = props => {
     units.match(/metric/i) ? true : false,
   );
 
-  const date = dayjs().isValid(weather?.date) ? weather.date : '';
+  const date = dayjs().isValid(weather.date) ? weather.date : '';
   const currentTime = dayjs
-    .utc(weather?.date)
-    .utcOffset(weather?.timezone)
+    .utc(date)
+    .utcOffset(weather.timezone)
     .format();
   const sunrise = dayjs
-    .utc(weather?.sunrise)
-    .utcOffset(weather?.timezone)
+    .utc(weather.sunrise)
+    .utcOffset(weather.timezone)
     .format();
   const sunset = dayjs
     .utc(weather?.sunset)
-    .utcOffset(weather?.timezone)
+    .utcOffset(weather.timezone)
     .format();
   const isDay = currentTime > sunrise && currentTime < sunset ? true : false;
   const description =
