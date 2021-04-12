@@ -123,7 +123,7 @@ async function fetchForecast(location, units) {
         .map(mapDataToWeatherInterface);
     }
   } else {
-    const error = new Error(`${response.status}: ${response.statusText}`);
+    const error = new Error(`No results for "${location}"`);
     return Promise.reject(error);
   }
 }
@@ -138,7 +138,7 @@ async function fetchWeather(location, units) {
       return mapDataToWeatherInterface(weather);
     }
   } else {
-    const error = new Error(`${response.status}: ${response.statusText}`);
+    const error = new Error(`No results for "${location}"`);
     return Promise.reject(error);
   }
 }

@@ -6,8 +6,11 @@ const Search = props => {
   return (
     <div className="w-4/5 md:w-3/5 lg:w-1/2 m-auto">
       {error ? (
-        <div className="mt-2 mb-1 p-4 m-4 py-2 flex flex-wrap text-red-700 justify-center px-4">
-          <span>{error?.message}</span>
+        <div
+          className="bg-red-100 border border-red-400 text-red-700 mb-4 px-4 py-3 rounded-md relative"
+          role="alert"
+        >
+          <span className="block sm:inline">{error.message}</span>
         </div>
       ) : null}
       <div className="flex flex-row mx-2 p-2 justify-start border-b border-green-300">
