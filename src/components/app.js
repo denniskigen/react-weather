@@ -48,29 +48,35 @@ const App = () => {
   }, [debouncedSearchTerm, isSearching]);
 
   React.useEffect(() => {
-    fetchForecast(location, units)
-      .then(forecast => {
-        setError(null);
-        setIsSearching(false);
-        setForecast(forecast);
-      })
-      .catch(err => {
-        setIsSearching(false);
+    async function getWeather() {
+      setError(null);
+      setIsSearching(false);
+
+      try {
+        const weather = await fetchWeather(location, units);
+        setWeather(weather);
+      } catch (err) {
         setError(err);
-      });
+      }
+    }
+
+    getWeather();
   }, [location, units]);
 
   React.useEffect(() => {
-    fetchWeather(location, units)
-      .then(weather => {
-        setError(null);
-        setIsSearching(false);
-        setWeather(weather);
-      })
-      .catch(err => {
-        setIsSearching(false);
+    async function getForecast() {
+      setError(null);
+      setIsSearching(false);
+
+      try {
+        const forecast = await fetchForecast(location, units);
+        setForecast(forecast);
+      } catch (err) {
         setError(err);
-      });
+      }
+    }
+
+    getForecast();
   }, [location, units]);
 
   return (
