@@ -1,4 +1,4 @@
-# react-weather [![build](https://github.com/denniskigen/react-weather/actions/workflows/validate.yml/badge.svg)](https://github.com/denniskigen/react-weather/actions/workflows/validate.yml) [![codecov](https://codecov.io/gh/denniskigen/react-weather/branch/master/graph/badge.svg)](https://codecov.io/gh/denniskigen/react-weather) [![Netlify Status](https://api.netlify.com/api/v1/badges/6d8502db-4fdd-414b-98a9-8c4dc45b7817/deploy-status)](https://app.netlify.com/sites/hungry-kilby-14cda6/deploys)
+# react-weather [![build](https://github.com/denniskigen/react-weather/actions/workflows/validate.yml/badge.svg)](https://github.com/denniskigen/react-weather/actions/workflows/validate.yml) [![codecov](https://codecov.io/gh/denniskigen/react-weather/branch/main/graph/badge.svg?token=aKGPNTtigu)](https://codecov.io/gh/denniskigen/react-weather) [![Netlify Status](https://api.netlify.com/api/v1/badges/6d8502db-4fdd-414b-98a9-8c4dc45b7817/deploy-status)](https://app.netlify.com/sites/hungry-kilby-14cda6/deploys)
 
 A simple React weather app that displays weather information from the OpenWeatherMap API.
 
