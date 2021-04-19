@@ -77,5 +77,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+      - run: yarn test --coverage # Run test
+      - run: bash <(curl -s https://codecov.io/bash) # Upload to Codecov
