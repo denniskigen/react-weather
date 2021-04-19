@@ -69,6 +69,7 @@
       "!<rootDir>/src/setupTests*"
     ],
     "coverageReporters": [
+      "html",
       "lcov"
     ],
     "moduleNameMapper": {
