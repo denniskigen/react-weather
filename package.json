@@ -20,7 +20,7 @@
     "build": "craco build",
     "test": "craco test --watchAll=false",
     "test:watch": "craco test",
-    "coverage": "craco test --coverage --watchAll=false",
+    "coverage": "craco test --watchAll=false --coverage",
     "eject": "craco eject",
     "lint": "eslint src --ext js",
     "format": "prettier --write \"**/*.+(js|json|css|html)\"",
@@ -66,7 +66,7 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/components/*.tsx",
+      "src/components/*.js",
       "!<rootDir>/node_modules/**/*",
       "!<rootDir>/src/setupTests*"
     ],
