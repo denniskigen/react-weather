@@ -1,4 +1,5 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 
 const Logo = ({ width = '200', height = '30' }) => {
   return (
@@ -33,6 +34,11 @@ const Logo = ({ width = '200', height = '30' }) => {
       />
     </svg>
   );
+};
+
+Logo.propTypes = {
+  width: PropTypes.number,
+  height: PropTypes.number,
 };
 
 export { Logo };

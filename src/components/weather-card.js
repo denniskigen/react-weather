@@ -1,5 +1,6 @@
 import React from 'react';
 import dayjs from 'dayjs';
+import PropTypes from 'prop-types';
 const utc = require('dayjs/plugin/utc');
 dayjs.extend(utc);
 
@@ -152,6 +153,13 @@ const WeatherCard = props => {
       </div>
     </>
   );
+};
+
+WeatherCard.propTypes = {
+  forecast: PropTypes.array.isRequired,
+  onUnitsChange: PropTypes.func.isRequired,
+  units: PropTypes.string.isRequired,
+  weather: PropTypes.object.isRequired,
 };
 
 export default WeatherCard;

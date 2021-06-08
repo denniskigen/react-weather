@@ -4,6 +4,7 @@ import Search from '../components/search';
 
 const testProps = {
   error: new Error(''),
+  location: 'Test Location',
   onLocationChange: () => {},
   isSearching: false,
 };

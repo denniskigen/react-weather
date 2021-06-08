@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Search = props => {
   const { error, isSearching, onLocationChange } = props;
@@ -61,6 +62,13 @@ const Search = props => {
       </div>
     </div>
   );
+};
+
+Search.propTypes = {
+  error: PropTypes.oneOfType([PropTypes.object, PropTypes.instanceOf(Error)]),
+  isSearching: PropTypes.bool,
+  location: PropTypes.string.isRequired,
+  onLocationChange: PropTypes.func.isRequired,
 };
 
 export default Search;

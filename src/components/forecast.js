@@ -1,5 +1,6 @@
 import React from 'react';
 import dayjs from 'dayjs';
+import PropTypes from 'prop-types';
 
 import * as weatherIcons from '../icons';
 
@@ -34,6 +35,10 @@ const Forecast = props => {
       })}
     </div>
   );
+};
+
+Forecast.propTypes = {
+  forecast: PropTypes.array,
 };
 
 export default Forecast;
