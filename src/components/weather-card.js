@@ -8,7 +8,7 @@ import Forecast from './forecast';
 import * as weatherIcons from '../icons';
 import * as recommendations from '../recommendations';
 
-const WeatherCard = props => {
+const WeatherCard = (props) => {
   const iconPrefix = `wi wi-`;
   const { weather, forecast, units, onUnitsChange } = props;
   const [isSettingsMenuOpened, setIsSettingsMenuOpened] = React.useState(false);
@@ -17,10 +17,7 @@ const WeatherCard = props => {
   );
 
   const date = dayjs().isValid(weather.date) ? weather.date : '';
-  const currentTime = dayjs
-    .utc(date)
-    .utcOffset(weather.timezone)
-    .format();
+  const currentTime = dayjs.utc(date).utcOffset(weather.timezone).format();
   const sunrise = dayjs
     .utc(weather.sunrise)
     .utcOffset(weather.timezone)
@@ -59,11 +56,8 @@ const WeatherCard = props => {
             </p>
             <p className="text-gray-500 tracking-wide">
               {dayjs(date).format('dddd')},{' '}
-              {dayjs
-                .utc(date)
-                .utcOffset(weather.timezone)
-                .format('h:mm A')}
-              , {description}
+              {dayjs.utc(date).utcOffset(weather.timezone).format('h:mm A')},{' '}
+              {description}
             </p>
           </div>
           <div className="flex flex-row justify-between my-8 lg:my-4 text-5xl lg:text-6xl tracking-wide">

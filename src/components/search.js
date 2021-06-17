@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Search = props => {
+const Search = (props) => {
   const { error, isSearching, onLocationChange } = props;
 
   return (

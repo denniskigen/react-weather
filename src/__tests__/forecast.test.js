@@ -4,7 +4,7 @@ import Forecast from '../components/forecast';
 import { mockForecast } from '../__mocks__/weather.mock';
 
 describe('<Forecast />', () => {
-  const renderForecast = testProps =>
+  const renderForecast = (testProps) =>
     render(<Forecast forecast={testProps.forecast} />);
 
   const testProps = {

@@ -24,20 +24,20 @@ const App = () => {
 
   const debounceSearch = React.useMemo(
     () =>
-      debounce(searchTerm => {
+      debounce((searchTerm) => {
         setDebouncedSearchTerm(searchTerm);
       }, searchTimeout),
     [],
   );
 
-  const handleLocationChange = event => {
+  const handleLocationChange = (event) => {
     if (event.target.value) {
       setIsSearching(true);
     }
     debounceSearch(event.target.value);
   };
 
-  const handleUnitsChange = newUnits => {
+  const handleUnitsChange = (newUnits) => {
     setUnits(newUnits);
   };
 
@@ -125,7 +125,7 @@ async function fetchForecast(location, units) {
   if (response.ok) {
     if (Object.entries(forecast).length) {
       return forecast.list
-        .filter(f => f.dt_txt.match(/09:00:00/))
+        .filter((f) => f.dt_txt.match(/09:00:00/))
         .map(mapDataToWeatherInterface);
     }
   } else {

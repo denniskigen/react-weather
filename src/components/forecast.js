@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import * as weatherIcons from '../icons';
 
-const Forecast = props => {
+const Forecast = (props) => {
   const { forecast } = props;
   const iconPrefix = 'wi wi-';
 

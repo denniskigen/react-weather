@@ -10,7 +10,7 @@ import App from '../components/app';
 
 jest.mock('lodash', () => {
   const module = jest.requireActual('lodash');
-  module.debounce = jest.fn(fn => fn);
+  module.debounce = jest.fn((fn) => fn);
   return module;
 });
 
