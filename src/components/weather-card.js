@@ -92,12 +92,12 @@ const WeatherCard = (props) => {
         <button
           type="button"
           className="text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-500 focus:ring-green-200"
-          id="user-menu"
+          id="toggle-units"
           aria-expanded="false"
           aria-haspopup="true"
           onClick={toggleSettingsMenu}
         >
-          <span className="sr-only">Open user menu</span>
+          <span className="sr-only">Open toggle units menu</span>
           <svg
             width="30px"
             height="30px"
@@ -126,7 +126,7 @@ const WeatherCard = (props) => {
             className="origin-top mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
             role="menu"
             aria-orientation="vertical"
-            aria-labelledby="user-menu"
+            aria-labelledby="toggle settings"
           >
             <ul>
               <li

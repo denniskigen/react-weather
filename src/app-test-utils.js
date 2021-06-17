@@ -1,5 +1,9 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import {
+  render,
+  screen,
+  waitForElementToBeRemoved,
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { createMemoryHistory } from 'history';
 import { BrowserRouter, Router } from 'react-router-dom';
@@ -10,6 +14,11 @@ const renderWithRouter = (ui, { route = '/' } = {}) => {
   return render(ui, { wrapper: BrowserRouter });
 };
 
+const waitForLoadingToFinish = () =>
+  waitForElementToBeRemoved(() => [...screen.queryAllByRole(/progressbar/i)], {
+    timeout: 4000,
+  });
+
 export * from '@testing-library/react';
 export {
   render,
@@ -17,5 +26,6 @@ export {
   userEvent,
   renderWithRouter,
   createMemoryHistory,
+  waitForLoadingToFinish,
   Router,
 };

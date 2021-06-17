@@ -2,7 +2,10 @@ import React from 'react';
 
 const Loading = () => {
   return (
-    <div className="rounded-md p-4 max-w-sm w-full mx-auto h-40 mt-16">
+    <div
+      role="progressbar"
+      className="rounded-md p-4 max-w-sm w-full mx-auto h-40 mt-16"
+    >
       <div className="animate-pulse flex space-x-4">
         <div className="rounded-full bg-gray-300 h-12 w-12"></div>
         <div className="flex-1 space-y-4 py-1">
