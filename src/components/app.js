@@ -108,14 +108,14 @@ const App = () => {
           <Route exact path="/">
             {viewState.status === 'rejected' ? (
               <div className="w-3/5 md:w-3/5 lg:w-1/2 m-auto">
-                <div className="mx-auto w-5/6 md:w-2/3 2xl:max-w-7xl xl:max-w-6xl">
+                <div className="mx-auto sm:max-w-xl 2xl:max-w-2xl">
                   <div
                     className="bg-red-100 font-medium text-red-700 mb-4 px-4 py-3 rounded-md relative"
                     role="alert"
                   >
-                    <span className="flex">
+                    <div className="flex">
                       <svg
-                        className="h-5 w-5 mt-0.5 mr-2 "
+                        className="flex-none mt-0.5 mr-2 h-5 w-5"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                         fill="currentColor"
@@ -126,8 +126,8 @@ const App = () => {
                           fillRule="evenodd"
                         />
                       </svg>
-                      {viewState?.error?.message}
-                    </span>
+                      <span>{viewState?.error?.message}</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -202,6 +202,9 @@ function handleServerError(errorCode) {
       break;
     case 404:
       error = `No results found. Check your query again or try searching for a different location.`;
+      break;
+    case 429:
+      error = `It looks like you've made too many requests to the server. Please wait a while before trying again.`;
       break;
     default:
       error = `Server error`;
