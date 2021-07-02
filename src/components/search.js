@@ -2,18 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Search = (props) => {
-  const { error, isSearching, onLocationChange } = props;
+  const { isSearching, onLocationChange } = props;
 
   return (
     <div className="w-4/5 md:w-3/5 lg:w-1/2 m-auto">
-      {error ? (
-        <div
-          className="bg-red-100 border border-red-400 text-red-700 mb-4 px-4 py-3 rounded-md relative"
-          role="alert"
-        >
-          <span className="block sm:inline">{error.message}</span>
-        </div>
-      ) : null}
       <div className="flex flex-row mx-2 p-2 justify-start border-b border-green-300">
         <svg
           width="24"
@@ -51,6 +43,7 @@ const Search = (props) => {
               r="10"
               stroke="currentColor"
               strokeWidth="4"
+              role="progressbar"
             ></circle>
             <path
               className="opacity-75"
@@ -65,7 +58,6 @@ const Search = (props) => {
 };
 
 Search.propTypes = {
-  error: PropTypes.oneOfType([PropTypes.object, PropTypes.instanceOf(Error)]),
   isSearching: PropTypes.bool,
   location: PropTypes.string.isRequired,
   onLocationChange: PropTypes.func.isRequired,

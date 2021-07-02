@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  act,
   render,
   screen,
   createMemoryHistory,
@@ -9,13 +10,11 @@ import {
 } from '../app-test-utils';
 import App from '../components/app';
 
-jest.mock('lodash', () => {
-  const module = jest.requireActual('lodash');
-  module.debounce = jest.fn((fn) => fn);
-  return module;
-});
-
 describe('<App />', () => {
+  beforeAll(() => jest.useFakeTimers());
+
+  afterAll(() => jest.clearAllTimers());
+
   const history = createMemoryHistory();
 
   const renderApp = () =>
@@ -51,7 +50,7 @@ describe('<App />', () => {
     expect(screen.getByText(/©2020 - now/i)).toBeInTheDocument();
   });
 
-  test('clicking navbar links navigates through the app', async () => {
+  test('navigates through the app when navbar links are clicked', async () => {
     renderApp();
 
     await waitForLoadingToFinish();
@@ -71,5 +70,75 @@ describe('<App />', () => {
     userEvent.click(homeLink, leftClick);
 
     expect(screen.queryByText(/about reactweather/i)).not.toBeInTheDocument();
+  });
+
+  test('searching for an invalid location returns an error', async () => {
+    renderApp();
+
+    await waitForLoadingToFinish();
+
+    const searchInput = screen.getByRole('search');
+    userEvent.type(searchInput, 'Ryo de janeiro');
+
+    act(() => jest.advanceTimersByTime(2000));
+
+    expect(await screen.findByRole('alert')).toHaveTextContent(
+      /No results found. Check your query again or try searching for a different location/i,
+    );
+
+    jest.clearAllTimers();
+  });
+
+  test('searching for a valid location returns weather and forecast data for that location', async () => {
+    renderApp();
+
+    await waitForLoadingToFinish();
+
+    const searchInput = screen.getByRole('search');
+    userEvent.type(searchInput, 'Rio de janeiro');
+
+    act(() => jest.advanceTimersByTime(2000));
+
+    await screen.findByText(/rio de janeiro, br/i);
+    expect(screen.getByText(/light rain/i)).toBeInTheDocument();
+    expect(screen.getByText(/feels like 15°/i)).toBeInTheDocument();
+    expect(screen.getByText(/15m\/s winds/i)).toBeInTheDocument();
+    expect(screen.getByText(/67% humidity/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        /You can get away with just a sweater today. Disclaimer: I will not be held responsible for any rain-related mishaps/i,
+      ),
+    ).toBeInTheDocument();
+    expect(screen.getAllByRole('list').length).toEqual(5);
+  });
+
+  test('toggles units between celsius and fahrenheit', async () => {
+    renderApp();
+
+    await waitForLoadingToFinish();
+
+    expect(screen.getByText(/feels like 18°/i)).toBeInTheDocument();
+
+    const openToggleUnitsMenuButton = screen.getByRole('button', {
+      name: /open toggle units menu/i,
+    });
+    userEvent.click(openToggleUnitsMenuButton);
+
+    const toggleUnitsMenu = screen.getByRole('menuitem', {
+      name: /change units/i,
+    });
+    userEvent.click(toggleUnitsMenu);
+
+    expect(toggleUnitsMenu).toHaveTextContent(/Imperial \(F°, mph\)/);
+    expect(await screen.findByText(/mph/i)).toBeInTheDocument();
+    expect(screen.queryByText(/m\/s/i)).not.toBeInTheDocument();
+
+    userEvent.click(openToggleUnitsMenuButton);
+
+    expect(
+      screen.getByRole('menuitem', {
+        name: /change units/i,
+      }),
+    ).toHaveTextContent(/Metric \(C°, m\/s\)/);
   });
 });

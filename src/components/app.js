@@ -4,35 +4,40 @@ import debounce from 'lodash-es/debounce';
 
 import About from './about';
 import Footer from './footer';
-import WeatherCard from './weather-card';
-import NavBar from './navbar';
 import Loading from './loading';
+import NavBar from './navbar';
 import Search from './search';
+import WeatherCard from './weather-card';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 const apiKey = process.env.REACT_APP_API_KEY;
+const searchTimeoutInMs = 1000;
 
 const App = () => {
-  const searchTimeout = 1000;
   const [location, setLocation] = React.useState('Eldoret');
-  const [error, setError] = React.useState(null);
-  const [forecast, setForecast] = React.useState([]);
-  const [weather, setWeather] = React.useState({});
   const [debouncedSearchTerm, setDebouncedSearchTerm] = React.useState('');
   const [isSearching, setIsSearching] = React.useState(false);
   const [units, setUnits] = React.useState('metric');
+  const [viewState, setViewState] = React.useState({
+    status: 'idle',
+    error: null,
+    weather: {},
+    forecast: [],
+  });
 
   const debounceSearch = React.useMemo(
     () =>
       debounce((searchTerm) => {
         setDebouncedSearchTerm(searchTerm);
-      }, searchTimeout),
+      }, searchTimeoutInMs),
     [],
   );
 
   const handleLocationChange = (event) => {
     if (event.target.value) {
       setIsSearching(true);
+    } else {
+      setIsSearching(false);
     }
     debounceSearch(event.target.value);
   };
@@ -49,14 +54,22 @@ const App = () => {
 
   React.useEffect(() => {
     async function getWeather() {
-      setError(null);
       setIsSearching(false);
 
       try {
         const weather = await fetchWeather(location, units);
-        setWeather(weather);
+        setViewState((state) => ({
+          ...state,
+          status: 'resolved',
+          weather: weather,
+          error: null,
+        }));
       } catch (err) {
-        setError(err);
+        setViewState((state) => ({
+          ...state,
+          status: 'rejected',
+          error: err,
+        }));
       }
     }
 
@@ -65,14 +78,22 @@ const App = () => {
 
   React.useEffect(() => {
     async function getForecast() {
-      setError(null);
       setIsSearching(false);
 
       try {
         const forecast = await fetchForecast(location, units);
-        setForecast(forecast);
+        setViewState((state) => ({
+          ...state,
+          status: 'resolved',
+          forecast: forecast,
+          error: null,
+        }));
       } catch (err) {
-        setError(err);
+        setViewState((state) => ({
+          ...state,
+          status: 'rejected',
+          error: err,
+        }));
       }
     }
 
@@ -85,28 +106,52 @@ const App = () => {
         <NavBar />
         <Switch>
           <Route exact path="/">
-            {(weather && Object.keys(weather).length) ||
-            (forecast && Object.keys(forecast).length) ? (
+            {viewState.status === 'rejected' ? (
+              <div className="w-3/5 md:w-3/5 lg:w-1/2 m-auto">
+                <div className="mx-auto w-5/6 md:w-2/3 2xl:max-w-7xl xl:max-w-6xl">
+                  <div
+                    className="bg-red-100 font-medium text-red-700 mb-4 px-4 py-3 rounded-md relative"
+                    role="alert"
+                  >
+                    <span className="flex">
+                      <svg
+                        className="h-5 w-5 mt-0.5 mr-2 "
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
+                          clipRule="evenodd"
+                          fillRule="evenodd"
+                        />
+                      </svg>
+                      {viewState?.error?.message}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ) : null}
+            {viewState.status === 'idle' ? <Loading /> : null}
+            {(viewState.weather && Object.keys(viewState.weather).length) ||
+            (viewState.forecast && Object.keys(viewState.forecast).length) ? (
               <main>
                 <div className="mx-auto w-5/6 md:w-full 2xl:max-w-7xl xl:max-w-6xl">
                   <Search
                     location={location}
-                    error={error}
                     isSearching={isSearching}
                     onLocationChange={handleLocationChange}
                   />
                   <WeatherCard
-                    forecast={forecast}
-                    weather={weather}
+                    forecast={viewState.forecast}
+                    weather={viewState.weather}
                     units={units}
                     onUnitsChange={handleUnitsChange}
                   />
                   <Footer />
                 </div>
               </main>
-            ) : (
-              <Loading />
-            )}
+            ) : null}
           </Route>
           <Route exact path="/about">
             <About />
@@ -123,13 +168,13 @@ async function fetchForecast(location, units) {
   );
   const forecast = await response.json();
   if (response.ok) {
-    if (Object.entries(forecast).length) {
-      return forecast.list
-        .filter((f) => f.dt_txt.match(/09:00:00/))
-        .map(mapDataToWeatherInterface);
-    }
+    return Object.entries(forecast).length
+      ? forecast.list
+          .filter((f) => f.dt_txt.match(/09:00:00/))
+          .map(mapDataToWeatherInterface)
+      : null;
   } else {
-    const error = new Error(`No results for "${location}"`);
+    const error = handleServerError(response.status);
     return Promise.reject(error);
   }
 }
@@ -140,13 +185,29 @@ async function fetchWeather(location, units) {
   );
   const weather = await response.json();
   if (response.ok) {
-    if (Object.entries(weather).length) {
-      return mapDataToWeatherInterface(weather);
-    }
+    return Object.entries(weather).length
+      ? mapDataToWeatherInterface(weather)
+      : null;
   } else {
-    const error = new Error(`No results for "${location}"`);
+    const error = handleServerError(response.status);
     return Promise.reject(error);
   }
+}
+
+function handleServerError(errorCode) {
+  let error;
+  switch (errorCode) {
+    case 401:
+      error = `Looks like the API did not authorize your request. Please ensure you have a valid API key.`;
+      break;
+    case 404:
+      error = `No results found. Check your query again or try searching for a different location.`;
+      break;
+    default:
+      error = `Server error`;
+      break;
+  }
+  return new Error(error);
 }
 
 function mapDataToWeatherInterface(data) {

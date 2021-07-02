@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  act,
   render,
   screen,
   waitForElementToBeRemoved,
@@ -21,6 +22,7 @@ const waitForLoadingToFinish = () =>
 
 export * from '@testing-library/react';
 export {
+  act,
   render,
   screen,
   userEvent,

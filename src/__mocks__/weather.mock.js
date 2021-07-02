@@ -1510,11 +1510,11 @@ export const mockSearchWeatherData = {
     pressure: 1003,
     humidity: 67,
   },
-  name: 'Berlin',
+  name: 'Rio de janeiro',
   sys: {
     type: 1,
     id: 1275,
-    country: 'DE',
+    country: 'BR',
     sunrise: 1588217769,
     sunset: 1588271443,
   },
@@ -1537,12 +1537,12 @@ export const mockSearchWeatherData = {
 export const mockSearchForecastData = {
   location: {
     id: 2950159,
-    name: 'Berlin',
+    name: 'Rio de janeiro',
     coord: {
       lat: 52.5244,
       lon: 13.4105,
     },
-    country: 'DE',
+    country: 'BR',
     population: 1000000,
     timezone: 7200,
     sunrise: 1588217768,

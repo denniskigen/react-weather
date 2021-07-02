@@ -5,8 +5,9 @@ const utc = require('dayjs/plugin/utc');
 dayjs.extend(utc);
 
 import Forecast from './forecast';
-import * as weatherIcons from '../icons';
+import Loading from './loading';
 import * as recommendations from '../recommendations';
+import * as weatherIcons from '../icons';
 
 const WeatherCard = (props) => {
   const iconPrefix = `wi wi-`;
@@ -85,7 +86,7 @@ const WeatherCard = (props) => {
           <div className="mt-10 text-center text-2xl text-gray-500 tracking-wide">
             {recommendation}
           </div>
-          <Forecast forecast={forecast} />
+          {forecast.length ? <Forecast forecast={forecast} /> : <Loading />}
         </div>
       </div>
       <div className="w-full md:w-3/5 lg:w-1/2 m-auto mt-4">
