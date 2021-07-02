@@ -41,12 +41,10 @@ jobs:
       - name: 🧪 Test
         run: npm run coverage
 
-      - name: ⏫ Upload coverage artifacts
-        uses: actions/upload-artifact@v2
+      - name: ⏫ Upload coverage
+        uses: coverallsapp/github-action@master
         with:
-          name: coverage
-          path: |
-            .coverage
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 👷‍♀️ Build
         run: npm run build -- --prod
@@ -74,4 +72,3 @@ jobs:
         with:
           args: deploy --dir=build --prod
           secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
-
