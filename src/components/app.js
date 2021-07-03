@@ -13,16 +13,41 @@ const apiUrl = process.env.REACT_APP_API_URL;
 const apiKey = process.env.REACT_APP_API_KEY;
 const searchTimeoutInMs = 1000;
 
+function viewStateReducer(state, action) {
+  switch (action.type) {
+    case 'error':
+      return {
+        ...state,
+        status: 'rejected',
+        error: action.error,
+      };
+    case 'weather_success':
+      return {
+        ...state,
+        status: 'resolved',
+        weather: action.weather,
+      };
+    case 'forecast_success':
+      return {
+        ...state,
+        status: 'resolved',
+        forecast: action.forecast,
+      };
+    default:
+      throw new Error(`Unhandled action type: ${action.type}`);
+  }
+}
+
 const App = () => {
   const [location, setLocation] = React.useState('Eldoret');
   const [debouncedSearchTerm, setDebouncedSearchTerm] = React.useState('');
   const [isSearching, setIsSearching] = React.useState(false);
   const [units, setUnits] = React.useState('metric');
-  const [viewState, setViewState] = React.useState({
+  const [state, dispatch] = React.useReducer(viewStateReducer, {
     status: 'idle',
     error: null,
-    weather: {},
     forecast: [],
+    weather: {},
   });
 
   const debounceSearch = React.useMemo(
@@ -58,18 +83,17 @@ const App = () => {
 
       try {
         const weather = await fetchWeather(location, units);
-        setViewState((state) => ({
-          ...state,
-          status: 'resolved',
-          weather: weather,
-          error: null,
-        }));
+        if (weather) {
+          dispatch({
+            type: 'weather_success',
+            weather: weather,
+          });
+        }
       } catch (err) {
-        setViewState((state) => ({
-          ...state,
-          status: 'rejected',
+        dispatch({
+          type: 'error',
           error: err,
-        }));
+        });
       }
     }
 
@@ -82,18 +106,17 @@ const App = () => {
 
       try {
         const forecast = await fetchForecast(location, units);
-        setViewState((state) => ({
-          ...state,
-          status: 'resolved',
-          forecast: forecast,
-          error: null,
-        }));
+        if (forecast) {
+          dispatch({
+            type: 'forecast_success',
+            forecast: forecast,
+          });
+        }
       } catch (err) {
-        setViewState((state) => ({
-          ...state,
-          status: 'rejected',
+        dispatch({
+          type: 'error',
           error: err,
-        }));
+        });
       }
     }
 
@@ -106,7 +129,8 @@ const App = () => {
         <NavBar />
         <Switch>
           <Route exact path="/">
-            {viewState.status === 'rejected' ? (
+            {state.status === 'idle' ? <Loading /> : null}
+            {state.status === 'rejected' ? (
               <div className="w-3/5 md:w-3/5 lg:w-1/2 m-auto">
                 <div className="mx-auto sm:max-w-xl 2xl:max-w-2xl">
                   <div
@@ -126,15 +150,14 @@ const App = () => {
                           fillRule="evenodd"
                         />
                       </svg>
-                      <span>{viewState?.error?.message}</span>
+                      <span>{state.error.message}</span>
                     </div>
                   </div>
                 </div>
               </div>
             ) : null}
-            {viewState.status === 'idle' ? <Loading /> : null}
-            {(viewState.weather && Object.keys(viewState.weather).length) ||
-            (viewState.forecast && Object.keys(viewState.forecast).length) ? (
+            {(state.weather && Object.keys(state.weather).length) ||
+            (state.forecast && Object.keys(state.forecast).length) ? (
               <main>
                 <div className="mx-auto w-5/6 md:w-full 2xl:max-w-7xl xl:max-w-6xl">
                   <Search
@@ -143,8 +166,8 @@ const App = () => {
                     onLocationChange={handleLocationChange}
                   />
                   <WeatherCard
-                    forecast={viewState.forecast}
-                    weather={viewState.weather}
+                    forecast={state.forecast}
+                    weather={state.weather}
                     units={units}
                     onUnitsChange={handleUnitsChange}
                   />
