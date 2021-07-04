@@ -41,9 +41,9 @@ function viewStateReducer(state, action) {
 const App = () => {
   const [location, setLocation] = React.useState('Eldoret');
   const [debouncedSearchTerm, setDebouncedSearchTerm] = React.useState('');
-  const [isSearching, setIsSearching] = React.useState(false);
   const [units, setUnits] = React.useState('metric');
-  const [state, dispatch] = React.useReducer(viewStateReducer, {
+  const [isSearching, setIsSearching] =  React.useState(false);
+  const [viewState, dispatch] = React.useReducer(viewStateReducer, {
     status: 'started',
     error: null,
     forecast: [],
@@ -59,12 +59,11 @@ const App = () => {
   );
 
   const handleLocationChange = (event) => {
-    if (event.target.value) {
+    const query = event.target.value.trim();
+    if (query) {
       setIsSearching(true);
-    } else {
-      setIsSearching(false);
     }
-    debounceSearch(event.target.value);
+    debounceSearch(query);
   };
 
   const handleUnitsChange = (newUnits) => {
@@ -75,7 +74,7 @@ const App = () => {
     if (debouncedSearchTerm) {
       setLocation(debouncedSearchTerm);
     }
-  }, [debouncedSearchTerm, isSearching]);
+  }, [debouncedSearchTerm]);
 
   React.useEffect(() => {
     async function getWeather() {
@@ -129,8 +128,8 @@ const App = () => {
         <NavBar />
         <Switch>
           <Route exact path="/">
-            {state.status === 'started' ? <Loading /> : null}
-            {state.status === 'rejected' ? (
+            {viewState.status === 'started' ? <Loading /> : null}
+            {viewState.status === 'rejected' ? (
               <div className="w-3/5 md:w-3/5 lg:w-1/2 m-auto">
                 <div className="mx-auto sm:max-w-xl 2xl:max-w-2xl">
                   <div
@@ -150,14 +149,14 @@ const App = () => {
                           fillRule="evenodd"
                         />
                       </svg>
-                      <span>{state.error.message}</span>
+                      <span>{viewState.error.message}</span>
                     </div>
                   </div>
                 </div>
               </div>
             ) : null}
-            {(state.weather && Object.keys(state.weather).length) ||
-            (state.forecast && Object.keys(state.forecast).length) ? (
+            {(viewState.weather && Object.keys(viewState.weather).length) ||
+            (viewState.forecast && Object.keys(viewState.forecast).length) ? (
               <main>
                 <div className="mx-auto w-5/6 md:w-full 2xl:max-w-7xl xl:max-w-6xl">
                   <Search
@@ -166,8 +165,8 @@ const App = () => {
                     onLocationChange={handleLocationChange}
                   />
                   <WeatherCard
-                    forecast={state.forecast}
-                    weather={state.weather}
+                    forecast={viewState.forecast}
+                    weather={viewState.weather}
                     units={units}
                     onUnitsChange={handleUnitsChange}
                   />

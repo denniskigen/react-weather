@@ -12,7 +12,6 @@ import App from '../components/app';
 
 describe('<App />', () => {
   beforeAll(() => jest.useFakeTimers());
-
   afterAll(() => jest.clearAllTimers());
 
   const history = createMemoryHistory();
@@ -24,7 +23,7 @@ describe('<App />', () => {
       </Router>,
     );
 
-  test('renders the app', async () => {
+  test('fetches and renders the current weather and a five day forecast', async () => {
     renderApp();
 
     await waitForLoadingToFinish();
@@ -36,7 +35,8 @@ describe('<App />', () => {
     expect(
       screen.getByPlaceholderText(/search for a location/i),
     ).toBeInTheDocument();
-    await screen.findByText(/eldoret, ke/i);
+
+    expect(screen.getByText(/eldoret, ke/i)).toBeInTheDocument();
     expect(screen.getByText(/broken clouds/i)).toBeInTheDocument();
     expect(screen.getByText(/feels like 18°/i)).toBeInTheDocument();
     expect(screen.getByText(/30m\/s winds/i)).toBeInTheDocument();
@@ -44,7 +44,19 @@ describe('<App />', () => {
     expect(
       screen.getByText(/'Netflix and chill' weather. It's pleasant outside/i),
     ).toBeInTheDocument();
-    expect(screen.getAllByRole('list').length).toEqual(5);
+    expect(screen.getAllByRole('listitem').length).toEqual(5);
+    const forecast = screen.getAllByRole('listitem').map((listItem) => {
+      return listItem.textContent;
+    });
+    expect(forecast).toMatchInlineSnapshot(`
+      Array [
+        "Saturday22° / 22°",
+        "Sunday22° / 22°",
+        "Monday22° / 22°",
+        "Tuesday20° / 20°",
+        "Wednesday21° / 21°",
+      ]
+    `);
     expect(screen.getByText(/Open source by/i)).toBeInTheDocument();
     expect(screen.getByText(/Dennis Kigen/i)).toBeInTheDocument();
     expect(screen.getByText(/©2020 - now/i)).toBeInTheDocument();
