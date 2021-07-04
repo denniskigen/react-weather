@@ -44,7 +44,7 @@ const App = () => {
   const [isSearching, setIsSearching] = React.useState(false);
   const [units, setUnits] = React.useState('metric');
   const [state, dispatch] = React.useReducer(viewStateReducer, {
-    status: 'idle',
+    status: 'started',
     error: null,
     forecast: [],
     weather: {},
@@ -129,7 +129,7 @@ const App = () => {
         <NavBar />
         <Switch>
           <Route exact path="/">
-            {state.status === 'idle' ? <Loading /> : null}
+            {state.status === 'started' ? <Loading /> : null}
             {state.status === 'rejected' ? (
               <div className="w-3/5 md:w-3/5 lg:w-1/2 m-auto">
                 <div className="mx-auto sm:max-w-xl 2xl:max-w-2xl">
