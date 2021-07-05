@@ -42,7 +42,7 @@ const App = () => {
   const [location, setLocation] = React.useState('Eldoret');
   const [debouncedSearchTerm, setDebouncedSearchTerm] = React.useState('');
   const [units, setUnits] = React.useState('metric');
-  const [isSearching, setIsSearching] =  React.useState(false);
+  const [isSearching, setIsSearching] = React.useState(false);
   const [viewState, dispatch] = React.useReducer(viewStateReducer, {
     status: 'started',
     error: null,
