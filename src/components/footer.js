@@ -6,7 +6,7 @@ const Footer = () => {
       <p className="text-center">
         <span className="text-gray-600">
           Open source by{' '}
-          <a className="text-indigo-600" href="https://github.com/denniskigen">
+          <a className="text-indigo-600" href="https://denniskigen.com">
             Dennis Kigen
           </a>
           <span className="ml-4">&copy;2020 - now</span>

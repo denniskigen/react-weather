@@ -27,7 +27,7 @@ const About = () => {
             It is a labor of ❤️ open-source project by me,{' '}
             <a
               className="underline text-indigo-500 hover:text-indigo-700"
-              href="https://github.com/denniskigen"
+              href="https://denniskigen.com"
               target="_blank"
               rel="noopener noreferrer"
             >
