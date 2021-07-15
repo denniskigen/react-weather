@@ -1,4 +1,5 @@
 import React from 'react';
+import { cache } from 'swr';
 import {
   act,
   render,
@@ -9,19 +10,32 @@ import {
   Router,
 } from '../app-test-utils';
 import App from '../components/app';
+import {
+  mockForecastData,
+  mockSearchForecastData,
+  mockSearchWeatherData,
+  mockWeatherData,
+} from '../__mocks__/weather.mock';
 
-describe('<App />', () => {
+const history = createMemoryHistory();
+
+const renderApp = () =>
+  render(
+    <Router history={history}>
+      <App />
+    </Router>,
+  );
+
+describe('App', () => {
   beforeAll(() => jest.useFakeTimers());
   afterAll(() => jest.clearAllTimers());
 
-  const history = createMemoryHistory();
-
-  const renderApp = () =>
-    render(
-      <Router history={history}>
-        <App />
-      </Router>,
-    );
+  beforeEach(() => {
+    cache.clear();
+    fetch.resetMocks();
+    fetch.mockResponseOnce(JSON.stringify(mockWeatherData));
+    fetch.mockResponseOnce(JSON.stringify(mockForecastData));
+  });
 
   test('fetches and renders the current weather and a five day forecast', async () => {
     renderApp();
@@ -35,7 +49,6 @@ describe('<App />', () => {
     expect(
       screen.getByPlaceholderText(/search for a location/i),
     ).toBeInTheDocument();
-
     expect(screen.getByText(/eldoret, ke/i)).toBeInTheDocument();
     expect(screen.getByText(/broken clouds/i)).toBeInTheDocument();
     expect(screen.getByText(/feels like 18°/i)).toBeInTheDocument();
@@ -82,23 +95,10 @@ describe('<App />', () => {
     userEvent.click(homeLink, leftClick);
 
     expect(screen.queryByText(/about reactweather/i)).not.toBeInTheDocument();
-  });
-
-  test('searching for an invalid location returns an error', async () => {
-    renderApp();
-
-    await waitForLoadingToFinish();
-
-    const searchInput = screen.getByRole('search');
-    userEvent.type(searchInput, 'Ryo de janeiro');
-
-    act(() => jest.advanceTimersByTime(2000));
-
-    expect(await screen.findByRole('alert')).toHaveTextContent(
-      /No results found. Check your query again or try searching for a different location/i,
-    );
-
-    jest.clearAllTimers();
+    expect(screen.getByRole('search')).toBeInTheDocument();
+    expect(
+      screen.getByPlaceholderText(/search for a location/i),
+    ).toBeInTheDocument();
   });
 
   test('searching for a valid location returns weather and forecast data for that location', async () => {
@@ -109,9 +109,13 @@ describe('<App />', () => {
     const searchInput = screen.getByRole('search');
     userEvent.type(searchInput, 'Rio de janeiro');
 
+    fetch.mockResponseOnce(JSON.stringify(mockSearchWeatherData));
+    fetch.mockResponseOnce(JSON.stringify(mockSearchForecastData));
+
     act(() => jest.advanceTimersByTime(2000));
 
     await screen.findByText(/rio de janeiro, br/i);
+
     expect(screen.getByText(/light rain/i)).toBeInTheDocument();
     expect(screen.getByText(/feels like 15°/i)).toBeInTheDocument();
     expect(screen.getByText(/15m\/s winds/i)).toBeInTheDocument();
@@ -131,26 +135,27 @@ describe('<App />', () => {
 
     expect(screen.getByText(/feels like 18°/i)).toBeInTheDocument();
 
-    const openToggleUnitsMenuButton = screen.getByRole('button', {
+    let openToggleUnitsMenuButton = screen.getByRole('button', {
       name: /open toggle units menu/i,
     });
     userEvent.click(openToggleUnitsMenuButton);
 
-    const toggleUnitsMenu = screen.getByRole('menuitem', {
+    let toggleUnitsMenu = await screen.findByRole('menuitem', {
       name: /change units/i,
     });
-    userEvent.click(toggleUnitsMenu);
 
     expect(toggleUnitsMenu).toHaveTextContent(/Imperial \(F°, mph\)/);
-    expect(await screen.findByText(/mph/i)).toBeInTheDocument();
-    expect(screen.queryByText(/m\/s/i)).not.toBeInTheDocument();
+
+    userEvent.click(toggleUnitsMenu);
+    openToggleUnitsMenuButton = await screen.findByRole('button', {
+      name: /open toggle units menu/i,
+    });
 
     userEvent.click(openToggleUnitsMenuButton);
+    toggleUnitsMenu = await screen.findByRole('menuitem', {
+      name: /change units/i,
+    });
 
-    expect(
-      screen.getByRole('menuitem', {
-        name: /change units/i,
-      }),
-    ).toHaveTextContent(/Metric \(C°, m\/s\)/);
+    expect(toggleUnitsMenu).toHaveTextContent(/Metric \(C°, m\/s\)/);
   });
 });

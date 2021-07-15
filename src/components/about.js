@@ -4,17 +4,17 @@ const About = () => {
   return (
     <>
       <section
-        className="shadow-lg rounded-lg max-w-3xl pt-2 mt-12 mx-auto h-auto mb-64"
+        className="prose prose-lg shadow-lg rounded-lg max-w-3xl pt-2 mt-12 mx-auto h-auto mb-32"
         style={{ backgroundPositionY: '100%' }}
       >
-        <div className="p-4 text-gray-500">
-          <h3 className="text-gray-600 text-xl font-medium font-sans">
+        <div className="p-4 text-gray-500 dark:text-gray-400">
+          <h3 className="text-gray-600 dark:text-white text-xl font-medium font-sans">
             About ReactWeather
           </h3>
           <p className="pt-4">
             ReactWeather is a beautiful weather app built on top of the{' '}
             <a
-              className="underline text-indigo-500 hover:text-indigo-700"
+              className="underline text-indigo-500 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-gray-600"
               href="https://openweathermap.com/api"
               target="_blank"
               rel="noopener noreferrer"
@@ -26,7 +26,7 @@ const About = () => {
           <p className="pt-4">
             It is a labor of ❤️ open-source project by me,{' '}
             <a
-              className="underline text-indigo-500 hover:text-indigo-700"
+              className="underline text-indigo-500 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-gray-600"
               href="https://denniskigen.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -38,7 +38,7 @@ const About = () => {
           <p className="pt-4">
             It's runs on{' '}
             <a
-              className="underline text-indigo-500 hover:text-indigo-700"
+              className="underline text-indigo-500 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-gray-600"
               href="https://reactjs.org/"
               target="_blank"
               rel="noopener noreferrer"
@@ -47,7 +47,7 @@ const About = () => {
             </a>{' '}
             and{' '}
             <a
-              className="underline text-indigo-500 hover:text-indigo-700"
+              className="underline text-indigo-500 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-gray-600"
               href="https://tailwindcss.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -56,7 +56,7 @@ const About = () => {
             </a>
             . It uses{' '}
             <a
-              className="underline text-indigo-500 hover:text-indigo-700"
+              className="underline text-indigo-500 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-gray-600"
               href="https://erikflowers.github.io/weather-icons/"
               target="_blank"
               rel="noopener noreferrer"
@@ -65,7 +65,7 @@ const About = () => {
             </a>{' '}
             and is hosted on{' '}
             <a
-              className="underline text-indigo-500 hover:text-indigo-700"
+              className="underline text-indigo-500 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-gray-600"
               href="https://react-weather.denniskigen.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -74,7 +74,7 @@ const About = () => {
             </a>
             . If you like the project, please fork it on{' '}
             <a
-              className="underline text-indigo-500 hover:text-indigo-700"
+              className="underline text-indigo-500 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-gray-600"
               target="_blank"
               rel="noopener noreferrer"
               href="https://github.com/denniskigen/react-weather"

@@ -9,9 +9,9 @@ const testProps = {
   isSearching: false,
 };
 
-describe('<Search />', () => {
-  const renderSearch = () => render(<Search {...testProps} />);
+const renderSearch = () => render(<Search {...testProps} />);
 
+describe('<Search />', () => {
   test('renders the app search', async () => {
     renderSearch();
 

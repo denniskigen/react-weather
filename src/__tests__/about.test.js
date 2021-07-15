@@ -2,9 +2,9 @@ import React from 'react';
 import { render, screen } from '../app-test-utils';
 import About from '../components/about';
 
-describe('<About />', () => {
-  const renderAbout = () => render(<About />);
+const renderAbout = () => render(<About />);
 
+describe('<About />', () => {
   test('renders the about page', async () => {
     renderAbout();
 
