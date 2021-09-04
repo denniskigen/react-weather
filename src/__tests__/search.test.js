@@ -11,7 +11,7 @@ const testProps = {
 
 const renderSearch = () => render(<Search {...testProps} />);
 
-describe('<Search />', () => {
+describe('Search', () => {
   test('renders the app search', async () => {
     renderSearch();
 

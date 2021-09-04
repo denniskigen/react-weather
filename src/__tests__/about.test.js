@@ -4,7 +4,7 @@ import About from '../components/about';
 
 const renderAbout = () => render(<About />);
 
-describe('<About />', () => {
+describe('About', () => {
   test('renders the about page', async () => {
     renderAbout();
 
