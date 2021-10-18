@@ -1,9 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Search = (props) => {
-  const { isSearching, onLocationChange } = props;
-
+const Search = ({ isSearching, onLocationChange }) => {
   return (
     <div className="w-4/5 md:w-3/5 lg:w-1/2 m-auto">
       <div className="flex flex-row mx-2 p-2 justify-start border-b border-green-300 dark:border-white">
@@ -56,11 +53,5 @@ const Search = (props) => {
     </div>
   );
 };
-
-// Search.propTypes = {
-//   isSearching: PropTypes.bool,
-//   location: PropTypes.string.isRequired,
-//   onLocationChange: PropTypes.func.isRequired,
-// };
 
 export default Search;

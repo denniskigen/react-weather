@@ -36,7 +36,7 @@ const About = () => {
             , a software developer, writer and maker of cool stuff.
           </p>
           <p className="pt-4">
-            It's runs on{' '}
+            It runs on{' '}
             <a
               className="underline text-indigo-500 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-gray-600"
               href="https://reactjs.org/"

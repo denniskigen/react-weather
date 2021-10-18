@@ -1,6 +1,5 @@
 import React from 'react';
 import dayjs from 'dayjs';
-import PropTypes from 'prop-types';
 import { useWeather } from '../hooks/useWeather';
 import Loading from './loading';
 
@@ -38,9 +37,5 @@ const Forecast = ({ location, units }) => {
     </>
   );
 };
-
-// Forecast.propTypes = {
-//   forecast: PropTypes.array,
-// };
 
 export default Forecast;
