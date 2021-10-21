@@ -1,5 +1,7 @@
 # react-weather [![build](https://github.com/denniskigen/react-weather/actions/workflows/validate.yml/badge.svg)](https://github.com/denniskigen/react-weather/actions/workflows/validate.yml) ![Deployment status](https://img.shields.io/github/deployments/denniskigen/react-weather/production?label=vercel&logo=vercel&logoColor=white) [![Coverage Status](https://coveralls.io/repos/github/denniskigen/react-weather/badge.svg?branch=main)](https://coveralls.io/github/denniskigen/react-weather?branch=main)
 
+If you like ReactWeather, you'll love [ReactWeather | Next](https://react-weather-next.denniskigen.com)!
+
 A simple React weather app that displays weather information from the OpenWeatherMap API. See it live [here](https://react-weather.denniskigen.com/).
 
 ![Home page](https://github.com/denniskigen/react-weather/blob/main/public/screen.png)
