@@ -5,13 +5,15 @@ import fetcher from '../lib/fetcher';
 import * as recommendations from '../recommendations';
 import * as weatherIcons from '../icons';
 
-const apiUrl = process.env.REACT_APP_API_URL;
-const apiKey = process.env.REACT_APP_API_KEY;
 const iconPrefix = `wi wi-`;
+const apiKey = process.env.REACT_APP_API_KEY;
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export function useWeather(endpoint, location, units) {
+  const apiEndpoint = `?q=${location}&units=${units}&APPID=${apiKey}`;
+
   const { data, error } = useSWR(
-    `${apiUrl}/${endpoint}/?q=${location}&units=${units}&APPID=${apiKey}`,
+    `${apiUrl}/${endpoint}/${apiEndpoint}`,
     fetcher,
   );
 
@@ -40,13 +42,13 @@ function mapResponseProperties(data) {
     location: data.name,
     condition: data.cod,
     country: data.sys.country,
-    date: data.dt * 1000, // convert from seconds to milliseconds
+    date: data.dt,
     description: data.weather[0].description,
     feels_like: Math.round(data.main.feels_like),
     humidity: data.main.humidity,
     icon_id: data.weather[0].id,
-    sunrise: data.sys.sunrise * 1000, // convert from seconds to milliseconds
-    sunset: data.sys.sunset * 1000, // convert from seconds to milliseconds
+    sunrise: data.sys.sunrise,
+    sunset: data.sys.sunset,
     temperature: Math.round(data.main.temp),
     timezone: data.timezone / 3600, // convert from seconds to hours
     wind_speed: Math.round(data.wind.speed * 3.6), // convert from m/s to km/h
@@ -56,21 +58,20 @@ function mapResponseProperties(data) {
   if (data.dt_txt) {
     mapped.dt_txt = data.dt_txt;
     mapped.forecastIcon =
-      iconPrefix +
-      weatherIcons.default[mapped.isDay ? 'day' : 'night'][mapped.icon_id].icon;
+      iconPrefix + weatherIcons.default['day'][mapped.icon_id].icon;
   }
 
-  if (data.timezone) {
+  if (mapped.sunset || mapped.sunrise) {
     mapped.currentTime = dayjs
-      .utc(mapped.date)
+      .utc(dayjs.unix(mapped.date))
       .utcOffset(mapped.timezone)
       .format();
     mapped.sunrise = dayjs
-      .utc(mapped.sunrise)
+      .utc(dayjs.unix(mapped.sunrise))
       .utcOffset(mapped.timezone)
       .format();
     mapped.sunset = dayjs
-      .utc(mapped.sunset)
+      .utc(dayjs.unix(mapped.sunset))
       .utcOffset(mapped.timezone)
       .format();
     mapped.isDay =
