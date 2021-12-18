@@ -11,6 +11,7 @@ import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
 import { ThemeProvider } from './components/theme-context';
 
+// eslint-disable-next-line react/prop-types
 const Wrapper = ({ children }) => {
   return (
     <SWRConfig

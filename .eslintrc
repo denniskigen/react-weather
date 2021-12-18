@@ -1,19 +1,21 @@
 {
-  "plugins": [
-    // ...
-    "jest-dom",
-    "react-hooks",
-    "testing-library"
-  ],
-  "rules": {
-    // ...
-    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
-    "react-hooks/exhaustive-deps": "warn" // Checks effect dependencies
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
   },
   "extends": [
-    "plugin:testing-library/recommended",
-    "plugin:testing-library/react",
-    "plugin:jest-dom/recommended"
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jest/recommended"
   ],
-  "parser": "babel-eslint"
+  "plugins": ["react", "jest", "testing-library"],
+  "rules": {},
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
 }

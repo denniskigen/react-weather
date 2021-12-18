@@ -1,7 +1,7 @@
 import React from 'react';
-import { cache } from 'swr';
+// import { cache } from 'swr';
 import { render, screen, waitForLoadingToFinish } from '../app-test-utils';
-import { mockForecastData } from '../__mocks__/weather.mock';
+import { mockForecastData } from '../weather.mock';
 import ForecastCard from '../components/forecast-card';
 
 const testProps = {

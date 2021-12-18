@@ -13,9 +13,6 @@
     "test": "jest",
     "test:watch": "jest --watchAll"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -51,6 +48,12 @@
     "babel-jest": "^27.4.5",
     "babel-plugin-transform-vite-meta-env": "^1.0.3",
     "babel-preset-vite": "^1.0.4",
+    "eslint": "^8.5.0",
+    "eslint-plugin-jest": "^25.3.0",
+    "eslint-plugin-jest-dom": "^3.9.2",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-testing-library": "^5.0.1",
     "husky": "^7.0.4",
     "jest": "^27.4.5",
     "jest-fetch-mock": "^3.0.3",
