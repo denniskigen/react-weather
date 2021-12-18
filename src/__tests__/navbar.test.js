@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { render, screen, userEvent } from '../app-test-utils';
+import { render, screen, userEvent } from '../test/app-test-utils';
 import Navbar from '../components/navbar';
 
 describe('NavBar', () => {

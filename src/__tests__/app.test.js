@@ -1,5 +1,4 @@
 import React from 'react';
-// import { cache } from 'swr';
 import {
   act,
   render,
@@ -8,14 +7,14 @@ import {
   waitForLoadingToFinish,
   userEvent,
   Router,
-} from '../app-test-utils';
+} from '../test/app-test-utils';
 import App from '../components/app';
 import {
   mockForecastData,
   mockSearchForecastData,
   mockSearchWeatherData,
   mockWeatherData,
-} from '../weather.mock';
+} from '../test/data/weather-data';
 
 const history = createMemoryHistory();
 
@@ -32,7 +31,6 @@ describe('App', () => {
   afterAll(() => jest.clearAllTimers());
 
   beforeEach(() => {
-    // cache.clear();
     fetch.resetMocks();
     fetch.mockResponseOnce(JSON.stringify(mockWeatherData));
     fetch.mockResponseOnce(JSON.stringify(mockForecastData));

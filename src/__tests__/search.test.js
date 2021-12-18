@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '../app-test-utils';
+import { render, screen } from '../test/app-test-utils';
 import Search from '../components/search';
 
 const testProps = {

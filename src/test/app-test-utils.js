@@ -9,16 +9,12 @@ import {
 import userEvent from '@testing-library/user-event';
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
-import { ThemeProvider } from './components/theme-context';
+import { ThemeProvider } from '../components/theme-context';
 
 // eslint-disable-next-line react/prop-types
 const Wrapper = ({ children }) => {
   return (
-    <SWRConfig
-      value={{
-        dedupingInterval: 0,
-      }}
-    >
+    <SWRConfig value={{ provider: () => new Map(), dedupingInterval: 0 }}>
       <ThemeProvider initialTheme="light">{children}</ThemeProvider>
     </SWRConfig>
   );
