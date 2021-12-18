@@ -1,8 +1,7 @@
 import React from 'react';
 import dayjs from 'dayjs';
-const utc = require('dayjs/plugin/utc');
+import utc from 'dayjs/plugin/utc';
 dayjs.extend(utc);
-
 import Loading from './loading';
 import { useWeather } from '../hooks/useWeather';
 

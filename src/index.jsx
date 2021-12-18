@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/app';
 import { SWRConfig } from 'swr';
-import { createToast, destoryAllToasts } from 'vercel-toast';
+import { createToast, destroyAllToasts } from 'vercel-toast';
 import 'vercel-toast/dist/vercel-toast.css';
 import { ThemeProvider } from './components/theme-context';
 
@@ -19,7 +19,7 @@ ReactDOM.render(
       },
       onSuccess: (data) => {
         if (data) {
-          destoryAllToasts();
+          destroyAllToasts();
         }
       },
       shouldRetryOnError: false,

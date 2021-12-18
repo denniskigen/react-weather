@@ -1,4 +1,6 @@
 import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+dayjs.extend(utc);
 import useSWR from 'swr';
 import fetcher from '../lib/fetcher';
 
@@ -6,8 +8,8 @@ import * as recommendations from '../recommendations';
 import * as weatherIcons from '../icons';
 
 const iconPrefix = `wi wi-`;
-const apiKey = process.env.REACT_APP_API_KEY;
-const apiUrl = process.env.REACT_APP_API_URL;
+const apiKey = import.meta.env.VITE_API_KEY;
+const apiUrl = import.meta.env.VITE_API_URL;
 
 export function useWeather(endpoint, location, units) {
   const apiEndpoint = `?q=${location}&units=${units}&APPID=${apiKey}`;

@@ -13,7 +13,7 @@ const renderForecast = (testProps) => render(<ForecastCard {...testProps} />);
 
 describe('ForecastCard', () => {
   beforeEach(() => {
-    cache.clear();
+    // cache.clear();
     fetch.resetMocks();
     fetch.mockResponse(JSON.stringify(mockForecastData));
   });

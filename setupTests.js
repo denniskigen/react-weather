@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom/extend-expect';
 require('jest-fetch-mock').enableMocks();
 
-process.env.REACT_APP_API_URL = 'https://api.openweathermap.org/data/2.5';
-process.env.REACT_APP_API_KEY = 'ed09485536a14ea098e9de03ecff2d4d';
+import.meta.env.VITE_API_URL = 'https://api.openweathermap.org/data/2.5';
+import.meta.env.VITE_API_KEY = 'ed09485536a14ea098e9de03ecff2d4d';
 
 beforeAll(() =>
   Object.defineProperty(window, 'matchMedia', {
