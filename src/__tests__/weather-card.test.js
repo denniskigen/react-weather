@@ -12,7 +12,6 @@ const renderWeatherCard = () => render(<WeatherCard {...testProps} />);
 
 describe('WeatherCard', () => {
   beforeEach(() => {
-    // cache.clear();
     fetch.resetMocks();
     fetch.mockResponse(JSON.stringify(mockWeatherData));
   });

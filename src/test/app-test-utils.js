@@ -7,8 +7,6 @@ import {
   waitForElementToBeRemoved,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { createMemoryHistory } from 'history';
-import { Router } from 'react-router-dom';
 import { ThemeProvider } from '../components/theme-context';
 
 // eslint-disable-next-line react/prop-types
@@ -29,12 +27,5 @@ const waitForLoadingToFinish = () =>
   });
 
 export * from '@testing-library/react';
-export {
-  act,
-  screen,
-  userEvent,
-  createMemoryHistory,
-  waitForLoadingToFinish,
-  Router,
-};
+export { act, screen, userEvent, waitForLoadingToFinish };
 export { customRender as render };

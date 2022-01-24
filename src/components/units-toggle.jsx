@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const UnitsToggle = ({ units, onUnitsChange }) => {
   const [isSettingsMenuOpened, setIsSettingsMenuOpened] = React.useState(false);
@@ -75,6 +76,11 @@ const UnitsToggle = ({ units, onUnitsChange }) => {
       ) : null}
     </div>
   );
+};
+
+UnitsToggle.propTypes = {
+  units: PropTypes.string.isRequired,
+  onUnitsChange: PropTypes.func.isRequired,
 };
 
 export default UnitsToggle;

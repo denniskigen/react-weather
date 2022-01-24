@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import debounce from 'lodash-es/debounce';
 
 import About from './about';
@@ -49,28 +49,32 @@ export default function App() {
     <div className="dark:bg-black min-h-screen">
       <Router>
         <NavBar />
-        <Switch>
-          <Route exact path="/">
-            <main>
-              <div className="mx-auto w-5/6 md:w-full 2xl:max-w-7xl xl:max-w-6xl">
-                <Search
-                  location={location}
-                  isSearching={isSearching}
-                  onLocationChange={handleLocationChange}
-                />
-                <div className="shadow-lg rounded-lg h-auto overflow-hidden w-full md:w-3/5 lg:w-1/2 m-auto mt-4 divide-y-2 divide-light-blue-400">
-                  <WeatherCard location={location} units={units} />
-                  <ForecastCard location={location} units={units} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <main>
+                <div className="mx-auto w-5/6 md:w-full 2xl:max-w-7xl xl:max-w-6xl">
+                  <Search
+                    location={location}
+                    isSearching={isSearching}
+                    onLocationChange={handleLocationChange}
+                  />
+                  <div className="shadow-lg rounded-lg h-auto overflow-hidden w-full md:w-3/5 lg:w-1/2 m-auto mt-4 divide-y-2 divide-light-blue-400">
+                    <WeatherCard location={location} units={units} />
+                    <ForecastCard location={location} units={units} />
+                  </div>
+                  <UnitsToggle
+                    units={units}
+                    onUnitsChange={handleUnitsChange}
+                  />
+                  <Footer />
                 </div>
-                <UnitsToggle units={units} onUnitsChange={handleUnitsChange} />
-                <Footer />
-              </div>
-            </main>
-          </Route>
-          <Route exact path="/about">
-            <About />
-          </Route>
-        </Switch>
+              </main>
+            }
+          />
+          <Route path="/about/*" element={<About />} />
+        </Routes>
       </Router>
     </div>
   );

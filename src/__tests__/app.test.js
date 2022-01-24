@@ -3,10 +3,8 @@ import {
   act,
   render,
   screen,
-  createMemoryHistory,
   waitForLoadingToFinish,
   userEvent,
-  Router,
 } from '../test/app-test-utils';
 import App from '../components/app';
 import {
@@ -16,14 +14,8 @@ import {
   mockWeatherData,
 } from '../test/data/weather-data';
 
-const history = createMemoryHistory();
-
 const renderApp = () => {
-  render(
-    <Router history={history}>
-      <App />
-    </Router>,
-  );
+  render(<App />);
 };
 
 describe('App', () => {
