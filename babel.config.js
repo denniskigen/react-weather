@@ -1,3 +1,4 @@
+/* eslint-env node */
 const presets =
   process.env['NODE_ENV'] !== 'production'
     ? [

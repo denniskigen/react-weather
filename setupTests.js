@@ -1,3 +1,4 @@
+/* eslint-env node */
 import '@testing-library/jest-dom/extend-expect';
 require('jest-fetch-mock').enableMocks();
 
