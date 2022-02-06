@@ -8,17 +8,19 @@ const Toggle = () => {
   return (
     <div
       role="switch"
-      className="transition duration-500 ease-in-out rounded-full p-2"
+      className="rounded-full p-2 transition duration-500 ease-in-out"
     >
       {theme === 'dark' ? (
         <HiSun
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-          className="text-gray-500 dark:text-gray-400 text-2xl cursor-pointer"
+          className="cursor-pointer text-2xl text-gray-500 dark:text-gray-400"
+          title="light theme"
         />
       ) : (
         <HiMoon
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-          className="text-gray-500 dark:text-gray-400 text-2xl cursor-pointer"
+          className="cursor-pointer text-2xl text-gray-500 dark:text-gray-400"
+          title="dark theme"
         />
       )}
     </div>

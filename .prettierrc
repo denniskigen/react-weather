@@ -3,5 +3,6 @@
   "trailingComma": "all",
   "tabWidth": 2,
   "endOfLine": "lf",
-  "singleQuote": true
+  "singleQuote": true,
+  "tailwindConfig": "./tailwind.config.js"
 }

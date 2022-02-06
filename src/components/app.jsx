@@ -46,7 +46,7 @@ export default function App() {
   }, [debouncedSearchTerm]);
 
   return (
-    <div className="dark:bg-black min-h-screen">
+    <div className="min-h-screen dark:bg-black">
       <Router>
         <NavBar />
         <Routes>
@@ -54,13 +54,13 @@ export default function App() {
             path="/"
             element={
               <main>
-                <div className="mx-auto w-5/6 md:w-full 2xl:max-w-7xl xl:max-w-6xl">
+                <div className="mx-auto w-5/6 md:w-full xl:max-w-6xl 2xl:max-w-7xl">
                   <Search
                     location={location}
                     isSearching={isSearching}
                     onLocationChange={handleLocationChange}
                   />
-                  <div className="shadow-lg rounded-lg h-auto overflow-hidden w-full md:w-3/5 lg:w-1/2 m-auto mt-4 divide-y-2 divide-light-blue-400">
+                  <div className="divide-light-blue-400 m-auto mt-4 h-auto w-full divide-y-2 overflow-hidden rounded-lg shadow-lg md:w-3/5 lg:w-1/2">
                     <WeatherCard location={location} units={units} />
                     <ForecastCard location={location} units={units} />
                   </div>

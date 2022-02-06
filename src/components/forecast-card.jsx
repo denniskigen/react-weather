@@ -1,5 +1,6 @@
 import React from 'react';
 import dayjs from 'dayjs';
+import PropTypes from 'prop-types';
 import { useWeather } from '../hooks/useWeather';
 import Loading from './loading';
 
@@ -18,11 +19,11 @@ const Forecast = ({ location, units }) => {
           {forecast.map((item, index) => {
             return (
               <ul className="mt-4" key={index}>
-                <li className="flex flex-row text-gray-500 dark:text-white p-1">
+                <li className="flex flex-row p-1 text-gray-500 dark:text-white">
                   <span className="flex-1 text-left">
                     {dayjs(item.dt_txt).format('dddd')}
                   </span>
-                  <span className="text-indigo-700 dark:text-white text-2xl">
+                  <span className="text-2xl text-indigo-700 dark:text-white">
                     <span className={item.forecastIcon}></span>
                   </span>
                   <span className="flex-1 text-right">
@@ -36,6 +37,11 @@ const Forecast = ({ location, units }) => {
       </div>
     </>
   );
+};
+
+Forecast.propTypes = {
+  location: PropTypes.string.isRequired,
+  units: PropTypes.string.isRequired,
 };
 
 export default Forecast;

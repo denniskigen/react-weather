@@ -10,14 +10,33 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="dark:text-white mb-4">
-      <div className="bg-gradient-to-r from-blue-100 dark:from-black via-green-200 dark:via-transparent to-indigo-400 dark:to-gray-700 w-auto h-6"></div>
-      <div className="2xl:max-w-6xl xl:max-w-4xl lg:max-w-4xl md:max-w-2xl mx-auto sm:px-6 md:px-0 lg:px-2 xl:px-0">
-        <div className="relative flex items-center justify-between h-16">
-          <div className="absolute inset-y-0 left-0 flex items-center justify-between md:hidden">
+    <nav className="mb-4 dark:text-white">
+      <div className="h-6 w-auto bg-gradient-to-r from-blue-100 via-green-200 to-indigo-400 dark:from-black dark:via-transparent dark:to-gray-700"></div>
+      <div className="mx-auto sm:px-6 md:max-w-2xl md:px-0 lg:max-w-4xl lg:px-2 xl:max-w-4xl xl:px-0 2xl:max-w-6xl">
+        <div className="relative flex h-16 items-center justify-between">
+          <div className="absolute flex w-full items-center justify-between px-2 md:hidden">
+            <div className="flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 bg-green-200 stroke-current text-indigo-500 dark:bg-transparent dark:text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+                />
+              </svg>
+              <Link to="/">
+                <h3 className="ml-1 text-xl font-semibold">reactWeather</h3>
+              </Link>
+            </div>
             <button
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-indigo-700 dark:text-white hover:text-white hover:bg-indigo-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              className="inline-flex items-center justify-center rounded-md p-2 text-indigo-700 hover:bg-indigo-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white dark:text-white dark:hover:bg-gray-600"
               aria-controls="mobile-menu"
               aria-expanded="false"
               onClick={toggleButton}
@@ -27,7 +46,7 @@ const NavBar = () => {
               </span>
               {isMenuOpened ? (
                 <svg
-                  className="block bg-green-200 dark:bg-transparent h-6 w-6"
+                  className="block h-6 w-6 bg-green-200 dark:bg-transparent"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -43,31 +62,23 @@ const NavBar = () => {
                 </svg>
               ) : (
                 <svg
-                  className="block bg-green-200  dark:bg-transparent h-6 w-6"
+                  className="block h-6 w-6 bg-green-200 dark:bg-transparent"
                   xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
+                  <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
                 </svg>
               )}
             </button>
-            <Toggle />
           </div>
           <div className="hidden md:contents">
             <svg
               xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 bg-green-200 stroke-current text-indigo-500 dark:bg-transparent dark:text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              className="h-6 w-6 bg-green-200 dark:bg-transparent stroke-current text-indigo-500 dark:text-white"
             >
               <path
                 strokeLinecap="round"
@@ -79,12 +90,12 @@ const NavBar = () => {
             <Link to="/">
               <h3 className="ml-1 text-xl font-semibold">reactWeather</h3>
             </Link>
-            <div className="flex-1 flex items-center justify-end sm:items-stretch sm:justify-end">
-              <div className="hidden sm:block sm:ml-6">
-                <div className="flex space-x-4 items-center">
+            <div className="flex flex-1 items-center justify-end sm:items-stretch sm:justify-end">
+              <div className="hidden sm:ml-6 sm:block">
+                <div className="flex items-center space-x-4">
                   <Link
                     to="/about"
-                    className="text-gray-500 dark:text-white hover:text-gray-700 dark:hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium"
+                    className="rounded-md px-3 py-2 text-lg font-medium text-gray-500 hover:text-gray-700 dark:text-white dark:hover:text-gray-600"
                   >
                     About
                   </Link>
@@ -92,7 +103,7 @@ const NavBar = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://github.com/denniskigen/react-weather"
-                    className="text-gray-400 hover:text-gray-500 transition-colors duration-200"
+                    className="text-gray-400 transition-colors duration-200 hover:text-gray-500"
                   >
                     <span className="sr-only">React Weather on GitHub</span>
                     <svg
@@ -116,20 +127,20 @@ const NavBar = () => {
       </div>
       {isMenuOpened ? (
         <div
-          className="md:hidden max-w-2xl mx-auto px-2 sm:px-6 lg:px-2"
+          className="mx-auto max-w-2xl px-2 sm:px-6 md:hidden lg:px-2"
           id="mobile-menu"
         >
-          <div className="flex flex-col sm:px-2 sm:pt-2 sm:pb-3 space-y-1 md:w-1/2">
+          <div className="flex flex-col space-y-1 sm:px-2 sm:pt-2 sm:pb-3 md:w-1/2">
             <Link
               to="/"
-              className="text-indigo-700 dark:text-white hover:bg-green-300 dark:bg-none dark:hover:bg-gray-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              className="block rounded-md px-3 py-2 text-base font-medium text-indigo-700 hover:bg-green-300 hover:text-white dark:bg-none dark:text-white dark:hover:bg-gray-600"
               onClick={toggleButton}
             >
               Home
             </Link>
             <Link
               to="/about"
-              className="text-indigo-700 dark:text-white hover:bg-green-300 dark:bg-none dark:hover:bg-gray-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              className="block rounded-md px-3 py-2 text-base font-medium text-indigo-700 hover:bg-green-300 hover:text-white dark:bg-none dark:text-white dark:hover:bg-gray-600"
               onClick={toggleButton}
             >
               About
@@ -138,10 +149,23 @@ const NavBar = () => {
               target="_blank"
               rel="noopener noreferrer"
               href="https://github.com/denniskigen/react-weather"
-              className="text-indigo-700 dark:text-white hover:bg-green-300 dark:hover:bg-gray-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              className="block rounded-md px-3 py-2 text-base font-medium text-indigo-700 hover:bg-green-300 hover:text-white dark:text-white dark:hover:bg-gray-600"
             >
               GitHub
             </a>
+          </div>
+          <div className="mt-3 border-t border-slate-200 pt-2 dark:border-slate-200/10">
+            <div className="flex items-center justify-between px-3 sm:px-6">
+              <label
+                htmlFor="theme"
+                className="font-normal text-slate-700 dark:text-white "
+              >
+                Switch theme
+              </label>
+              <div className="dark:highlight-white/5 relative flex items-center rounded-lg font-semibold text-slate-700 shadow-sm ring-1 ring-slate-900/10 dark:bg-slate-600 dark:text-slate-200 dark:ring-0">
+                <Toggle />
+              </div>
+            </div>
           </div>
         </div>
       ) : null}

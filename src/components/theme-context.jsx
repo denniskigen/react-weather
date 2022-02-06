@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const getInitialTheme = () => {
   if (typeof window !== 'undefined' && window.localStorage) {
@@ -41,4 +42,9 @@ export const ThemeProvider = ({ initialTheme, children }) => {
       {children}
     </ThemeContext.Provider>
   );
+};
+
+ThemeProvider.propTypes = {
+  initialTheme: PropTypes.string.isRequired,
+  children: PropTypes.children,
 };

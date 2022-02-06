@@ -17,14 +17,11 @@ describe('NavBar', () => {
     expect(
       screen.getByRole('button', { name: /open main menu/i }),
     ).toBeInTheDocument();
-    expect(
-      screen.getByRole('heading', { name: /reactweather/i }),
-    ).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /about/i })).toBeInTheDocument();
     expect(
       screen.getByRole('link', { name: /react weather on github/i }),
     ).toBeInTheDocument();
-    expect(screen.getAllByRole('switch').length).toEqual(2);
+    expect(screen.getByRole('switch')).toBeInTheDocument();
   });
 
   test('clicking the button toggles displaying the main menu', async () => {

@@ -28,14 +28,22 @@ describe('App', () => {
     fetch.mockResponseOnce(JSON.stringify(mockForecastData));
   });
 
+  test('shows a light theme by default', async () => {
+    renderApp();
+
+    await waitForLoadingToFinish();
+
+    expect(screen.getByTitle('dark theme')).toBeInTheDocument();
+    userEvent.click(screen.getByTitle('dark theme'));
+    expect(screen.queryByTitle('dark theme')).not.toBeInTheDocument();
+    expect(screen.getByTitle('light theme')).toBeInTheDocument();
+  });
+
   test('fetches and renders the current weather and a five day forecast', async () => {
     renderApp();
 
     await waitForLoadingToFinish();
 
-    expect(
-      screen.getByRole('heading', { name: /reactweather/i }),
-    ).toBeInTheDocument();
     expect(screen.getByRole('search')).toBeInTheDocument();
     expect(
       screen.getByPlaceholderText(/search for a location/i),
@@ -82,7 +90,9 @@ describe('App', () => {
       screen.getByText(/ReactWeather is a beautiful weather app/i),
     ).toBeInTheDocument();
 
-    const homeLink = screen.getByRole('heading', { name: /^reactweather$/i });
+    const homeLink = screen.getAllByRole('heading', {
+      name: /^reactweather$/i,
+    })[0];
     userEvent.click(homeLink, leftClick);
 
     expect(screen.queryByText(/about reactweather/i)).not.toBeInTheDocument();
