@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, screen, waitForLoadingToFinish } from '../test/app-test-utils';
-import { mockWeatherData } from '../test/data/weather-data';
 import WeatherCard from '../components/weather-card';
 
 const testProps = {
@@ -11,17 +10,12 @@ const testProps = {
 const renderWeatherCard = () => render(<WeatherCard {...testProps} />);
 
 describe('WeatherCard', () => {
-  beforeEach(() => {
-    fetch.resetMocks();
-    fetch.mockResponse(JSON.stringify(mockWeatherData));
-  });
-
   test('renders the WeatherCard', async () => {
     renderWeatherCard();
 
     await waitForLoadingToFinish();
 
-    await screen.findByText(/eldoret, ke/i);
+    expect(screen.getByText(/eldoret, ke/i)).toBeInTheDocument();
     expect(screen.getByText(/broken clouds/i)).toBeInTheDocument();
     expect(screen.getByText(/20°/i)).toBeInTheDocument();
     expect(screen.getByText(/feels like 18°/i)).toBeInTheDocument();

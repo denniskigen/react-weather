@@ -12,7 +12,7 @@ const testProps = {
 const renderSearch = () => render(<Search {...testProps} />);
 
 describe('Search', () => {
-  test('renders the app search', async () => {
+  test('renders a search box above the weather card', async () => {
     renderSearch();
 
     expect(screen.getByRole('search')).toBeInTheDocument();

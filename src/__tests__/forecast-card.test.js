@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, screen, waitForLoadingToFinish } from '../test/app-test-utils';
-import { mockForecastData } from '../test/data/weather-data';
 import ForecastCard from '../components/forecast-card';
 
 const testProps = {
@@ -11,11 +10,6 @@ const testProps = {
 const renderForecast = (testProps) => render(<ForecastCard {...testProps} />);
 
 describe('ForecastCard', () => {
-  beforeEach(() => {
-    fetch.resetMocks();
-    fetch.mockResponse(JSON.stringify(mockForecastData));
-  });
-
   test('renders the weekly forecast for the specified location', async () => {
     renderForecast(testProps);
 
