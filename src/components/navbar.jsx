@@ -36,7 +36,7 @@ const NavBar = () => {
             </div>
             <button
               type="button"
-              className="inline-flex items-center justify-center rounded-md p-2 text-indigo-700 hover:bg-indigo-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white dark:text-white dark:hover:bg-gray-600"
+              className="inline-flex items-center justify-center rounded-md p-2 text-indigo-700 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-indigo-300 dark:text-white dark:ring-gray-500 dark:hover:bg-gray-600"
               aria-controls="mobile-menu"
               aria-expanded="false"
               onClick={toggleButton}
@@ -46,7 +46,7 @@ const NavBar = () => {
               </span>
               {isMenuOpened ? (
                 <svg
-                  className="block h-6 w-6 bg-green-200 dark:bg-transparent"
+                  className="block h-6 w-6 dark:bg-transparent"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -62,7 +62,7 @@ const NavBar = () => {
                 </svg>
               ) : (
                 <svg
-                  className="block h-6 w-6 bg-green-200 dark:bg-transparent"
+                  className="block h-6 w-6 dark:bg-transparent"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -133,14 +133,14 @@ const NavBar = () => {
           <div className="flex flex-col space-y-1 sm:px-2 sm:pt-2 sm:pb-3 md:w-1/2">
             <Link
               to="/"
-              className="block rounded-md px-3 py-2 text-base font-medium text-indigo-700 hover:bg-green-300 hover:text-white dark:bg-none dark:text-white dark:hover:bg-gray-600"
+              className="block rounded-md px-3 py-2 text-base font-medium text-indigo-700 hover:bg-indigo-400 hover:text-white dark:bg-none dark:text-white dark:hover:bg-gray-600"
               onClick={toggleButton}
             >
               Home
             </Link>
             <Link
               to="/about"
-              className="block rounded-md px-3 py-2 text-base font-medium text-indigo-700 hover:bg-green-300 hover:text-white dark:bg-none dark:text-white dark:hover:bg-gray-600"
+              className="block rounded-md px-3 py-2 text-base font-medium text-indigo-700 hover:bg-indigo-400 hover:text-white dark:bg-none dark:text-white dark:hover:bg-gray-600"
               onClick={toggleButton}
             >
               About
@@ -149,7 +149,7 @@ const NavBar = () => {
               target="_blank"
               rel="noopener noreferrer"
               href="https://github.com/denniskigen/react-weather"
-              className="block rounded-md px-3 py-2 text-base font-medium text-indigo-700 hover:bg-green-300 hover:text-white dark:text-white dark:hover:bg-gray-600"
+              className="block rounded-md px-3 py-2 text-base font-medium text-indigo-700 hover:bg-indigo-400 hover:text-white dark:text-white dark:hover:bg-gray-600"
             >
               GitHub
             </a>
