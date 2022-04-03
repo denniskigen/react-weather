@@ -154,7 +154,7 @@ const NavBar = () => {
               GitHub
             </a>
           </div>
-          <div className="mt-3 border-t border-slate-200 pt-2 dark:border-slate-200/10">
+          <div className="mt-3 border-t border-slate-200 pt-2 dark:border-white">
             <div className="flex items-center justify-between px-3 sm:px-6">
               <label
                 htmlFor="theme"
@@ -162,7 +162,7 @@ const NavBar = () => {
               >
                 Switch theme
               </label>
-              <div className="dark:highlight-white/5 relative flex items-center rounded-lg font-semibold text-slate-700 shadow-sm ring-1 ring-slate-900/10 dark:bg-slate-600 dark:text-slate-200 dark:ring-0">
+              <div className="dark:highlight-white/5 relative flex items-center rounded-lg font-semibold text-slate-700 shadow-sm ring-1 ring-slate-900/10 dark:bg-slate-700 dark:text-slate-200">
                 <Toggle />
               </div>
             </div>
