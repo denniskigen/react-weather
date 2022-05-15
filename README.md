@@ -1,4 +1,4 @@
-# react-weather [![build](https://github.com/denniskigen/react-weather/actions/workflows/validate.yml/badge.svg)](https://github.com/denniskigen/react-weather/actions/workflows/validate.yml) ![Deployment status](https://img.shields.io/github/deployments/denniskigen/react-weather/production?label=vercel&logo=vercel&logoColor=white) [![Coverage Status](https://coveralls.io/repos/github/denniskigen/react-weather/badge.svg?branch=main)](https://coveralls.io/github/denniskigen/react-weather?branch=main)
+# react-weather [![build](https://github.com/denniskigen/react-weather/actions/workflows/ci.yml/badge.svg)](https://github.com/denniskigen/react-weather/actions/workflows/validate.yml) ![Deployment status](https://img.shields.io/github/deployments/denniskigen/react-weather/production?label=vercel&logo=vercel&logoColor=white) [![Coverage Status](https://coveralls.io/repos/github/denniskigen/react-weather/badge.svg?branch=main)](https://coveralls.io/github/denniskigen/react-weather?branch=main)
 
 > If you like React Weather, you'll :heart: [React Weather Next](https://react-weather-next.denniskigen.com)!
 
