@@ -7,7 +7,7 @@ specifiers:
   '@babel/preset-react': ^7.16.7
   '@tailwindcss/typography': ^0.5.0
   '@testing-library/jest-dom': ^5.16.1
-  '@testing-library/react': ^12.1.2
+  '@testing-library/react': ^13.2.0
   '@testing-library/user-event': ^14.2.0
   '@vitejs/plugin-react': ^1.1.4
   autoprefixer: ^10.4.2
@@ -61,7 +61,7 @@ devDependencies:
   '@babel/preset-env': 7.17.10_@babel+core@7.17.10
   '@babel/preset-react': 7.16.7_@babel+core@7.17.10
   '@testing-library/jest-dom': 5.16.4
-  '@testing-library/react': 12.1.5_ef5jwxihqo6n7gxfmzogljlgcm
+  '@testing-library/react': 13.2.0_ef5jwxihqo6n7gxfmzogljlgcm
   '@testing-library/user-event': 14.2.0
   '@vitejs/plugin-react': 1.3.2
   autoprefixer: 10.4.7_postcss@8.4.13
@@ -1753,16 +1753,16 @@ packages:
       redent: 3.0.0
     dev: true
 
-  /@testing-library/react/12.1.5_ef5jwxihqo6n7gxfmzogljlgcm:
-    resolution: {integrity: sha512-OfTXCJUFgjd/digLUuPxa0+/3ZxsQmE7ub9kcbW/wi96Bh3o/p5vrETcBGfP17NWPGqeYYl5LTRpwyGoMC4ysg==}
+  /@testing-library/react/13.2.0_ef5jwxihqo6n7gxfmzogljlgcm:
+    resolution: {integrity: sha512-Bprbz/SZVONCJy5f7hcihNCv313IJXdYiv0nSJklIs1SQCIHHNlnGNkosSXnGZTmesyGIcBGNppYhXcc11pb7g==}
     engines: {node: '>=12'}
     peerDependencies:
-      react: <18.0.0
-      react-dom: <18.0.0
+      react: ^18.0.0
+      react-dom: ^18.0.0
     dependencies:
       '@babel/runtime': 7.17.9
       '@testing-library/dom': 8.13.0
-      '@types/react-dom': 17.0.17
+      '@types/react-dom': 18.0.4
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
     dev: true
@@ -1881,8 +1881,8 @@ packages:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
     dev: true
 
-  /@types/react-dom/17.0.17:
-    resolution: {integrity: sha512-VjnqEmqGnasQKV0CWLevqMTXBYG9GbwuE6x3VetERLh0cq2LTptFE73MrQi2S7GkKXCf2GgwItB/melLnxfnsg==}
+  /@types/react-dom/18.0.4:
+    resolution: {integrity: sha512-FgTtbqPOCI3dzZPZoC2T/sx3L34qxy99ITWn4eoSA95qPyXDMH0ALoAqUp49ITniiJFsXUVBtalh/KffMpg21Q==}
     dependencies:
       '@types/react': 17.0.45
     dev: true
