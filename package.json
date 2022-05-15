@@ -29,6 +29,7 @@
     "@tailwindcss/typography": "^0.5.0",
     "dayjs": "^1.10.7",
     "lodash-es": "^4.17.21",
+    "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",

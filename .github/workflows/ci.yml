@@ -1,4 +1,4 @@
-name: validate
+name: ci
 on:
   push:
     branches: ['main']
@@ -9,37 +9,32 @@ jobs:
   build:
     name: 'Build'
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [15]
     steps:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v2
-
-      - name: 💾 Cache node modules
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-node-modules
+      - uses: pnpm/action-setup@v2.0.1
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - name: ⎔ Setup node
-        uses: actions/setup-node@v1
+          version: 7.0.0
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
 
       - name: 📀 Install dependencies
-        run: npm install
+        run: pnpm install
 
       - name: 🧹 Lint
-        run: npm run lint
+        run: pnpm run lint
 
       - name: 😍 Prettier check
-        run: npm run check
+        run: pnpm run check
 
       - name: 🧪 Test
-        run: npm run coverage
+        run: pnpm run coverage
 
       - name: ⏫ Upload coverage
         uses: coverallsapp/github-action@master
@@ -47,7 +42,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 👷‍♀️ Build
-        run: npm run build
+        run: pnpm run build
 
       - name: ⏫ Upload build artifacts
         uses: actions/upload-artifact@v2
