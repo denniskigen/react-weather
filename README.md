@@ -19,3 +19,9 @@ React Weather is a beautiful weather app that uses the [OpenWeatherMap API](http
   VITE_API_KEY = The API key you obtained from openweathermap.org
   VITE_ICON_URL = 'https://openweathermap.org/img/w'
   ```
+
+- Install dependencies using [pnpm](https://pnpm.io/installation):
+
+  ```sh
+  pnpm install
+  ```
