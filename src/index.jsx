@@ -1,13 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './components/app';
+import { createRoot } from 'react-dom/client';
 import { SWRConfig } from 'swr';
 import { createToast, destroyAllToasts } from 'vercel-toast';
 import 'vercel-toast/dist/vercel-toast.css';
 import { ThemeProvider } from './components/theme-context';
+import App from './components/app';
+import './index.css';
 
-ReactDOM.render(
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(
   <SWRConfig
     value={{
       onError: (error) => {
@@ -29,5 +32,4 @@ ReactDOM.render(
       <App />
     </ThemeProvider>
   </SWRConfig>,
-  document.getElementById('root'),
 );
