@@ -7,8 +7,6 @@ const testProps = {
   units: 'metric',
 };
 
-const renderForecast = (testProps) => render(<ForecastCard {...testProps} />);
-
 describe('ForecastCard', () => {
   test('renders the weekly forecast for the specified location', async () => {
     renderForecast(testProps);
@@ -29,3 +27,7 @@ describe('ForecastCard', () => {
     `);
   });
 });
+
+function renderForecast(testProps) {
+  render(<ForecastCard {...testProps} />);
+}

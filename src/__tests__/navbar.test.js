@@ -4,13 +4,6 @@ import { render, screen, userEvent } from '../test/app-test-utils';
 import Navbar from '../components/navbar';
 
 describe('NavBar', () => {
-  const renderNavbar = () =>
-    render(
-      <BrowserRouter>
-        <Navbar />
-      </BrowserRouter>,
-    );
-
   test('renders the navbar', async () => {
     renderNavbar();
 
@@ -25,13 +18,14 @@ describe('NavBar', () => {
   });
 
   test('clicking the button toggles displaying the main menu', async () => {
+    const user = userEvent.setup();
     renderNavbar();
 
     const toggleButton = screen.getByRole('button', {
       name: /open main menu/i,
     });
 
-    userEvent.click(toggleButton);
+    await user.click(toggleButton);
     expect(
       screen.queryByRole('button', { name: /open main menu/i }),
     ).not.toBeInTheDocument();
@@ -39,7 +33,7 @@ describe('NavBar', () => {
       screen.queryByRole('button', { name: /close main menu/i }),
     ).toBeInTheDocument();
 
-    userEvent.click(toggleButton);
+    await user.click(toggleButton);
     expect(
       screen.queryByRole('button', { name: /close main menu/i }),
     ).not.toBeInTheDocument();
@@ -48,3 +42,11 @@ describe('NavBar', () => {
     ).toBeInTheDocument();
   });
 });
+
+function renderNavbar() {
+  render(
+    <BrowserRouter>
+      <Navbar />
+    </BrowserRouter>,
+  );
+}

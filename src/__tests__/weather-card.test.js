@@ -7,8 +7,6 @@ const testProps = {
   units: 'metric',
 };
 
-const renderWeatherCard = () => render(<WeatherCard {...testProps} />);
-
 describe('WeatherCard', () => {
   test('renders the WeatherCard', async () => {
     renderWeatherCard();
@@ -26,3 +24,7 @@ describe('WeatherCard', () => {
     ).toBeInTheDocument();
   });
 });
+
+function renderWeatherCard() {
+  render(<WeatherCard {...testProps} />);
+}

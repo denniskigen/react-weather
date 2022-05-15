@@ -2,8 +2,6 @@ import React from 'react';
 import { render, screen } from '../test/app-test-utils';
 import About from '../components/about';
 
-const renderAbout = () => render(<About />);
-
 describe('About', () => {
   test('renders the about page', async () => {
     renderAbout();
@@ -27,3 +25,7 @@ describe('About', () => {
     expect(screen.getByAltText(/buy me a coffee/i)).toBeInTheDocument();
   });
 });
+
+function renderAbout() {
+  render(<About />);
+}

@@ -9,8 +9,6 @@ const testProps = {
   isSearching: false,
 };
 
-const renderSearch = () => render(<Search {...testProps} />);
-
 describe('Search', () => {
   test('renders a search box above the weather card', async () => {
     renderSearch();
@@ -21,3 +19,7 @@ describe('Search', () => {
     ).toBeInTheDocument();
   });
 });
+
+function renderSearch() {
+  render(<Search {...testProps} />);
+}
