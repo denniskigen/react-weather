@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
   return (
     <footer>
-      <div className="max-w-md md:max-w-3xl lg:max-w-4xl items-center mx-auto">
+      <div className="max-w-md md:max-w-3xl lg:max-w-4xl xl:max-w-7xl items-center mx-auto">
         <div className="mt-12 space-y-2 md:space-y-0 flex flex-col justify-between border-t border-neutral-100 dark:border-neutral-800 pt-6 pb-12 text-sm md:flex-row md:text-lg text-neutral-400">
           <span className="">
             Open source by{' '}
