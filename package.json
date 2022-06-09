@@ -11,7 +11,8 @@
     "check": "prettier --check \"**/*.+(js|json|css|html)\"",
     "coverage": "jest --coverage",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "prepare": "husky install"
   },
   "browserslist": {
     "production": [
@@ -56,7 +57,7 @@
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",
     "eslint-plugin-testing-library": "^5.5.1",
-    "husky": "^8.0.1",
+    "husky": "^8.0.0",
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0",
     "jest-fetch-mock": "^3.0.3",
@@ -72,7 +73,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && npm run lint && npm run format && npm run check && npm run coverage"
+      "pre-commit": "pretty-quick --staged && pnpm run lint && pnpm run format && pnpm run check && pnpm run coverage"
     }
   }
 }
