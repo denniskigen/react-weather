@@ -1,4 +1,8 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm test
+pnpm lint 
+pnpm format
+pnpm check
+pnpm coverage
+pnpm test
