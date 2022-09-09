@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Search = ({ isSearching, onLocationChange }) => {
   return (
     <div className="m-auto w-4/5 md:w-3/5 lg:w-1/2">
-      <div className="mx-2 flex flex-row justify-start border-b border-green-300 p-2 dark:border-white">
+      <div className="mx-2 flex flex-row justify-start md:justify-center border-b border-green-300 p-2 dark:border-white">
         <svg
           width="24"
           height="24"
@@ -24,7 +24,7 @@ const Search = ({ isSearching, onLocationChange }) => {
           role="search"
           onChange={onLocationChange}
           placeholder="Search for a location"
-          className="mr-8 w-48 placeholder-gray-500 outline-none dark:bg-black dark:text-white dark:placeholder-white md:w-96"
+          className="mr-4 md:mr-8 w-48 text-center placeholder-gray-500 outline-none dark:bg-black dark:text-white dark:placeholder-white md:w-96"
         />
         {isSearching ? (
           <svg
