@@ -16,7 +16,8 @@ describe('ForecastCard', () => {
     const forecast = screen.getAllByRole('listitem').map((listItem) => {
       return listItem.textContent;
     });
-    expect(forecast).toMatchInlineSnapshot(`
+
+    expect(forecast).toMatchSnapshot(`
       Array [
         "Saturday22° / 22°",
         "Sunday22° / 22°",
