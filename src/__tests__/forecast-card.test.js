@@ -17,16 +17,15 @@ describe('ForecastCard', () => {
       return listItem.textContent;
     });
 
-    // const expected = [
-    //   "Saturday22° / 22°",
-    //   "Sunday22° / 22°",
-    //   "Monday22° / 22°",
-    //   "Tuesday20° / 20°",
-    //   "Wednesday21° / 21°",
-    // ];
+    const expected = [
+      'Saturday22° / 22°',
+      'Sunday22° / 22°',
+      'Monday22° / 22°',
+      'Tuesday20° / 20°',
+      'Wednesday21° / 21°',
+    ];
 
-    expect(forecast).toEqual(null);
-    // expect(forecast).toEqual(expect.arrayContaining(
+    expect(forecast).toEqual(expect.arrayContaining(expected));
   });
 });
 
