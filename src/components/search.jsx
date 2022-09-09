@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Search = ({ isSearching, onLocationChange }) => {
   return (
-    <div className="m-auto w-4/5 md:w-3/5 lg:w-1/2">
+    <div className="m-auto w-3/5 md:w-4/5 lg:w-1/2">
       <div className="mx-2 flex flex-row justify-start md:justify-center border-b border-green-300 p-2 dark:border-white">
         <svg
           width="24"
