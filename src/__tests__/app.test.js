@@ -1,5 +1,11 @@
 import React from 'react';
-import { render, screen, userEvent, within } from '../test/app-test-utils';
+import {
+  render,
+  screen,
+  userEvent,
+  waitFor,
+  within,
+} from '../test/app-test-utils';
 import App from '../components/app';
 
 jest.mock('lodash-es/debounce', () => jest.fn((fn) => fn));
@@ -15,7 +21,7 @@ describe('App', () => {
 
     expect(themeToggle).toBeInTheDocument();
 
-    await user.click(themeToggle);
+    await waitFor(() => user.click(themeToggle));
 
     expect(screen.queryByTitle('dark theme')).not.toBeInTheDocument();
     expect(screen.getByTitle('light theme')).toBeInTheDocument();
@@ -28,7 +34,7 @@ describe('App', () => {
     const aboutLink = screen.getByText(/about/i);
     const leftClick = { button: 0 };
 
-    await user.click(aboutLink, leftClick);
+    await waitFor(() => user.click(aboutLink, leftClick));
 
     expect(
       screen.getByRole('heading', { name: /about reactweather/i }),
@@ -41,7 +47,7 @@ describe('App', () => {
       name: /^reactweather$/i,
     })[0];
 
-    await user.click(homeLink, leftClick);
+    await waitFor(() => user.click(homeLink, leftClick));
 
     expect(screen.queryByText(/about reactweather/i)).not.toBeInTheDocument();
     expect(screen.getByRole('search')).toBeInTheDocument();
@@ -58,7 +64,7 @@ describe('App', () => {
       name: /open toggle units menu/i,
     });
 
-    await user.click(openToggleUnitsMenuButton);
+    await waitFor(() => user.click(openToggleUnitsMenuButton));
 
     let toggleUnitsMenu = screen.queryByRole('menuitem', {
       name: /change units/i,
@@ -66,13 +72,13 @@ describe('App', () => {
 
     expect(toggleUnitsMenu).toHaveTextContent(/Imperial \(F°, mph\)/);
 
-    await user.click(toggleUnitsMenu);
+    await waitFor(() => user.click(toggleUnitsMenu));
 
     openToggleUnitsMenuButton = screen.queryByRole('button', {
       name: /open toggle units menu/i,
     });
 
-    await user.click(openToggleUnitsMenuButton);
+    await waitFor(() => user.click(openToggleUnitsMenuButton));
 
     toggleUnitsMenu = screen.queryByRole('menuitem', {
       name: /change units/i,

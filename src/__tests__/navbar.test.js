@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { render, screen, userEvent } from '../test/app-test-utils';
+import { render, screen, userEvent, waitFor } from '../test/app-test-utils';
 import Navbar from '../components/navbar';
 
 describe('NavBar', () => {
@@ -25,7 +25,7 @@ describe('NavBar', () => {
       name: /open main menu/i,
     });
 
-    await user.click(toggleButton);
+    await waitFor(() => user.click(toggleButton));
     expect(
       screen.queryByRole('button', { name: /open main menu/i }),
     ).not.toBeInTheDocument();
@@ -33,7 +33,7 @@ describe('NavBar', () => {
       screen.queryByRole('button', { name: /close main menu/i }),
     ).toBeInTheDocument();
 
-    await user.click(toggleButton);
+    await waitFor(() => user.click(toggleButton));
     expect(
       screen.queryByRole('button', { name: /close main menu/i }),
     ).not.toBeInTheDocument();
