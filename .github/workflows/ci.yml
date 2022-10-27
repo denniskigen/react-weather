@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v2
-      - uses: pnpm/action-setup@v2.0.1
+      - uses: pnpm/action-setup@v2
         with:
           version: 7.0.0
       - name: Use Node.js ${{ matrix.node-version }}
@@ -27,14 +27,14 @@ jobs:
       - name: 📀 Install dependencies
         run: pnpm install
 
-      - name: 🧹 Lint
-        run: pnpm run lint
+      - name: Setup a local cache server for Turborepo
+        uses: felixmosh/turborepo-gh-artifacts@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          server-token: ${{ secrets.TURBO_SERVER_TOKEN }}
 
-      - name: 😍 Prettier check
-        run: pnpm run check
-
-      - name: 🧪 Test
-        run: pnpm run coverage
+      - name: 🧹 Lint and Test
+        run: pnpm turbo lint check coverage --color --api="http://127.0.0.1:9080" --token="${{ secrets.TURBO_SERVER_TOKEN }}" --team="${{ github.repository_owner }}"
 
       - name: ⏫ Upload coverage
         uses: coverallsapp/github-action@master
@@ -42,7 +42,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 👷‍♀️ Build
-        run: pnpm run build
+        run: pnpm turbo build --color --concurrency=5 --api="http://127.0.0.1:9080" --token="${{ secrets.TURBO_SERVER_TOKEN }}" --team="${{ github.repository_owner }}"
 
       - name: ⏫ Upload build artifacts
         uses: actions/upload-artifact@v2

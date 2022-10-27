@@ -4,7 +4,14 @@
     "build": {
       "outputs": ["build/**"]
     },
+    "check": {
+      "outputs": []
+    },
     "lint": {
+      "outputs": []
+    },
+    "coverage": {
+      "dependsOn": [],
       "outputs": []
     },
     "test": {
