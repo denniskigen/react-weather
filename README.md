@@ -10,7 +10,7 @@
 
 ## Getting started
 
-- Sign up over at [openweathermap.org](https://openweathermap.org/appid) and get an API key.
+- Sign up over at [openweathermap.org](https://openweathermap.org) and get an API key.
 - Fork the project and clone it locally.
 - Install dependencies using [pnpm](https://pnpm.io/installation):
 
