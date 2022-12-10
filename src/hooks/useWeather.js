@@ -14,7 +14,7 @@ const apiUrl = import.meta.env.VITE_API_URL;
 export function useWeather(endpoint, location, units) {
   const apiEndpoint = `?q=${location}&units=${units}&APPID=${apiKey}`;
 
-  const { data, error } = useSWR(
+  const { data, error, isLoading } = useSWR(
     `${apiUrl}/${endpoint}/${apiEndpoint}`,
     fetcher,
   );
@@ -24,7 +24,7 @@ export function useWeather(endpoint, location, units) {
   return endpoint === 'weather'
     ? {
         weather: weather ? mapResponseProperties(data) : null,
-        isLoading: !data && !error,
+        isLoading,
         isError: error,
       }
     : {
@@ -33,8 +33,8 @@ export function useWeather(endpoint, location, units) {
               .filter((f) => f.dt_txt.match(/09:00:00/))
               .map(mapResponseProperties)
           : null,
-        isLoading: !data && !error,
         isError: error,
+        isLoading,
       };
 }
 
