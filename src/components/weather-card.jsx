@@ -7,7 +7,7 @@ import { useWeather } from '../hooks/useWeather';
 import PropTypes from 'prop-types';
 
 const WeatherCard = ({ location, units }) => {
-  const isMetric = units.match(/metric/i) ? true : false;
+  const isMetric = units.match(/metric/i);
 
   const { weather, isLoading, isError } = useWeather(
     'weather',

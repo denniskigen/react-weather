@@ -6,7 +6,7 @@
 
 [![build](https://github.com/denniskigen/react-weather/actions/workflows/ci.yml/badge.svg)](https://github.com/denniskigen/react-weather/actions/workflows/validate.yml) ![Deployment status](https://img.shields.io/github/deployments/denniskigen/react-weather/production?label=vercel&logo=vercel&logoColor=white) [![Coverage Status](https://coveralls.io/repos/github/denniskigen/react-weather/badge.svg?branch=main)](https://coveralls.io/github/denniskigen/react-weather?branch=main)
 
-[React Weather](https://react-weather.denniskigen.com) is a beautiful weather app built on top of the [OpenWeatherMap API](https://openmweathermap.org/api).
+[React Weather](https://react-weather.denniskigen.com) is a beautiful weather app built on top of the [OpenWeatherMap API](https://openweathermap.org/api).
 
 ## Getting started
 

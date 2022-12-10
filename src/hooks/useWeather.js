@@ -19,24 +19,23 @@ export function useWeather(endpoint, location, units) {
     fetcher,
   );
 
-  if (endpoint === 'weather') {
-    return {
-      weather: data?.weather ? mapResponseProperties(data) : null,
-      isLoading: !data && !error,
-      isError: error,
-    };
-  } else {
-    return {
-      forecast:
-        data?.list && Object.entries(data).length
-          ? data.list
+  const { weather, list } = data || {};
+
+  return endpoint === 'weather'
+    ? {
+        weather: weather ? mapResponseProperties(data) : null,
+        isLoading: !data && !error,
+        isError: error,
+      }
+    : {
+        forecast: list
+          ? list
               .filter((f) => f.dt_txt.match(/09:00:00/))
               .map(mapResponseProperties)
           : null,
-      isLoading: !data && !error,
-      isError: error,
-    };
-  }
+        isLoading: !data && !error,
+        isError: error,
+      };
 }
 
 function mapResponseProperties(data) {
