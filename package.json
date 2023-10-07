@@ -62,7 +62,7 @@
     "jest-environment-jsdom": "^29.3.1",
     "jest-fetch-mock": "^3.0.3",
     "msw": "^0.49.1",
-    "postcss": "^8.4.19",
+    "postcss": "^8.4.31",
     "prettier": "^2.8.1",
     "prettier-plugin-tailwindcss": "^0.2.1",
     "pretty-quick": "^3.1.3",
