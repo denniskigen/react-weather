@@ -3,19 +3,22 @@ import utc from 'dayjs/plugin/utc';
 dayjs.extend(utc);
 import useSWR from 'swr';
 import fetcher from '../lib/fetcher';
-
-import * as recommendations from '../recommendations';
-import * as weatherIcons from '../icons';
+import recommendations from '../recommendations';
+import weatherIcons from '../icons.js';
 
 const iconPrefix = `wi wi-`;
-const apiKey = import.meta.env.VITE_API_KEY;
-const apiUrl = import.meta.env.VITE_API_URL;
+const API_KEY = import.meta.env.VITE_API_KEY;
+const BASE_URL = import.meta.env.VITE_API_URL;
+
+if (!BASE_URL || !API_KEY) {
+  throw new Error('API URL or Key is not defined in environment variables');
+}
 
 export function useWeather(endpoint, location, units) {
-  const apiEndpoint = `?q=${location}&units=${units}&APPID=${apiKey}`;
+  const apiEndpoint = `?q=${location}&units=${units}&APPID=${API_KEY}`;
 
   const { data, error, isLoading } = useSWR(
-    `${apiUrl}/${endpoint}/${apiEndpoint}`,
+    `${BASE_URL}/${endpoint}/${apiEndpoint}`,
     fetcher,
   );
 
@@ -58,8 +61,7 @@ function mapResponseProperties(data) {
   // Add extra properties for the five day forecast: dt_txt, icon, min, max
   if (data.dt_txt) {
     mapped.dt_txt = data.dt_txt;
-    mapped.forecastIcon =
-      iconPrefix + weatherIcons.default['day'][mapped.icon_id].icon;
+    mapped.forecastIcon = iconPrefix + weatherIcons['day'][mapped.icon_id].icon;
   }
 
   if (mapped.sunset || mapped.sunrise) {
@@ -81,9 +83,9 @@ function mapResponseProperties(data) {
         : false;
     mapped.weatherIcon =
       iconPrefix +
-      weatherIcons.default[mapped.isDay ? 'day' : 'night'][mapped.icon_id].icon;
+      weatherIcons[mapped.isDay ? 'day' : 'night'][mapped.icon_id].icon;
     mapped.weatherRecommendation =
-      recommendations.default[mapped.isDay ? 'day' : 'night'][
+      recommendations[mapped.isDay ? 'day' : 'night'][
         mapped.icon_id
       ].recommendation;
   }
