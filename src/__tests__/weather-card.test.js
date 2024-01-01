@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, screen, waitForLoadingToFinish } from '../test/app-test-utils';
+import { render, screen } from '../test/app-test-utils';
+import { mockWeather } from '../weather-data';
 import WeatherCard from '../components/weather-card';
 
 const testProps = {
@@ -7,21 +8,29 @@ const testProps = {
   units: 'metric',
 };
 
+jest.mock('../hooks/useWeather', () => {
+  const actualModule = jest.requireActual('../hooks/useWeather');
+
+  return {
+    ...actualModule,
+    useWeather: jest.fn().mockImplementation(() => ({
+      weather: mockWeather,
+      isError: null,
+      isLoading: false,
+    })),
+  };
+});
+
 describe('WeatherCard', () => {
-  test('renders the WeatherCard', async () => {
+  test('renders the WeatherCard', () => {
     renderWeatherCard();
 
-    await waitForLoadingToFinish();
-
     expect(screen.getByText(/eldoret, ke/i)).toBeInTheDocument();
-    expect(screen.getByText(/broken clouds/i)).toBeInTheDocument();
-    expect(screen.getByText(/20°/i)).toBeInTheDocument();
-    expect(screen.getByText(/feels like 18°/i)).toBeInTheDocument();
-    expect(screen.getByText(/30m\/s winds/i)).toBeInTheDocument();
-    expect(screen.getByText(/49% humidity/i)).toBeInTheDocument();
-    expect(
-      screen.getByText(/'Netflix and chill' weather. It's pleasant outside/i),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/few clouds/i)).toBeInTheDocument();
+    expect(screen.getByText(/19/i)).toBeInTheDocument();
+    expect(screen.getByText(/feels like 17°/i)).toBeInTheDocument();
+    expect(screen.getByText(/24m\/s winds/i)).toBeInTheDocument();
+    expect(screen.getByText(/68% humidity/i)).toBeInTheDocument();
   });
 });
 

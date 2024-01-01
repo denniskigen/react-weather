@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const UnitsToggle = ({ units, onUnitsChange }) => {
-  const [isSettingsMenuOpened, setIsSettingsMenuOpened] = React.useState(false);
+  const [isSettingsMenuOpen, setIsSettingsMenuOpen] = React.useState(false);
   const [isMetric, setIsMetric] = React.useState(
     units.match(/metric/i) ? true : false,
   );
 
   const toggleSettingsMenu = () => {
-    setIsSettingsMenuOpened(!isSettingsMenuOpened);
+    setIsSettingsMenuOpen(!isSettingsMenuOpen);
   };
 
   const handleChange = () => {
@@ -18,16 +18,16 @@ const UnitsToggle = ({ units, onUnitsChange }) => {
   };
 
   return (
-    <div className="m-auto mt-4 w-full md:w-3/5 lg:w-1/2">
+    <div className="w-full m-auto mt-4 md:w-3/5 lg:w-1/2">
       <button
         type="button"
-        className="rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-green-200 focus:ring-offset-2 focus:ring-offset-gray-500 dark:focus:ring-white"
+        className="text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-green-200 focus:ring-offset-2 focus:ring-offset-gray-500 dark:focus:ring-white"
         id="toggle-units"
         aria-expanded="false"
         aria-haspopup="true"
         onClick={toggleSettingsMenu}
       >
-        <span className="sr-only">Open toggle units menu</span>
+        <span className="sr-only">Open units toggle menu</span>
         <svg
           width="30px"
           height="30px"
@@ -35,7 +35,7 @@ const UnitsToggle = ({ units, onUnitsChange }) => {
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          className="h-6 w-6 stroke-current text-gray-500"
+          className="w-6 h-6 text-gray-500 stroke-current"
         >
           <path
             strokeLinecap="round"
@@ -51,9 +51,9 @@ const UnitsToggle = ({ units, onUnitsChange }) => {
           />
         </svg>
       </button>
-      {isSettingsMenuOpened ? (
+      {isSettingsMenuOpen ? (
         <div
-          className="mt-2 w-48 origin-top rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800"
+          className="w-48 py-1 mt-2 origin-top bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800"
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="toggle settings"

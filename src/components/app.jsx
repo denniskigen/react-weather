@@ -45,16 +45,15 @@ export default function App() {
             element={
               <Layout>
                 <main>
-                  <div className="mx-auto w-5/6 md:w-full xl:max-w-6xl 2xl:max-w-7xl">
+                  <div className="w-5/6 mx-auto md:w-full xl:max-w-6xl 2xl:max-w-7xl">
                     <Search
                       location={location}
                       isSearching={isSearching}
-                      onLocationChange={
-                        (event) => handleLocationChange(event.target.value)
-                        // setDebouncedSearchTerm(event.target.value)
+                      onLocationChange={(event) =>
+                        handleLocationChange(event.target.value)
                       }
                     />
-                    <div className="divide-light-blue-400 m-auto mt-4 h-auto w-full divide-y-2 overflow-hidden rounded-lg shadow-lg md:w-3/5 lg:w-1/2">
+                    <div className="w-full h-auto m-auto mt-4 overflow-hidden divide-y-2 rounded-lg shadow-lg divide-light-blue-400 md:w-3/5 lg:w-1/2">
                       <WeatherCard location={location} units={units} />
                       <ForecastCard location={location} units={units} />
                     </div>

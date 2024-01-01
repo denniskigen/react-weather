@@ -1,16 +1,8 @@
 /* eslint-env node */
-import '@testing-library/jest-dom/extend-expect';
-import 'whatwg-fetch';
-import { server } from './src/mocks/server.js';
+import '@testing-library/jest-dom';
 
 import.meta.env.VITE_API_URL = 'https://api.openweathermap.org/data/2.5';
 import.meta.env.VITE_API_KEY = 'ed09485536a14ea098e9de03ecff2d4d';
-
-beforeAll(() => server.listen());
-
-afterEach(() => server.resetHandlers());
-
-afterAll(() => server.close());
 
 beforeAll(() =>
   Object.defineProperty(window, 'matchMedia', {

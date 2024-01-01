@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  render,
-  screen,
-  userEvent,
-  waitFor,
-  within,
-} from '../test/app-test-utils';
+import { render, screen, userEvent } from '../test/app-test-utils';
 import App from '../components/app';
 
 jest.mock('lodash-es/debounce', () => jest.fn((fn) => fn));
@@ -15,13 +9,11 @@ describe('App', () => {
     const user = userEvent.setup();
     renderApp();
 
-    const themeToggle = within(
-      screen.getByRole('switch', { name: 'dark theme' }),
-    ).getByText(/dark theme/i);
+    const themeToggle = screen.getByTitle(/dark theme/i);
 
     expect(themeToggle).toBeInTheDocument();
 
-    await waitFor(() => user.click(themeToggle));
+    await user.click(themeToggle);
 
     expect(screen.queryByTitle('dark theme')).not.toBeInTheDocument();
     expect(screen.getByTitle('light theme')).toBeInTheDocument();
@@ -34,7 +26,7 @@ describe('App', () => {
     const aboutLink = screen.getByText(/about/i);
     const leftClick = { button: 0 };
 
-    await waitFor(() => user.click(aboutLink, leftClick));
+    await user.click(aboutLink, leftClick);
 
     expect(
       screen.getByRole('heading', { name: /about reactweather/i }),
@@ -47,7 +39,7 @@ describe('App', () => {
       name: /^reactweather$/i,
     })[0];
 
-    await waitFor(() => user.click(homeLink, leftClick));
+    await user.click(homeLink, leftClick);
 
     expect(screen.queryByText(/about reactweather/i)).not.toBeInTheDocument();
     expect(screen.getByRole('search')).toBeInTheDocument();
@@ -61,10 +53,10 @@ describe('App', () => {
     renderApp();
 
     let openToggleUnitsMenuButton = screen.getByRole('button', {
-      name: /open toggle units menu/i,
+      name: /open units toggle menu/i,
     });
 
-    await waitFor(() => user.click(openToggleUnitsMenuButton));
+    await user.click(openToggleUnitsMenuButton);
 
     let toggleUnitsMenu = screen.queryByRole('menuitem', {
       name: /change units/i,
@@ -72,13 +64,13 @@ describe('App', () => {
 
     expect(toggleUnitsMenu).toHaveTextContent(/Imperial \(F°, mph\)/);
 
-    await waitFor(() => user.click(toggleUnitsMenu));
+    await user.click(toggleUnitsMenu);
 
     openToggleUnitsMenuButton = screen.queryByRole('button', {
-      name: /open toggle units menu/i,
+      name: /open units toggle menu/i,
     });
 
-    await waitFor(() => user.click(openToggleUnitsMenuButton));
+    await user.click(openToggleUnitsMenuButton);
 
     toggleUnitsMenu = screen.queryByRole('menuitem', {
       name: /change units/i,
